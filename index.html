@@ -3,234 +3,431 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aurélien Henry Galmiche</title>
+  <title>Aurélien Henry Galmiche | Finance Accountant</title>
 
   <style>
     :root{
       --bg:#0b1226;
       --bg2:#0f172a;
-      --card:rgba(241,245,249,0.92);
-      --text:#0f172a;
-      --muted:#475569;
-      --line:#e2e8f0;
-      --accent:#3b82f6;
-      --accent2:#22c55e;
-      --shadow: 0 18px 48px rgba(2,6,23,0.18);
-      --radius: 18px;
+      --paper:#fbf7ff;
+      --ink:#1b1630;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --line:rgba(27,22,48,0.10);
+      --accent:#7c3aed;
+      --accent2:#3b82f6;
+      --shadow: 0 20px 55px rgba(2,6,23,0.12);
+      --radius: 22px;
     }
-
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family:"Segoe UI", Arial, sans-serif;
-      color:var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+      color:var(--ink);
+      background: linear-gradient(180deg, #f6f0ff 0%, #ffffff 30%, #ffffff 100%);
       scroll-behavior:smooth;
-      background:#fff;
     }
+    a{color:inherit}
+    .wrap{width:min(1120px, 100%); margin:0 auto; padding:0 16px;}
 
-    /* ====== NAV ====== */
+    /* NAV */
     nav{
       position:fixed; inset:0 0 auto 0;
       z-index:1000;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:10px 14px;
-      background:rgba(15,23,42,0.78);
+      background: rgba(255,255,255,0.70);
       backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(255,255,255,0.08);
+      border-bottom:1px solid rgba(0,0,0,0.06);
     }
     nav .inner{
-      width:min(1120px, 100%);
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:10px 16px;
+      width:min(1120px, 100%); margin:0 auto;
       gap:10px;
     }
     .brand{
-      color:#fff;
-      font-weight:800;
-      letter-spacing:.3px;
+      font-weight:900;
+      letter-spacing:0.2px;
       font-size:14px;
-      opacity:.95;
+      color:rgba(27,22,48,0.92);
       white-space:nowrap;
     }
     .links{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+      display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
     }
-    nav a{
-      color:#fff;
+    .links a{
       text-decoration:none;
-      font-weight:650;
+      font-weight:750;
       font-size:13px;
-      opacity:.86;
+      color:rgba(27,22,48,0.88);
       padding:7px 10px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,0.10);
+      border:1px solid rgba(27,22,48,0.10);
+      background: rgba(255,255,255,0.6);
     }
-    nav a:hover{opacity:1; border-color: rgba(255,255,255,0.20);}
+    .links a:hover{border-color: rgba(27,22,48,0.22);}
 
-    /* ====== HERO ====== */
-    .hero-wrap{
-      background:
-        radial-gradient(900px 450px at 20% 10%, rgba(59,130,246,0.25), transparent 60%),
-        radial-gradient(800px 420px at 85% 15%, rgba(34,197,94,0.18), transparent 60%),
-        radial-gradient(1200px 700px at 50% -10%, #1f2a44 0%, var(--bg2) 55%, var(--bg) 100%);
-      color:#fff;
-      padding:92px 16px 46px;
-    }
-    .wrap{width:min(1120px, 100%); margin:0 auto;}
+    /* HERO */
     .hero{
+      padding:92px 0 32px; /* reduced spacing */
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:-200px -200px auto -200px;
+      height:520px;
+      background:
+        radial-gradient(520px 260px at 15% 45%, rgba(124,58,237,0.22), transparent 60%),
+        radial-gradient(520px 260px at 85% 35%, rgba(59,130,246,0.18), transparent 60%),
+        radial-gradient(900px 520px at 50% 20%, rgba(17,24,39,0.06), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-grid{
+      position:relative;
       display:grid;
       grid-template-columns: 1fr;
       gap:18px;
       align-items:center;
-      text-align:center;
     }
-    @media (min-width: 900px){
-      .hero{grid-template-columns: 180px 1fr; text-align:left;}
+    @media (min-width: 980px){
+      .hero-grid{grid-template-columns: 1.2fr 0.8fr; gap:24px;}
     }
-    .photo{
-      width:150px;height:150px;border-radius:999px;object-fit:cover;
-      border:4px solid rgba(255,255,255,0.22);
-      box-shadow: 0 14px 40px rgba(0,0,0,0.25);
-      margin:0 auto;
-      background:rgba(255,255,255,0.06);
+    .hello{
+      color:rgba(27,22,48,0.70);
+      font-weight:700;
+      letter-spacing:0.2px;
+      margin:0 0 6px;
     }
-    @media (min-width: 900px){ .photo{margin:0;} }
-
-    h1{margin:0; font-size:42px; letter-spacing:0.2px;}
-    .subtitle{margin:8px 0 0; font-size:16px; opacity:.92}
-    .pills{margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
-    @media (min-width: 900px){ .pills{justify-content:flex-start;} }
-    .pill{
-      display:inline-block;
-      padding:7px 10px;
-      border:1px solid rgba(255,255,255,0.22);
-      border-radius:999px;
-      font-size:13px;
-      opacity:.95;
-      white-space:nowrap;
+    h1{
+      margin:0;
+      font-size:54px;
+      line-height:1.0;
+      letter-spacing:-0.8px;
     }
-
+    .name-2{
+      color: rgba(124,58,237,0.95);
+    }
+    .headline{
+      margin:14px 0 12px;
+      font-size:18px;
+      color:rgba(27,22,48,0.72);
+      font-weight:750;
+    }
+    .summary{
+      margin:0 0 16px;
+      font-size:15.5px;
+      color:rgba(27,22,48,0.70);
+      line-height:1.65;
+      max-width:56ch;
+    }
     .hero-actions{
-      margin-top:16px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:center;
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:12px;
     }
-    @media (min-width: 900px){ .hero-actions{justify-content:flex-start;} }
-
     .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      padding:12px 16px;
+      border-radius:999px;
+      font-weight:850;
+      font-size:13px;
+      text-decoration:none;
+      border:1px solid rgba(27,22,48,0.14);
+      background:#fff;
+      box-shadow: 0 12px 30px rgba(2,6,23,0.08);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow: 0 16px 40px rgba(2,6,23,0.12);}
+    .btn.primary{
+      color:#fff;
+      border-color: transparent;
+      background: linear-gradient(135deg, rgba(124,58,237,0.95), rgba(59,130,246,0.85));
+    }
+
+    /* Portrait like Niki */
+    .portrait{
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:10px 0;
+    }
+    .portrait-ring{
+      width:340px;
+      height:340px;
+      border-radius:999px;
+      background:
+        radial-gradient(circle at 35% 20%, rgba(124,58,237,0.26), transparent 45%),
+        radial-gradient(circle at 70% 30%, rgba(59,130,246,0.20), transparent 50%),
+        rgba(255,255,255,0.55);
+      border: 6px solid rgba(255,255,255,0.95);
+      box-shadow: var(--shadow);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .portrait-ring img{
+      width:265px; height:265px;
+      border-radius:999px;
+      object-fit:cover;
+      border:6px solid rgba(255,255,255,0.95);
+    }
+    .tag{
+      position:absolute;
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:10px 14px;
+      padding:10px 12px;
       border-radius:999px;
-      font-weight:750;
+      background: rgba(255,255,255,0.92);
+      border:1px solid rgba(27,22,48,0.10);
+      box-shadow: 0 14px 40px rgba(2,6,23,0.10);
       font-size:13px;
-      text-decoration:none;
-      border:1px solid rgba(255,255,255,0.20);
-      color:#fff;
-      opacity:.95;
-      transition: transform .15s ease, opacity .15s ease, border-color .15s ease;
+      font-weight:800;
+      color: rgba(27,22,48,0.85);
+      white-space:nowrap;
     }
-    .btn:hover{opacity:1; transform: translateY(-1px); border-color: rgba(255,255,255,0.32);}
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(59,130,246,0.95), rgba(34,197,94,0.75));
-      border-color: rgba(255,255,255,0.10);
-    }
-    .btn.ghost{background:rgba(255,255,255,0.06);}
+    .tag small{font-weight:800; opacity:.85}
+    .tag.t1{top:26px; left:-8px;}
+    .tag.t2{right:-10px; top:110px;}
+    .tag.t3{left:18px; bottom:36px;}
 
-    /* ====== SECTIONS / CARDS ====== */
-    section{padding:44px 16px;}
-    .section-title{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:12px;
+    /* Section spacing reduced */
+    section{padding:34px 0;} /* reduced */
+    .section-head{
+      display:flex; align-items:center; justify-content:center;
+      gap:12px; flex-direction:column;
       margin-bottom:14px;
+      text-align:center;
     }
-    h2{margin:0; font-size:22px;}
-    .hint{color:var(--muted); font-size:13px; margin:0;}
+    .pillhead{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+      color: rgba(124,58,237,0.92);
+      background: rgba(124,58,237,0.10);
+      border:1px solid rgba(124,58,237,0.14);
+    }
+    .section-title{
+      margin:0;
+      font-size:42px;
+      letter-spacing:-0.6px;
+    }
+    .section-sub{
+      margin:0;
+      color: rgba(27,22,48,0.62);
+      font-size:14px;
+      max-width:70ch;
+      line-height:1.6;
+    }
 
-    .grid{
+    /* Cards */
+    .card{
+      background: rgba(255,255,255,0.92);
+      border:1px solid rgba(27,22,48,0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    /* ABOUT: text + bubbles like Niki */
+    .about-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      align-items:start;
+    }
+    @media (min-width: 980px){
+      .about-grid{grid-template-columns: 1.2fr 0.8fr;}
+    }
+    .about-text{padding:20px;}
+    .about-text p{margin:0 0 12px; color: rgba(27,22,48,0.70); line-height:1.7;}
+    .bubbles{
+      display:grid;
+      gap:12px;
+    }
+    .bubble{
+      display:flex; align-items:center; gap:12px;
+      padding:16px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.92);
+      border:1px solid rgba(27,22,48,0.08);
+      box-shadow: 0 18px 45px rgba(2,6,23,0.10);
+    }
+    .bubble .icon{
+      width:44px; height:44px;
+      border-radius:14px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(124,58,237,0.12);
+      border:1px solid rgba(124,58,237,0.14);
+      font-size:20px;
+    }
+    .bubble .k{font-size:12px; font-weight:900; letter-spacing:1.1px; color: rgba(124,58,237,0.85);}
+    .bubble .v{font-size:15px; font-weight:850; color: rgba(27,22,48,0.88); margin-top:4px;}
+
+    /* HIGHLIGHTS */
+    .highlights{padding:16px;}
+    .item{
+      padding:14px 0;
+      border-top:1px solid var(--line);
+    }
+    .item:first-child{border-top:none; padding-top:0;}
+    .item h3{margin:0 0 6px; font-size:16px;}
+    .meta{margin:0 0 8px; color: rgba(27,22,48,0.60); font-size:13px; font-weight:750;}
+    .item p{margin:0; color: rgba(27,22,48,0.70); line-height:1.6;}
+
+    /* SKILLS & EXPERTISE (3 columns like Niki) */
+    .skills-grid{
+      display:grid; gap:14px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 980px){
+      .skills-grid{grid-template-columns: 1fr 1fr 1fr;}
+    }
+    .skillcol{padding:18px;}
+    .skillcol h3{
+      margin:0 0 10px;
+      font-size:16px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .skillcol h3 .ico{
+      width:36px; height:36px;
+      border-radius:14px;
+      background: rgba(124,58,237,0.12);
+      border:1px solid rgba(124,58,237,0.14);
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px;
+    }
+    .chiplist{display:flex; flex-wrap:wrap; gap:8px;}
+    .chip{
+      padding:9px 10px;
+      border-radius: 999px;
+      font-size:13px;
+      font-weight:800;
+      color: rgba(27,22,48,0.78);
+      background: rgba(27,22,48,0.06);
+      border:1px solid rgba(27,22,48,0.08);
+    }
+
+    /* EDUCATION like Niki (timeline-ish) */
+    .edu-grid{display:grid; gap:14px;}
+    .edu-card{padding:18px;}
+    .edu-date{font-weight:900; color: rgba(124,58,237,0.85); font-size:13px;}
+    .edu-title{margin:8px 0 6px; font-size:18px; font-weight:950;}
+    .edu-school{margin:0 0 10px; color: rgba(27,22,48,0.65); font-weight:800;}
+    .edu-tags{display:flex; flex-wrap:wrap; gap:8px;}
+    .tagchip{
+      padding:8px 10px;
+      border-radius:999px;
+      background: rgba(124,58,237,0.10);
+      border:1px solid rgba(124,58,237,0.14);
+      color: rgba(27,22,48,0.80);
+      font-size:13px;
+      font-weight:850;
+    }
+
+    /* CERTIFICATIONS (cards like Niki) */
+    .certs{
       display:grid;
       gap:14px;
       grid-template-columns: 1fr;
     }
-    @media (min-width: 900px){
-      .grid{grid-template-columns: 1.15fr 0.85fr;}
+    @media (min-width: 780px){
+      .certs{grid-template-columns: 1fr 1fr;}
     }
-
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
+    .cert{
       padding:20px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      justify-content:flex-start;
+    }
+    .cert .doc{
+      width:52px; height:52px;
+      border-radius:18px;
+      background: rgba(59,130,246,0.12);
+      border:1px solid rgba(59,130,246,0.14);
+      display:flex; align-items:center; justify-content:center;
+      font-size:22px;
+    }
+    .cert b{display:block; font-size:16px; margin-bottom:4px;}
+    .cert span{color: rgba(27,22,48,0.65); font-weight:800; font-size:13px;}
+
+    /* EXPERIENCE */
+    .exp{padding:16px;}
+    .exp .role{padding:14px 0; border-top:1px solid var(--line);}
+    .exp .role:first-child{border-top:none; padding-top:0;}
+    .role h3{margin:0 0 6px; font-size:16px;}
+    .role .meta{margin:0 0 8px;}
+
+    /* PASSIONS & INTERESTS like Niki (big card + 4 mini cards) */
+    .pass-grid{display:grid; gap:14px;}
+    .pass-hero{
+      padding:18px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.18), rgba(59,130,246,0.12));
+      border:1px solid rgba(27,22,48,0.10);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
-      border:1px solid rgba(15,23,42,0.05);
     }
-    p{margin:0 0 10px; line-height:1.65;}
-    .muted{color:var(--muted);}
+    .pass-hero h3{margin:0 0 10px; font-size:18px;}
+    .pass-hero p{margin:0; color: rgba(27,22,48,0.72); line-height:1.7;}
+    .mini{
+      display:grid; gap:14px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 980px){
+      .mini{grid-template-columns: 1fr 1fr 1fr 1fr;}
+    }
+    .mini .mcard{padding:16px;}
+    .mcard h4{margin:0 0 10px; font-size:14px;}
+    .mcard p{margin:0; color: rgba(27,22,48,0.70); line-height:1.6; font-size:13px;}
 
-    /* ====== SKILLS ====== */
-    .skill{margin:10px 0}
-    .skill .label{
-      display:flex; justify-content:space-between;
-      font-size:13px; color:var(--muted);
-      margin-bottom:6px;
+    /* GET IN TOUCH */
+    .touch-grid{
+      display:grid;
+      gap:14px;
+      grid-template-columns: 1fr;
+      margin-top:14px;
     }
-    .bar{background:#e2e8f0; border-radius:10px; overflow:hidden; height:10px;}
-    .bar > div{height:10px; background:var(--accent);}
+    @media (min-width: 980px){
+      .touch-grid{grid-template-columns: 1fr 1fr 1fr 1fr;}
+    }
+    .touch{
+      padding:16px;
+      text-align:center;
+    }
+    .touch .ticon{
+      width:44px; height:44px;
+      border-radius:16px;
+      background: rgba(124,58,237,0.12);
+      border:1px solid rgba(124,58,237,0.14);
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 10px;
+      font-size:20px;
+    }
+    .touch b{display:block; font-size:12px; letter-spacing:1.2px; color: rgba(124,58,237,0.85); text-transform:uppercase;}
+    .touch span{display:block; margin-top:6px; font-weight:900; color: rgba(27,22,48,0.85); font-size:13px; word-break:break-word;}
+    .center-btn{display:flex; justify-content:center; margin-top:14px;}
 
-    /* ====== TOOL CHIPS ====== */
-    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
-    .chip{
-      background:rgba(15,23,42,0.06);
-      border:1px solid rgba(15,23,42,0.08);
-      color:rgba(15,23,42,0.85);
-      padding:7px 10px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:650;
-    }
-
-    /* ====== TIMELINE ====== */
-    .item{
-      padding:12px 0;
-      border-top:1px solid var(--line);
-    }
-    .item:first-child{border-top:none; padding-top:0;}
-    .item h3{margin:0 0 4px; font-size:16px;}
-    .meta{font-size:13px; color:var(--muted); margin-bottom:6px;}
-
-    /* ====== ANIMATIONS (portfolio-like) ====== */
-    .reveal{
-      opacity:0;
-      transform: translateY(16px);
-      transition: opacity .7s ease, transform .7s ease;
-      will-change: opacity, transform;
-    }
-    .reveal.visible{
-      opacity:1;
-      transform: translateY(0);
-    }
+    /* reveal animation */
+    .reveal{opacity:0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease;}
+    .reveal.visible{opacity:1; transform:none;}
     @media (prefers-reduced-motion: reduce){
       .reveal{opacity:1; transform:none; transition:none;}
     }
 
     footer{
-      padding:20px 16px 34px;
+      padding:24px 0 34px;
       text-align:center;
-      color:var(--muted);
+      color: rgba(27,22,48,0.55);
+      font-weight:800;
       font-size:13px;
     }
-    a{color:var(--accent); text-decoration:none; font-weight:700;}
-    a:hover{text-decoration:underline;}
   </style>
 </head>
 
@@ -240,211 +437,423 @@
       <div class="brand">Aurélien Henry Galmiche</div>
       <div class="links">
         <a href="#about">About</a>
-        <a href="#highlights">Highlights</a>
-        <a href="#tools">Tools</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Diplomas</a>
         <a href="#skills">Skills</a>
+        <a href="#highlights">Highlights</a>
         <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a href="#passions">Interests</a>
+        <a href="#contact">Get in Touch</a>
       </div>
     </div>
   </nav>
 
-  <div class="hero-wrap">
-    <div class="wrap hero">
-      <!-- Upload your photo in the repo root as "photo.png" (or rename here) -->
-      <img class="photo" src="photo.png" alt="Aurélien Henry Galmiche" />
-
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero-grid">
       <div>
-        <h1>Aurélien Henry Galmiche</h1>
-        <p class="subtitle">Finance Accountant · AP/AR · Financial Reporting · SAP · Process Optimization</p>
-
-        <div class="pills">
-          <span class="pill">Accounting since 2010 (16 years)</span>
-          <span class="pill">International environments (FR/CH)</span>
-          <span class="pill">Accuracy · Compliance · Improvements</span>
-        </div>
+        <p class="hello">Hello, I'm</p>
+        <h1>
+          Aurélien <span class="name-2">Galmiche</span>
+        </h1>
+        <div class="headline">Finance Accountant | AP/AR | Reporting | SAP | International Accounting</div>
+        <p class="summary">
+          Finance professional with accounting experience since 2010 (16 years). I enjoy working in international environments and I’m known for versatility:
+          AP & AR, private & public sector exposure, collections, and operational finance. I also have a strong curiosity for AI 🚀 and process improvement,
+          plus a proven interest in legal topics through my career (contract / compliance / legal-context accounting).
+        </p>
 
         <div class="hero-actions">
-          <!-- Upload your PDF in the repo root with this exact name (or change href) -->
           <a class="btn primary" href="CV_Aurelien_Henry_Galmiche.pdf" download>Download CV</a>
-          <a class="btn ghost" href="https://linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn ghost" href="#contact">Contact</a>
+          <a class="btn" href="#contact">Get in Touch</a>
+          <a class="btn" href="https://linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="portrait">
+        <div class="portrait-ring">
+          <!-- Upload your photo as photo.png in the repo root -->
+          <img src="photo.png" alt="Aurélien Henry Galmiche" />
+
+          <div class="tag t1">📍 <small>Brunstatt, France</small></div>
+          <div class="tag t2">🌍 <small>International Accounting</small></div>
+          <div class="tag t3">🚀 <small>AI Curiosity</small></div>
         </div>
       </div>
     </div>
-  </div>
+  </header>
 
-  <section class="wrap reveal" id="about">
-    <div class="section-title">
-      <h2>About</h2>
-      <p class="hint">A short professional summary</p>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <p>
-          Finance Accountant with 16 years of experience across general accounting,
-          Accounts Payable (AP) and Accounts Receivable (AR) in fast-paced, international environments.
-        </p>
-        <p class="muted">
-          Known for reliability and precision, with hands-on expertise in month-end close support,
-          reconciliations, invoice processing, payment runs and financial controls. Comfortable with SAP and reporting tools,
-          and focused on continuous improvement—especially when automation and AI can deliver measurable results.
-        </p>
+  <!-- ABOUT -->
+  <section id="about" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pillhead">About Me</span>
+        <h2 class="section-title">About</h2>
+        <p class="section-sub">A quick overview of who I am and what I bring to finance teams.</p>
       </div>
 
-      <div class="card">
-        <p class="muted"><strong>Location:</strong> Pfastatt, France</p>
-        <p class="muted"><strong>Languages:</strong> French (native), English (professional), German & Spanish (school level)</p>
-        <p class="muted"><strong>Mobility:</strong> Driving licence</p>
-      </div>
-    </div>
-  </section>
+      <div class="about-grid">
+        <div class="card about-text">
+          <p>
+            I’m a Finance Accountant with 16 years of experience across Accounts Payable, Accounts Receivable, treasury activities,
+            reconciliations and reporting support. I’ve worked in different contexts (private/public, collections, legal environment)
+            which makes me adaptable and pragmatic.
+          </p>
+          <p>
+            I value accuracy, deadlines, and clear processes. I also like improving workflows—using automation when it helps.
+            I’m particularly curious about AI 🚀 and how it can support finance operations (data checks, document handling, smarter reporting).
+          </p>
+        </div>
 
-  <section class="wrap reveal" id="highlights">
-    <div class="section-title">
-      <h2>Career Highlights</h2>
-      <p class="hint">Selected outcomes (non-repetitive)</p>
-    </div>
+        <!-- bubbles inspired by Niki -->
+        <div class="bubbles">
+          <div class="bubble">
+            <div class="icon">📍</div>
+            <div>
+              <div class="k">LOCATION</div>
+              <div class="v">Brunstatt, France</div>
+            </div>
+          </div>
 
-    <div class="card">
-      <div class="item">
-        <h3>Supplier issue resolved → 90K CHF discount obtained</h3>
-        <div class="meta">Jet Aviation (Basel, CH)</div>
-        <p class="muted">Led clarification and negotiation with the supplier, securing a 90K CHF discount.</p>
-      </div>
+          <div class="bubble">
+            <div class="icon">🧾</div>
+            <div>
+              <div class="k">ROLE</div>
+              <div class="v">Finance Accountant (AP/AR)</div>
+            </div>
+          </div>
 
-      <div class="item">
-        <h3>Accounting process takeover & workflow clarification</h3>
-        <div class="meta">Recordati (Basel/Zug, CH)</div>
-        <p class="muted">Took over key accounting activities and helped implement clearer processes during growth.</p>
-      </div>
+          <div class="bubble">
+            <div class="icon">🌍</div>
+            <div>
+              <div class="k">ENVIRONMENT</div>
+              <div class="v">International / Multi-currency</div>
+            </div>
+          </div>
 
-      <div class="item">
-        <h3>Contract review (financial + qualitative) to improve value</h3>
-        <div class="meta">EHPAD Jean Monnet (Village-Neuf, FR)</div>
-        <p class="muted">Reviewed supplier contracts to support better decisions and cost/quality balance.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap reveal" id="tools">
-    <div class="section-title">
-      <h2>Tools</h2>
-      <p class="hint">Systems & applications</p>
-    </div>
-
-    <div class="card">
-      <div class="chips">
-        <span class="chip">SAP</span>
-        <span class="chip">Synertrade</span>
-        <span class="chip">Microsoft Excel (Advanced)</span>
-        <span class="chip">PowerPoint</span>
-        <span class="chip">Invoice Processing (PO / non-PO)</span>
-        <span class="chip">Vendor Reconciliation</span>
-        <span class="chip">Payment Runs</span>
-        <span class="chip">Multi-currency Bank Reconciliation</span>
-        <span class="chip">Reporting & Controls</span>
-      </div>
-      <p class="muted" style="margin-top:12px;">
-        If you want, we can tailor this list to the role you target (AP/AR, GL, or Finance Accountant).
-      </p>
-    </div>
-  </section>
-
-  <section class="wrap reveal" id="skills">
-    <div class="section-title">
-      <h2>Skills</h2>
-      <p class="hint">Core strengths</p>
-    </div>
-
-    <div class="card">
-      <div class="skill">
-        <div class="label"><span>AP/AR operations & invoice workflows</span><span>Advanced</span></div>
-        <div class="bar"><div style="width:94%"></div></div>
-      </div>
-      <div class="skill">
-        <div class="label"><span>Month-end close · reconciliations</span><span>Strong</span></div>
-        <div class="bar"><div style="width:88%"></div></div>
-      </div>
-      <div class="skill">
-        <div class="label"><span>SAP & finance systems</span><span>Strong</span></div>
-        <div class="bar"><div style="width:86%"></div></div>
-      </div>
-      <div class="skill">
-        <div class="label"><span>Financial reporting · controls · audit support</span><span>Strong</span></div>
-        <div class="bar"><div style="width:84%"></div></div>
-      </div>
-      <div class="skill">
-        <div class="label"><span>Excel & reporting</span><span>Strong</span></div>
-        <div class="bar"><div style="width:85%"></div></div>
+          <div class="bubble">
+            <div class="icon">🗣️</div>
+            <div>
+              <div class="k">LANGUAGES</div>
+              <div class="v">French (Native) | English (Professional)</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="wrap reveal" id="experience">
-    <div class="section-title">
-      <h2>Experience</h2>
-      <p class="hint">Recent roles first</p>
-    </div>
-
-    <div class="card">
-      <div class="item">
-        <h3>Financial Accountant</h3>
-        <div class="meta">Recordati AG (Basel & Zug, CH) — Current</div>
-        <p class="muted">
-          AP functions, vendor PO validation, invoice verification, AP ledger reconciliations, multi-currency bank reconciliations,
-          analytic accounting (cost center reporting & allocations), Synertrade supplier registration, and payment run execution.
-        </p>
+  <!-- EDUCATION -->
+  <section id="education" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pillhead">Academic Background</span>
+        <h2 class="section-title">Education</h2>
+        <p class="section-sub">Schools and training programs with focus keywords (portfolio style).</p>
       </div>
 
-      <div class="item">
-        <h3>Accounts Payable Specialist & Billing Specialist</h3>
-        <div class="meta">Jet Aviation AG – Carbon60 (Basel, CH) — 2022–2023</div>
-        <p class="muted">
-          End-to-end AP workflow in SAP (PO/non-PO), vendor reconciliations, payment cycles, T&E processing, audit support,
-          plus client invoicing and dispute handling.
-        </p>
-      </div>
+      <div class="edu-grid">
+        <div class="card edu-card">
+          <div class="edu-date">2010 – 2012</div>
+          <div class="edu-title">Accounting & Finance Studies (France)</div>
+          <div class="edu-school">Training focused on core accounting & finance fundamentals</div>
+          <div class="edu-tags">
+            <span class="tagchip">General Accounting</span>
+            <span class="tagchip">AP/AR</span>
+            <span class="tagchip">Reconciliations</span>
+            <span class="tagchip">Reporting</span>
+            <span class="tagchip">Business Law Basics</span>
+          </div>
+        </div>
 
-      <div class="item">
-        <h3>Finance Manager</h3>
-        <div class="meta">EHPAD Jean Monnet (Village-Neuf, FR) — 2021–2022</div>
-        <p class="muted">
-          Budgeting & FP&A, financial statements, compliance and audit coordination,
-          supervision of AP/AR operations, and decision support for strategic planning.
-        </p>
-      </div>
+        <div class="card edu-card">
+          <div class="edu-date">Continuous Learning</div>
+          <div class="edu-title">Professional Development</div>
+          <div class="edu-school">On-the-job learning (international + legal + finance operations)</div>
+          <div class="edu-tags">
+            <span class="tagchip">International Finance</span>
+            <span class="tagchip">Collections</span>
+            <span class="tagchip">Contracts & Compliance</span>
+            <span class="tagchip">Process Improvement</span>
+            <span class="tagchip">AI Curiosity 🚀</span>
+          </div>
+        </div>
 
-      <div class="item">
-        <h3>Earlier roles</h3>
-        <div class="meta">CAPI Sécurité · Judicial Officer · Galeries Lafayette (FR) — 2010–2021</div>
-        <p class="muted">
-          Treasury and accounting operations: bank reconciliations, invoicing, payment tracking,
-          vendor management, reporting and internal control.
-        </p>
+        <!-- If you want, you can replace these with exact school names + diplomas -->
       </div>
     </div>
   </section>
 
-  <section class="wrap reveal" id="contact">
-    <div class="section-title">
-      <h2>Contact</h2>
-      <p class="hint">Fastest way: LinkedIn</p>
-    </div>
+  <!-- DIPLOMAS / CERTIFICATIONS -->
+  <section id="certifications" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pillhead">Diplomas</span>
+        <h2 class="section-title">Diplomas & Training</h2>
+        <p class="section-sub">Showcase your degrees and key trainings (cards like Niki).</p>
+      </div>
 
-    <div class="card">
-      <p class="muted"><strong>Email:</strong> aureliengalmiche89@gmail.com</p>
-      <p class="muted"><strong>Phone:</strong> +33 6 32 39 67 41</p>
-      <p>
-        <strong>LinkedIn:</strong>
-        <a href="https://linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noreferrer">
-          linkedin.com/in/aurélien-henry-galmiche-687329102
-        </a>
-      </p>
-      <p style="margin-top:12px;">
-        <a class="btn primary" href="CV_Aurelien_Henry_Galmiche.pdf" download>Download CV</a>
-      </p>
+      <div class="certs">
+        <div class="card cert">
+          <div class="doc">📄</div>
+          <div>
+            <b>Accounting & Finance Diploma</b>
+            <span>Core accounting, reporting, reconciliations</span>
+          </div>
+        </div>
+
+        <div class="card cert">
+          <div class="doc">📘</div>
+          <div>
+            <b>Legal Learning (Career-proven)</b>
+            <span>Strong exposure to legal context in accounting (case management, contracts)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS & EXPERTISE -->
+  <section id="skills" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pillhead">Skills & Expertise</span>
+        <h2 class="section-title">Skills & Expertise</h2>
+        <p class="section-sub">Your profile, organized like a portfolio (3 columns).</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="card skillcol">
+          <h3><span class="ico">🧠</span> Finance & Accounting</h3>
+          <div class="chiplist">
+            <span class="chip">AP / Vendor Accounting</span>
+            <span class="chip">AR / Billing</span>
+            <span class="chip">Collections</span>
+            <span class="chip">Reconciliations</span>
+            <span class="chip">Multi-currency</span>
+            <span class="chip">Month-End Support</span>
+            <span class="chip">Financial Controls</span>
+          </div>
+        </div>
+
+        <div class="card skillcol">
+          <h3><span class="ico">🧩</span> Tools</h3>
+          <div class="chiplist">
+            <span class="chip">SAP</span>
+            <span class="chip">Synertrade</span>
+            <span class="chip">Excel (Advanced)</span>
+            <span class="chip">PowerPoint</span>
+            <span class="chip">Payment Runs</span>
+            <span class="chip">Vendor Master Data</span>
+            <span class="chip">Reporting</span>
+          </div>
+        </div>
+
+        <div class="card skillcol">
+          <h3><span class="ico">🚀</span> Mindset</h3>
+          <div class="chiplist">
+            <span class="chip">International Environment</span>
+            <span class="chip">Versatility (Private/Public)</span>
+            <span class="chip">Process Optimization</span>
+            <span class="chip">AI Curiosity 🚀</span>
+            <span class="chip">Legal Learning</span>
+            <span class="chip">Communication</span>
+            <span class="chip">Reliability</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAREER HIGHLIGHTS (ordered as requested) -->
+  <section id="highlights" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pillhead">Selected Outcomes</span>
+        <h2 class="section-title">Career Highlights</h2>
+        <p class="section-sub">Three key highlights, ordered exactly as you requested.</p>
+      </div>
+
+      <div class="card highlights">
+        <div class="item">
+          <h3>Accounting process takeover & workflow clarification</h3>
+          <p class="meta">Recordati (Switzerland)</p>
+          <p>Supported accounting operations in an international setup and contributed to clearer, more efficient processes.</p>
+        </div>
+
+        <div class="item">
+          <h3>Contract review (financial + qualitative) to improve value</h3>
+          <p class="meta">EHPAD Jean Monnet (France)</p>
+          <p>Reviewed supplier contracts to support decisions and improve cost/quality balance.</p>
+        </div>
+
+        <div class="item">
+          <h3>Supplier issue resolved → 90K CHF discount obtained</h3>
+          <p class="meta">Jet Aviation (Switzerland)</p>
+          <p>Led clarification and negotiation with the supplier, securing a 90K CHF discount.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE (Recordati dates corrected + split older roles) -->
+  <section id="experience" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pillhead">Professional Background</span>
+        <h2 class="section-title">Experience</h2>
+        <p class="section-sub">Recent roles first, with your older roles split as requested.</p>
+      </div>
+
+      <div class="card exp">
+        <div class="role">
+          <h3>Financial Accountant</h3>
+          <p class="meta">Recordati — Switzerland | 2024 – Present</p>
+          <p>
+            AP operations, invoice verification, reconciliations, multi-currency bank reconciliation,
+            reporting support, supplier onboarding (Synertrade), and payment execution.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Accounts Payable Specialist & Billing Specialist</h3>
+          <p class="meta">Jet Aviation — Basel, Switzerland | 2022 – 2023</p>
+          <p>
+            End-to-end AP in SAP (PO/non-PO), vendor reconciliations, payment cycles, T&E processing,
+            plus invoicing and dispute handling.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Finance Manager</h3>
+          <p class="meta">EHPAD Jean Monnet — Village-Neuf, France | 2021 – 2022</p>
+          <p>
+            Budgeting & FP&A, financial statements support, compliance coordination,
+            AP/AR supervision, and strategic decision support.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>AR/AP Specialist</h3>
+          <p class="meta">CAPI Sécurité — Saint-Louis, France | 2019 – 2020</p>
+          <p>
+            AP/AR operations, invoicing, collections follow-up, reconciliations and reporting.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Accountant & Case Manager</h3>
+          <p class="meta">Judicial Officers (Huissiers de Justice) — Saint-Louis & Ferrette, France | 2015 – 2019</p>
+          <p>
+            Accounting in a legal environment: case tracking, payments, reporting and strong exposure to legal topics and compliance.
+          </p>
+        </div>
+
+        <div class="role">
+          <h3>Treasury Accountant</h3>
+          <p class="meta">Galeries Lafayette — Belfort & Paris, France | 2010 – 2015</p>
+          <p>
+            Treasury operations, bank reconciliations, payment tracking, controls and reporting.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASSIONS & INTERESTS (requested items) -->
+  <section id="passions" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pillhead">Passions & Interests</span>
+        <h2 class="section-title">Passions & Interests</h2>
+        <p class="section-sub">Like Niki: one highlight card + smaller interest cards.</p>
+      </div>
+
+      <div class="pass-grid">
+        <div class="pass-hero">
+          <h3>🚀 Deep curiosity for AI (practical and continuous)</h3>
+          <p>
+            I enjoy exploring AI to understand how it can help finance teams: faster checks, better data integrity,
+            smarter reporting, and reduced manual work—while keeping compliance and accuracy as priorities.
+          </p>
+        </div>
+
+        <div class="mini">
+          <div class="card mcard">
+            <h4>⚖️ Learning Law (career-proven)</h4>
+            <p>
+              Through my experience with judicial officers and contract-related topics, I developed a strong interest
+              in law and compliance applied to accounting.
+            </p>
+          </div>
+
+          <div class="card mcard">
+            <h4>🌍 International Accounting</h4>
+            <p>
+              I like working in international contexts: multi-currency, diverse stakeholders, clear processes and strong controls.
+            </p>
+          </div>
+
+          <div class="card mcard">
+            <h4>✈️ Travel (especially Morocco)</h4>
+            <p>
+              Traveling helps me stay curious and open-minded. Morocco is a favorite destination for culture and discovery.
+            </p>
+          </div>
+
+          <div class="card mcard">
+            <h4>⚽ Football</h4>
+            <p>
+              Team spirit, discipline and performance — football is a passion and a great source of motivation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET IN TOUCH -->
+  <section id="contact" class="reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pillhead">Let’s Connect</span>
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-sub">Open to new opportunities, collaborations, or a friendly chat.</p>
+      </div>
+
+      <div class="touch-grid">
+        <div class="card touch">
+          <div class="ticon">✉️</div>
+          <b>Email</b>
+          <span><a href="mailto:aureliengalmiche89@gmail.com">aureliengalmiche89@gmail.com</a></span>
+        </div>
+
+        <div class="card touch">
+          <div class="ticon">📞</div>
+          <b>Phone</b>
+          <span><a href="tel:+33632396741">+33 6 32 39 67 41</a></span>
+        </div>
+
+        <div class="card touch">
+          <div class="ticon">💼</div>
+          <b>LinkedIn</b>
+          <span>
+            <a href="https://linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noreferrer">
+              Aurélien Henry Galmiche
+            </a>
+          </span>
+        </div>
+
+        <div class="card touch">
+          <div class="ticon">📍</div>
+          <b>Location</b>
+          <span>Brunstatt, France</span>
+        </div>
+      </div>
+
+      <div class="center-btn">
+        <a class="btn primary" href="mailto:aureliengalmiche89@gmail.com?subject=Contact%20from%20your%20website">Send me an Email</a>
+      </div>
     </div>
   </section>
 
@@ -456,12 +865,10 @@
     // Year
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // Reveal on scroll (portfolio-like)
+    // Reveal animations
     const items = document.querySelectorAll(".reveal");
     const io = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) e.target.classList.add("visible");
-      }
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
     }, { threshold: 0.12 });
     items.forEach(el => io.observe(el));
   </script>
