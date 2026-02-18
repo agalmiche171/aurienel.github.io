@@ -18,7 +18,6 @@
   --radius:20px;
   --shadow:0 18px 40px rgba(10,37,64,0.12);
 }
-
 *{box-sizing:border-box}
 body{
   margin:0;
@@ -28,7 +27,7 @@ body{
   scroll-behavior:smooth;
 }
 .wrap{max-width:1100px;margin:auto;padding:0 18px}
-section{padding:48px 0}
+section{padding:46px 0} /* reduced spacing */
 
 nav{
   position:fixed;top:0;width:100%;
@@ -40,22 +39,25 @@ nav{
 nav .wrap{
   display:flex;justify-content:space-between;align-items:center;
   padding:10px 18px;
+  gap:10px;
 }
-.brand{font-weight:900;font-size:14px}
+.brand{font-weight:900;font-size:14px; white-space:nowrap}
+.links{display:flex;flex-wrap:wrap;justify-content:flex-end}
 .links a{
   margin-left:10px;
   text-decoration:none;
   font-size:13px;
-  font-weight:700;
+  font-weight:800;
   color:var(--blue);
   padding:6px 10px;
   border-radius:999px;
   border:1px solid var(--line);
+  background:#fff;
 }
 .links a:hover{background:#eef3fa}
 
 .hero{
-  padding:100px 0 40px;
+  padding:100px 0 38px;
   background:linear-gradient(135deg,#ffffff 0%,#eef4fb 100%);
 }
 .hero-grid{
@@ -66,19 +68,18 @@ nav .wrap{
 @media(min-width:900px){
   .hero-grid{grid-template-columns:1.1fr .9fr}
 }
-
 h1{margin:0;font-size:44px}
 .name2{color:var(--accent)}
 .headline{
   margin-top:8px;
-  font-weight:700;
+  font-weight:800;
   color:var(--blue2);
 }
 .summary{
   margin-top:12px;
   color:var(--muted);
   line-height:1.65;
-  max-width:55ch;
+  max-width:60ch;
 }
 
 .btn{
@@ -86,10 +87,11 @@ h1{margin:0;font-size:44px}
   margin-top:14px;
   padding:10px 16px;
   border-radius:999px;
-  font-weight:800;
+  font-weight:900;
   font-size:13px;
   text-decoration:none;
   border:1px solid var(--blue);
+  transition: transform .15s ease;
 }
 .btn.primary{
   background:var(--blue);
@@ -104,17 +106,21 @@ h1{margin:0;font-size:44px}
   justify-content:center;
 }
 .circle{
-  width:300px;height:300px;
+  width:320px;height:320px;
   border-radius:50%;
   background:white;
   border:6px solid #fff;
   box-shadow:var(--shadow);
   display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
 }
 .circle img{
-  width:250px;height:250px;
+  width:270px;height:270px;
   border-radius:50%;
   object-fit:cover;
+
+  /* IMPORTANT: move the crop up so head is not cut */
+  object-position: 50% 18%;
 }
 
 .tag{
@@ -124,13 +130,13 @@ h1{margin:0;font-size:44px}
   border-radius:999px;
   padding:8px 12px;
   font-size:13px;
-  font-weight:700;
+  font-weight:800;
   box-shadow:var(--shadow);
   animation:float 6s infinite ease-in-out;
 }
-.tag1{top:20px;left:-10px}
-.tag2{top:120px;right:-10px}
-.tag3{bottom:30px;left:20px}
+.tag1{top:18px;left:-12px}
+.tag2{top:122px;right:-12px}
+.tag3{bottom:28px;left:18px}
 
 @keyframes float{
   0%{transform:translateY(0)}
@@ -145,7 +151,6 @@ h1{margin:0;font-size:44px}
   box-shadow:var(--shadow);
   padding:20px;
 }
-
 .section-title{
   text-align:center;
   margin-bottom:22px;
@@ -153,9 +158,7 @@ h1{margin:0;font-size:44px}
 .section-title h2{margin:0;font-size:32px}
 .section-title p{margin:6px 0 0;color:var(--muted)}
 
-.bubbles{
-  display:grid;gap:12px;
-}
+.bubbles{display:grid;gap:12px}
 .bubble{
   display:flex;gap:12px;align-items:center;
   background:white;
@@ -170,14 +173,14 @@ h1{margin:0;font-size:44px}
   border-radius:12px;
   display:flex;align-items:center;justify-content:center;
 }
-.bubble b{font-size:12px;color:var(--accent)}
-.bubble span{display:block;font-weight:800}
+.bubble b{font-size:12px;color:var(--accent); letter-spacing:1px}
+.bubble span{display:block;font-weight:900}
 
 .edu-grid{display:grid;gap:14px}
 .edu-card{padding:18px}
-.edu-date{color:var(--accent);font-weight:800;font-size:13px}
-.edu-title{font-weight:900;margin:6px 0}
-.edu-school{color:var(--muted);font-weight:700;margin-bottom:8px}
+.edu-date{color:var(--accent);font-weight:900;font-size:13px}
+.edu-title{font-weight:950;margin:6px 0}
+.edu-school{color:var(--muted);font-weight:800;margin-bottom:8px}
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{
   background:#eef4fb;
@@ -185,12 +188,10 @@ h1{margin:0;font-size:44px}
   border-radius:999px;
   padding:6px 10px;
   font-size:12px;
-  font-weight:700;
+  font-weight:800;
 }
 
-.skills-grid{
-  display:grid;gap:14px;
-}
+.skills-grid{display:grid;gap:14px}
 @media(min-width:900px){
   .skills-grid{grid-template-columns:1fr 1fr 1fr}
 }
@@ -203,15 +204,21 @@ h1{margin:0;font-size:44px}
   border-radius:999px;
   padding:6px 10px;
   font-size:12px;
-  font-weight:700;
+  font-weight:800;
 }
 
 .exp .role{padding:12px 0;border-top:1px solid var(--line)}
 .exp .role:first-child{border-top:none}
 
-.touch-grid{
-  display:grid;gap:14px;
-}
+.pass-grid{display:grid;gap:14px}
+@media(min-width:900px){ .pass-grid{grid-template-columns:1.2fr .8fr} }
+.pass-hero{background:#eef4fb}
+.pass-hero p{color:var(--muted);line-height:1.7;margin:0}
+.pass-mini{display:grid;gap:14px}
+.pass-mini .card h4{margin:0 0 8px}
+.pass-mini .card p{margin:0;color:var(--muted);line-height:1.6;font-size:13px}
+
+.touch-grid{display:grid;gap:14px}
 @media(min-width:900px){
   .touch-grid{grid-template-columns:1fr 1fr 1fr 1fr}
 }
@@ -222,12 +229,11 @@ h1{margin:0;font-size:44px}
   display:flex;align-items:center;justify-content:center;
   margin-bottom:8px;
 }
-
 footer{
   text-align:center;
   padding:24px 0;
   color:var(--muted);
-  font-weight:700;
+  font-weight:800;
 }
 </style>
 </head>
@@ -235,281 +241,303 @@ footer{
 <body>
 
 <nav>
-<div class="wrap">
-<div class="brand">Aurélien Henry Galmiche</div>
-<div class="links">
-<a href="#about">About</a>
-<a href="#education">Education</a>
-<a href="#skills">Skills</a>
-<a href="#experience">Experience</a>
-<a href="#contact">Contact</a>
-</div>
-</div>
+  <div class="wrap">
+    <div class="brand">Aurélien Henry Galmiche</div>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#passions">Passions</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </nav>
 
 <header class="hero">
-<div class="wrap hero-grid">
+  <div class="wrap hero-grid">
 
-<div>
-<h1>Aurélien Henry <span class="name2">Galmiche</span></h1>
-<div class="headline">Finance Accountant · SAP S/4HANA Specialist</div>
+    <div>
+      <h1>Aurélien Henry <span class="name2">Galmiche</span></h1>
+      <div class="headline">Finance Accountant · SAP S/4HANA Specialist</div>
 
-<p class="summary">
-Finance professional with accounting experience since 2010 (16 years).
-Specialized in AP/AR, reconciliations, reporting and SAP S/4HANA processes in international environments.
-Versatile profile across private and public sectors, collections and legal-context accounting.
-Strong curiosity for AI 🚀 and continuous process improvement.
-</p>
+      <p class="summary">
+        Finance professional with accounting experience since 2010 (16 years).
+        Specialized in AP/AR, reconciliations, reporting and SAP S/4HANA processes in international environments.
+        Versatile profile across private and public sectors, collections and legal-context accounting.
+        Strong curiosity for AI 🤖🧠🚀 and continuous process improvement ✨.
+      </p>
 
-<a class="btn primary" href="CV_Aurelien_Henry_Galmiche.pdf" download>Download CV</a>
-<a class="btn" href="#contact">Get in Touch</a>
-</div>
+      <a class="btn primary" href="CV_Aurelien_Henry_Galmiche.pdf" download>Download CV</a>
+      <a class="btn" href="#contact">Get in Touch</a>
+    </div>
 
-<div class="portrait">
-<div class="circle">
-<img src="photo.png" alt="Aurélien Henry Galmiche">
-</div>
+    <div class="portrait">
+      <div class="circle">
+        <img src="photo.png" alt="Aurélien Henry Galmiche">
+      </div>
 
-<div class="tag tag1">📍 Brunstatt, France</div>
-<div class="tag tag2">🌍 International Accounting</div>
-<div class="tag tag3">🚀 AI Curiosity</div>
-</div>
+      <div class="tag tag1">📍 Brunstatt, France</div>
+      <div class="tag tag2">🌍 International Accounting</div>
+      <div class="tag tag3">🤖 AI Curiosity</div>
+    </div>
 
-</div>
+  </div>
 </header>
 
 <section id="about">
-<div class="wrap">
-<div class="section-title">
-<h2>About</h2>
-<p>Professional overview</p>
-</div>
+  <div class="wrap">
+    <div class="section-title">
+      <h2>About</h2>
+      <p>Professional overview</p>
+    </div>
 
-<div class="edu-grid">
-<div class="card">
-<p>
-Finance Accountant with 16 years of experience across AP/AR, treasury, reconciliations and reporting.
-I enjoy working in international environments and bring versatility from private/public accounting,
-collections and legal-related finance activities.
-</p>
-<p>
-I value accuracy, compliance and clear processes. I’m also strongly interested in AI 🚀
-and automation opportunities in finance operations.
-</p>
-</div>
+    <div class="edu-grid">
+      <div class="card">
+        <p>
+          Finance Accountant with 16 years of experience across AP/AR, treasury, reconciliations and reporting.
+          I enjoy working in international environments and bring versatility from private/public accounting,
+          collections and legal-related finance activities.
+        </p>
+        <p>
+          I value accuracy, compliance and clear processes. I’m also strongly interested in AI 🤖🧠🚀
+          and automation opportunities in finance operations.
+        </p>
+      </div>
 
-<div class="bubbles">
-<div class="bubble">
-<div class="icon">📍</div>
-<div><b>LOCATION</b><span>Brunstatt, France</span></div>
-</div>
+      <div class="bubbles">
+        <div class="bubble">
+          <div class="icon">📍</div>
+          <div><b>LOCATION</b><span>Brunstatt, France</span></div>
+        </div>
 
-<div class="bubble">
-<div class="icon">💼</div>
-<div><b>ROLE</b><span>Finance Accountant</span></div>
-</div>
+        <div class="bubble">
+          <div class="icon">💼</div>
+          <div><b>ROLE</b><span>Finance Accountant</span></div>
+        </div>
 
-<div class="bubble">
-<div class="icon">🧾</div>
-<div><b>SYSTEM</b><span>SAP S/4HANA</span></div>
-</div>
+        <div class="bubble">
+          <div class="icon">🧾</div>
+          <div><b>SYSTEM</b><span>SAP S/4HANA</span></div>
+        </div>
 
-<div class="bubble">
-<div class="icon">🌍</div>
-<div><b>ENVIRONMENT</b><span>International</span></div>
-</div>
-</div>
-</div>
+        <div class="bubble">
+          <div class="icon">🪪</div>
+          <div><b>WORK PERMIT</b><span>Frontalier G</span></div>
+        </div>
+      </div>
+    </div>
 
-</div>
+  </div>
 </section>
 
 <section id="education">
-<div class="wrap">
-<div class="section-title">
-<h2>Education</h2>
-<p>Schools & training</p>
-</div>
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Education</h2>
+      <p>Schools & training</p>
+    </div>
 
-<div class="edu-grid">
+    <div class="edu-grid">
 
-<div class="card edu-card">
-<div class="edu-date">2009 – 2010</div>
-<div class="edu-title">BTS Assistant de Gestion PME-PMI</div>
-<div class="edu-school">Université de Franche-Comté — Besançon</div>
-<div class="tags">
-<span>Accounting</span>
-<span>Finance</span>
-<span>SME Management</span>
-<span>Business Law</span>
-</div>
-</div>
+      <div class="card edu-card">
+        <div class="edu-date">2009 – 2010</div>
+        <div class="edu-title">Université de Franche-Comté</div>
+        <div class="edu-school">Besançon, France</div>
+        <div class="tags">
+          <span>Accounting</span><span>Finance</span><span>Business</span>
+        </div>
+      </div>
 
-<div class="card edu-card">
-<div class="edu-date">2007 – 2009</div>
-<div class="edu-title">Baccalauréat STG (Marketing & Accounting)</div>
-<div class="edu-school">Lycée Georges Colomb — Lure</div>
-<div class="tags">
-<span>Accounting</span>
-<span>Marketing</span>
-<span>Business</span>
-</div>
-</div>
+      <div class="card edu-card">
+        <div class="edu-date">2007 – 2009</div>
+        <div class="edu-title">Lycée Georges Colomb</div>
+        <div class="edu-school">Lure, France</div>
+        <div class="tags">
+          <span>Accounting</span><span>Marketing</span><span>Management</span>
+        </div>
+      </div>
 
-<div class="card edu-card">
-<div class="edu-date">2005 – 2006</div>
-<div class="edu-title">Secondary School</div>
-<div class="edu-school">Lycée Lumières — Luxeuil-les-Bains</div>
-</div>
+      <div class="card edu-card">
+        <div class="edu-date">2005 – 2006</div>
+        <div class="edu-title">Lycée Lumières</div>
+        <div class="edu-school">Luxeuil-les-Bains, France</div>
+        <div class="tags">
+          <span>Business Basics</span><span>Organization</span>
+        </div>
+      </div>
 
-<div class="card edu-card">
-<div class="edu-date">Continuous Learning</div>
-<div class="edu-title">Professional Development</div>
-<div class="edu-school">On-the-job international finance & legal exposure</div>
-<div class="tags">
-<span>International Finance</span>
-<span>Collections</span>
-<span>Contracts & Compliance</span>
-<span>Process Improvement</span>
-<span>AI Curiosity 🚀</span>
-</div>
-</div>
+      <div class="card edu-card">
+        <div class="edu-date">Continuous Learning</div>
+        <div class="edu-title">Professional Development</div>
+        <div class="edu-school">On-the-job learning (international + legal + finance operations)</div>
+        <div class="tags">
+          <span>International Finance</span>
+          <span>Collections</span>
+          <span>Contracts & Compliance</span>
+          <span>Process Improvement</span>
+          <span>AI Curiosity 🤖🚀</span>
+        </div>
+      </div>
 
-</div>
-</div>
+    </div>
+  </div>
 </section>
 
 <section id="skills">
-<div class="wrap">
-<div class="section-title">
-<h2>Skills & Expertise</h2>
-</div>
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Skills & Expertise</h2>
+      <p>Core strengths</p>
+    </div>
 
-<div class="skills-grid">
+    <div class="skills-grid">
+      <div class="card skillcol">
+        <h3>Finance & Accounting</h3>
+        <div class="chips">
+          <span>AP / AR</span><span>Reconciliations</span><span>Reporting</span>
+          <span>Collections</span><span>Multi-currency</span>
+        </div>
+      </div>
 
-<div class="card skillcol">
-<h3>Finance & Accounting</h3>
-<div class="chips">
-<span>AP / AR</span>
-<span>Reconciliations</span>
-<span>Reporting</span>
-<span>Collections</span>
-<span>Multi-currency</span>
-</div>
-</div>
+      <div class="card skillcol">
+        <h3>Systems</h3>
+        <div class="chips">
+          <span>SAP S/4HANA</span><span>SAP</span><span>Synertrade</span><span>Excel</span>
+        </div>
+      </div>
 
-<div class="card skillcol">
-<h3>Systems</h3>
-<div class="chips">
-<span>SAP S/4HANA</span>
-<span>SAP</span>
-<span>Synertrade</span>
-<span>Excel</span>
-</div>
-</div>
-
-<div class="card skillcol">
-<h3>Professional Strengths</h3>
-<div class="chips">
-<span>International</span>
-<span>Versatile</span>
-<span>Process Optimization</span>
-<span>AI Curiosity 🚀</span>
-<span>Legal Awareness</span>
-</div>
-</div>
-
-</div>
-</div>
+      <div class="card skillcol">
+        <h3>Strengths</h3>
+        <div class="chips">
+          <span>International</span><span>Versatile</span><span>Process Optimization</span>
+          <span>AI 🤖🧠</span><span>Legal Awareness ⚖️</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="experience">
-<div class="wrap">
-<div class="section-title">
-<h2>Experience</h2>
-</div>
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Experience</h2>
+      <p>Recent roles first</p>
+    </div>
 
-<div class="card exp">
+    <div class="card exp">
+      <div class="role">
+        <h3>Financial Accountant</h3>
+        <p><b>Recordati — Switzerland | 2024 – Present</b></p>
+        <p>AP operations, reconciliations, reporting support, SAP S/4HANA processes.</p>
+      </div>
 
-<div class="role">
-<h3>Financial Accountant</h3>
-<p><b>Recordati — Switzerland | 2024 – Present</b></p>
-<p>AP operations, reconciliations, reporting support, SAP S/4HANA processes.</p>
-</div>
+      <div class="role">
+        <h3>Accounts Payable & Billing Specialist</h3>
+        <p><b>Jet Aviation — Basel | 2022 – 2023</b></p>
+        <p>End-to-end AP in SAP, reconciliations, invoicing.</p>
+      </div>
 
-<div class="role">
-<h3>Accounts Payable & Billing Specialist</h3>
-<p><b>Jet Aviation — Basel | 2022 – 2023</b></p>
-<p>End-to-end AP in SAP, reconciliations, invoicing.</p>
-</div>
+      <div class="role">
+        <h3>Finance Manager</h3>
+        <p><b>EHPAD Jean Monnet — France | 2021 – 2022</b></p>
+        <p>Budgeting, accounting supervision, compliance.</p>
+      </div>
 
-<div class="role">
-<h3>Finance Manager</h3>
-<p><b>EHPAD Jean Monnet — France | 2021 – 2022</b></p>
-<p>Budgeting, accounting supervision, compliance.</p>
-</div>
+      <div class="role">
+        <h3>AR/AP Specialist</h3>
+        <p><b>CAPI Sécurité — Saint-Louis, France | 2019 – 2020</b></p>
+      </div>
 
-<div class="role">
-<h3>AR/AP Specialist</h3>
-<p><b>CAPI Sécurité — France | 2019 – 2020</b></p>
-</div>
+      <div class="role">
+        <h3>Accountant & Case Manager</h3>
+        <p><b>Judicial Officers — Saint-Louis & Ferrette, France | 2015 – 2019</b></p>
+      </div>
 
-<div class="role">
-<h3>Accountant & Case Manager</h3>
-<p><b>Judicial Officers — France | 2015 – 2019</b></p>
-</div>
+      <div class="role">
+        <h3>Treasury Accountant</h3>
+        <p><b>Galeries Lafayette — Belfort & Paris, France | 2010 – 2015</b></p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="role">
-<h3>Treasury Accountant</h3>
-<p><b>Galeries Lafayette — France | 2010 – 2015</b></p>
-</div>
+<!-- PASSIONS -->
+<section id="passions">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Passions & Interests</h2>
+      <p>A personal touch</p>
+    </div>
 
-</div>
-</div>
+    <div class="pass-grid">
+      <div class="card pass-hero">
+        <h3>🤖🧠 AI Curiosity & Learning</h3>
+        <p>
+          I’m genuinely curious about AI and how it can support finance teams: faster checks, better data integrity,
+          smarter reporting, and process automation—while keeping compliance and accuracy as top priorities. 🚀✨
+        </p>
+      </div>
+
+      <div class="pass-mini">
+        <div class="card">
+          <h4>⚖️ Learning Law</h4>
+          <p>Proven interest through my legal-context roles and contract/compliance exposure during my career.</p>
+        </div>
+
+        <div class="card">
+          <h4>✈️ Travel (Morocco)</h4>
+          <p>I love travelling—Morocco is one of my favourite destinations for culture and discovery.</p>
+        </div>
+
+        <div class="card">
+          <h4>⚽ Football</h4>
+          <p>Team spirit, discipline and performance—football keeps me motivated.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="contact">
-<div class="wrap">
-<div class="section-title">
-<h2>Get in Touch</h2>
-</div>
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Get in Touch</h2>
+      <p>Let’s connect</p>
+    </div>
 
-<div class="touch-grid">
+    <div class="touch-grid">
+      <div class="card touch">
+        <div class="icon">✉️</div><b>Email</b>
+        <span><a href="mailto:aureliengalmiche89@gmail.com">aureliengalmiche89@gmail.com</a></span>
+      </div>
 
-<div class="card touch">
-<div class="icon">✉️</div>
-<b>Email</b>
-<span>aureliengalmiche89@gmail.com</span>
-</div>
+      <div class="card touch">
+        <div class="icon">📞</div><b>Phone</b>
+        <span><a href="tel:+33632396741">+33 6 32 39 67 41</a></span>
+      </div>
 
-<div class="card touch">
-<div class="icon">📞</div>
-<b>Phone</b>
-<span>+33 6 32 39 67 41</span>
-</div>
+      <div class="card touch">
+        <div class="icon">💼</div><b>LinkedIn</b>
+        <span>
+          <a href="https://linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noreferrer">
+            Aurélien Henry Galmiche
+          </a>
+        </span>
+      </div>
 
-<div class="card touch">
-<div class="icon">💼</div>
-<b>LinkedIn</b>
-<span>Aurélien Henry Galmiche</span>
-</div>
-
-<div class="card touch">
-<div class="icon">📍</div>
-<b>Location</b>
-<span>Brunstatt, France</span>
-</div>
-
-</div>
-</div>
+      <div class="card touch">
+        <div class="icon">📍</div><b>Location</b>
+        <span>Brunstatt, France</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<footer>
-© <span id="y"></span> Aurélien Henry Galmiche
-</footer>
+<footer>© <span id="y"></span> Aurélien Henry Galmiche</footer>
 
 <script>
-document.getElementById("y").textContent=new Date().getFullYear()
+document.getElementById("y").textContent = new Date().getFullYear();
 </script>
 
 </body>
