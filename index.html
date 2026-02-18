@@ -1,186 +1,247 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurélien Henry Galmiche</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurélien Henry Galmiche</title>
 
-<style>
-body {
-  margin:0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  scroll-behavior:smooth;
-  color:#0f172a;
-}
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card:#f1f5f9;
+      --text:#0f172a;
+      --muted:#475569;
+      --accent:#3b82f6;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color:var(--text);
+      scroll-behavior:smooth;
+      background:#ffffff;
+    }
+    nav{
+      position:fixed; inset:0 0 auto 0;
+      background:rgba(15,23,42,0.95);
+      padding:12px 16px;
+      text-align:center;
+      z-index:1000;
+      backdrop-filter: blur(6px);
+    }
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      margin:0 14px;
+      font-weight:600;
+      font-size:14px;
+      opacity:0.9;
+    }
+    nav a:hover{opacity:1}
+    section{
+      padding:96px 18px;
+      max-width:1050px;
+      margin:0 auto;
+    }
+    .hero-wrap{
+      background:radial-gradient(1200px 600px at 50% 0%, #1f2a44 0%, var(--bg) 55%, #0b1226 100%);
+      color:#fff;
+      max-width:none;
+      padding:120px 18px 90px;
+    }
+    .hero{
+      max-width:1050px;
+      margin:0 auto;
+      text-align:center;
+    }
+    .hero h1{
+      margin:0 0 10px;
+      font-size:46px;
+      letter-spacing:0.2px;
+    }
+    .hero .subtitle{
+      margin:0 0 18px;
+      font-size:18px;
+      opacity:0.9;
+    }
+    .pill{
+      display:inline-block;
+      padding:8px 12px;
+      border:1px solid rgba(255,255,255,0.25);
+      border-radius:999px;
+      font-size:13px;
+      opacity:0.95;
+    }
 
-nav {
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#0f172a;
-  padding:12px 0;
-  text-align:center;
-  z-index:1000;
-}
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      padding:28px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+    h2{
+      margin:0 0 12px;
+      font-size:24px;
+    }
+    p{line-height:1.65; margin:0 0 12px}
+    .muted{color:var(--muted)}
+    .grid{
+      display:grid;
+      gap:18px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px){
+      .grid{grid-template-columns: 1.1fr 0.9fr;}
+    }
 
-nav a {
-  color:white;
-  margin:0 18px;
-  text-decoration:none;
-  font-weight:500;
-}
+    .skill{margin:12px 0}
+    .skill .label{
+      display:flex; justify-content:space-between;
+      font-size:14px; color:var(--muted);
+      margin-bottom:8px;
+    }
+    .bar{
+      background:#e2e8f0;
+      border-radius:10px;
+      overflow:hidden;
+      height:10px;
+    }
+    .bar > div{
+      height:10px;
+      background:var(--accent);
+      width:0;
+    }
 
-section {
-  padding:100px 20px;
-  min-height:100vh;
-  max-width:1000px;
-  margin:auto;
-}
+    .timeline h3{margin:0 0 6px; font-size:18px}
+    .timeline .item{padding:14px 0; border-top:1px solid #e2e8f0}
+    .timeline .item:first-child{border-top:none; padding-top:0}
+    .links a{color:var(--accent); text-decoration:none; font-weight:600}
+    .links a:hover{text-decoration:underline}
 
-.hero {
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background:#0f172a;
-  color:white;
-  text-align:center;
-}
-
-.hero h1 {
-  font-size:48px;
-  margin:10px 0;
-}
-
-.hero p {
-  font-size:20px;
-  opacity:0.9;
-}
-
-.card {
-  background:#f1f5f9;
-  margin-top:40px;
-  border-radius:14px;
-  padding:30px;
-}
-
-h2 {
-  margin-top:0;
-}
-
-.skill {
-  margin:12px 0;
-}
-
-.bar {
-  background:#e2e8f0;
-  border-radius:10px;
-  overflow:hidden;
-}
-
-.bar div {
-  height:10px;
-  background:#3b82f6;
-}
-
-footer {
-  text-align:center;
-  padding:30px;
-  font-size:14px;
-  opacity:0.7;
-}
-</style>
+    footer{
+      text-align:center;
+      padding:28px 16px 40px;
+      color:var(--muted);
+      font-size:13px;
+    }
+  </style>
 </head>
 
 <body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<nav>
-  <a href="#home">Accueil</a>
-  <a href="#about">Profil</a>
-  <a href="#skills">Compétences</a>
-  <a href="#experience">Expérience</a>
-  <a href="#contact">Contact</a>
-</nav>
+  <section class="hero-wrap" id="top">
+    <div class="hero">
+      <h1>Aurélien Henry Galmiche</h1>
+      <p class="subtitle">Finance Accountant · AP/AR Specialist</p>
+      <span class="pill">14+ years in accounting • International environments • Strong accuracy & compliance</span>
+    </div>
+  </section>
 
-<section id="home" class="hero">
-  <h1>Aurélien Henry Galmiche</h1>
-  <p>Finance Accountant · AP/AR Specialist</p>
-  <p>14+ ans d’expérience en comptabilité</p>
-</section>
+  <section id="about">
+    <div class="card grid">
+      <div>
+        <h2>About</h2>
+        <p>
+          Finance Accountant with over 14 years of experience across general accounting,
+          accounts payable (AP) and accounts receivable (AR) in fast-paced and international environments.
+        </p>
+        <p class="muted">
+          Known for reliability, precision, and strong financial discipline, with hands-on experience in
+          month-end close activities, reconciliations, invoice processing, payment cycles, and financial control.
+          Comfortable working with ERP systems and supporting continuous improvement to strengthen efficiency and data integrity.
+        </p>
+      </div>
 
-<section id="about" class="card">
-  <h2>Profil</h2>
-  <p>
-  Professionnel de la comptabilité expérimenté avec plus de 14 ans d’expérience
-  en comptabilité générale, fournisseurs (AP) et clients (AR).
-  Habitué aux environnements internationaux exigeants,
-  avec un fort sens de la rigueur financière et opérationnelle.
-  </p>
-</section>
+      <div class="links">
+        <h2>Links</h2>
+        <p class="muted">Find me here:</p>
+        <p>
+          <a href="https://linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noreferrer">
+            LinkedIn Profile
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
 
-<section id="skills">
-  <div class="card">
-  <h2>Compétences</h2>
+  <section id="skills">
+    <div class="card">
+      <h2>Skills</h2>
 
-  <div class="skill">Comptabilité générale
-    <div class="bar"><div style="width:95%"></div></div>
-  </div>
+      <div class="skill">
+        <div class="label"><span>General Accounting</span><span>Advanced</span></div>
+        <div class="bar"><div style="width:92%"></div></div>
+      </div>
 
-  <div class="skill">Accounts Payable / Receivable
-    <div class="bar"><div style="width:95%"></div></div>
-  </div>
+      <div class="skill">
+        <div class="label"><span>Accounts Payable / Accounts Receivable</span><span>Advanced</span></div>
+        <div class="bar"><div style="width:94%"></div></div>
+      </div>
 
-  <div class="skill">Clôtures comptables
-    <div class="bar"><div style="width:90%"></div></div>
-  </div>
+      <div class="skill">
+        <div class="label"><span>Month-End Close & Reconciliations</span><span>Strong</span></div>
+        <div class="bar"><div style="width:88%"></div></div>
+      </div>
 
-  <div class="skill">ERP & systèmes financiers
-    <div class="bar"><div style="width:85%"></div></div>
-  </div>
+      <div class="skill">
+        <div class="label"><span>ERP & Finance Systems</span><span>Strong</span></div>
+        <div class="bar"><div style="width:84%"></div></div>
+      </div>
 
-  <div class="skill">Excel & reporting
-    <div class="bar"><div style="width:85%"></div></div>
-  </div>
+      <div class="skill">
+        <div class="label"><span>Excel & Reporting</span><span>Strong</span></div>
+        <div class="bar"><div style="width:85%"></div></div>
+      </div>
+    </div>
+  </section>
 
-  </div>
-</section>
+  <section id="experience">
+    <div class="card timeline">
+      <h2>Experience</h2>
 
-<section id="experience">
-  <div class="card">
-  <h2>Expérience</h2>
+      <div class="item">
+        <h3>Finance Accountant</h3>
+        <p class="muted"><strong>Recordati Rare Diseases</strong></p>
+        <p class="muted">
+          AP/AR operations, daily accounting activities, month-end closing support,
+          reconciliations and compliance within an international organization.
+        </p>
+      </div>
 
-  <h3>Finance Accountant</h3>
-  <p><strong>Recordati Rare Diseases</strong></p>
-  <p>
-  Gestion des comptes fournisseurs et clients, opérations comptables
-  quotidiennes, clôtures mensuelles et conformité financière
-  dans un environnement international.
-  </p>
+      <div class="item">
+        <h3>Accounting roles (AP/AR & General Accounting)</h3>
+        <p class="muted">
+          Broad experience in invoice processing, payment cycles, billing,
+          reconciliations and audit support, with a strong focus on accuracy and deadlines.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <h3>Comptable</h3>
-  <p>
-  Expérience étendue en comptabilité générale, rapprochements,
-  facturation, paiements et support aux audits.
-  </p>
+  <section id="contact">
+    <div class="card">
+      <h2>Contact</h2>
+      <p class="muted">Best way to reach me: LinkedIn.</p>
+      <p class="links">
+        <a href="https://linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noreferrer">
+          linkedin.com/in/aurélien-henry-galmiche-687329102
+        </a>
+      </p>
+    </div>
+  </section>
 
-  </div>
-</section>
+  <footer>
+    © <span id="y"></span> Aurélien Henry Galmiche
+  </footer>
 
-<section id="contact">
-  <div class="card">
-  <h2>Contact</h2>
-  <p>
-  LinkedIn : 
-  <a href="https://linkedin.com/in/aurélien-henry-galmiche-687329102" target="_blank">
-  linkedin.com/in/aurélien-henry-galmiche-687329102
-  </a>
-  </p>
-  </div>
-</section>
-
-<footer>
-© Aurélien Henry Galmiche
-</footer>
-
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
