@@ -1,102 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aurélien Henry Galmiche</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurélien Henry Galmiche</title>
 
-<style>
-body{margin:0;font-family:"Segoe UI",Arial,sans-serif;scroll-behavior:smooth;color:#0f172a}
-nav{position:fixed;top:0;width:100%;background:#0f172a;padding:12px 0;text-align:center;z-index:1000}
-nav a{color:white;margin:0 18px;text-decoration:none;font-weight:500}
-section{padding:100px 20px;min-height:100vh;max-width:1000px;margin:auto}
-.hero{display:flex;flex-direction:column;justify-content:center;align-items:center;background:#0f172a;color:white;text-align:center}
-.hero h1{font-size:48px;margin:10px 0}
-.hero p{font-size:20px;opacity:0.9}
-.card{background:#f1f5f9;margin-top:40px;border-radius:14px;padding:30px}
-h2{margin-top:0}
-.skill{margin:12px 0}
-.bar{background:#e2e8f0;border-radius:10px;overflow:hidden}
-.bar div{height:10px;background:#3b82f6}
-footer{text-align:center;padding:30px;font-size:14px;opacity:0.7}
-</style>
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card:#f1f5f9;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --accent:#3b82f6;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Segoe UI", Arial, sans-serif;
+      color:var(--text);
+      scroll-behavior:smooth;
+      background:#fff;
+    }
+
+    /* NAV */
+    nav{
+      position:fixed; inset:0 0 auto 0;
+      background:rgba(15,23,42,0.95);
+      padding:10px 14px; /* reduced */
+      text-align:center;
+      z-index:1000;
+      backdrop-filter: blur(6px);
+    }
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      margin:0 12px;
+      font-weight:600;
+      font-size:14px;
+      opacity:.9;
+    }
+    nav a:hover{opacity:1}
+
+    /* LAYOUT */
+    .wrap{max-width:1050px; margin:0 auto;}
+    section{
+      padding:62px 16px;   /* reduced spaces between categories */
+      margin:0 auto;
+    }
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      padding:22px;        /* reduced */
+      box-shadow:0 10px 26px rgba(15,23,42,0.08);
+      border:1px solid rgba(15,23,42,0.03);
+    }
+    h2{margin:0 0 10px; font-size:22px;}
+    p{margin:0 0 10px; line-height:1.65;}
+    .muted{color:var(--muted);}
+
+    /* HERO */
+    .hero-wrap{
+      background:radial-gradient(1200px 600px at 50% 0%, #1f2a44 0%, var(--bg) 55%, #0b1226 100%);
+      color:#fff;
+      padding:92px 16px 54px; /* reduced */
+    }
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+      align-items:center;
+      text-align:center;
+    }
+    .photo{
+      width:140px; height:140px;
+      border-radius:999px;
+      object-fit:cover;
+      border:4px solid rgba(255,255,255,0.25);
+      margin:0 auto;
+      background:rgba(255,255,255,0.08);
+    }
+    .hero h1{margin:0; font-size:40px; letter-spacing:0.2px;}
+    .hero .subtitle{margin:8px 0 0; font-size:16px; opacity:.92;}
+    .pills{margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
+    .pill{
+      display:inline-block;
+      padding:7px 10px;
+      border:1px solid rgba(255,255,255,0.25);
+      border-radius:999px;
+      font-size:13px;
+      opacity:.95;
+      white-space:nowrap;
+    }
+
+    /* GRID */
+    .grid{
+      display:grid;
+      gap:14px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px){
+      .hero{grid-template-columns: 180px 1fr; text-align:left;}
+      .photo{margin:0;}
+      .pills{justify-content:flex-start;}
+      .grid{grid-template-columns: 1.2fr 0.8fr;}
+    }
+
+    /* SKILLS */
+    .skill{margin:10px 0;}
+    .skill .label{display:flex; justify-content:space-between; font-size:13px; color:var(--muted); margin-bottom:6px;}
+    .bar{background:#e2e8f0; border-radius:10px; overflow:hidden; height:10px;}
+    .bar > div{height:10px; background:var(--accent);}
+
+    /* TIMELINE */
+    .item{padding:12px 0; border-top:1px solid var(--line);}
+    .item:first-child{border-top:none; padding-top:0;}
+    .item h3{margin:0 0 4px; font-size:16px;}
+    .meta{font-size:13px; color:var(--muted); margin-bottom:6px;}
+
+    /* FOOTER */
+    footer{padding:22px 16px 34px; text-align:center; color:var(--muted); font-size:13px;}
+
+    a{color:var(--accent); text-decoration:none; font-weight:600;}
+    a:hover{text-decoration:underline;}
+  </style>
 </head>
 
 <body>
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#experience">Experience</a>
-  <a href="#contact">Contact</a>
-</nav>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#highlights">Highlights</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<section id="home" class="hero">
-  <h1>Aurélien Henry Galmiche</h1>
-  <p>Finance Accountant · AP/AR Specialist</p>
-  <p>14+ years of experience in accounting</p>
-</section>
+  <div class="hero-wrap">
+    <div class="wrap hero" id="top">
+      <!-- Put your photo file in the repo root as "photo.png" (or change filename here) -->
+      <img class="photo" src="photo.png" alt="Aurélien Henry Galmiche" />
 
-<section id="about" class="card">
-  <h2>About</h2>
-  <p>
-    Finance Accountant with 14+ years of experience across general accounting,
-    Accounts Payable (AP) and Accounts Receivable (AR) in fast-paced, international environments.
-  </p>
-  <p>
-    Known for accuracy, reliability, and strong financial discipline, with hands-on expertise in
-    month-end close support, reconciliations, invoice processing, payment cycles, and financial controls.
-    Comfortable working with ERP systems and reporting tools, and committed to continuous improvement
-    to strengthen efficiency, compliance, and data integrity.
-  </p>
-</section>
+      <div>
+        <h1>Aurélien Henry Galmiche</h1>
+        <p class="subtitle">Finance Accountant · AP/AR · Financial Reporting · SAP · Interested in AI & Process Optimization</p>
 
-<section id="skills">
-  <div class="card">
-    <h2>Skills</h2>
-
-    <div class="skill">General Accounting
-      <div class="bar"><div style="width:92%"></div></div>
-    </div>
-
-    <div class="skill">Accounts Payable / Accounts Receivable (AP/AR)
-      <div class="bar"><div style="width:94%"></div></div>
-    </div>
-
-    <div class="skill">Month-end Close & Reconciliations
-      <div class="bar"><div style="width:88%"></div></div>
-    </div>
-
-    <div class="skill">ERP & Finance Systems
-      <div class="bar"><div style="width:84%"></div></div>
-    </div>
-
-    <div class="skill">Excel & Reporting
-      <div class="bar"><div style="width:85%"></div></div>
+        <div class="pills">
+          <span class="pill">Accounting since 2010 (16 years)</span>
+          <span class="pill">International environments (FR/CH)</span>
+          <span class="pill">Process improvement mindset</span>
+        </div>
+      </div>
     </div>
   </div>
-</section>
 
-<section id="experience" class="card">
-  <h2>Experience</h2>
-  <h3>Finance Accountant</h3>
-  <p><strong>Recordati Rare Diseases</strong></p>
-  <p>
-    AP/AR operations, daily accounting activities, month-end close support, reconciliations,
-    and compliance within an international environment.
-  </p>
-</section>
+  <section class="wrap" id="about">
+    <div class="card grid">
+      <div>
+        <h2>About</h2>
+        <p>
+          Finance Accountant with 16 years of experience across general accounting, Accounts Payable (AP) and Accounts Receivable (AR)
+          in fast-paced, international environments.
+        </p>
+        <p class="muted">
+          Recognized for accuracy, reliability and strong financial discipline, with hands-on expertise in month-end close support,
+          reconciliations, invoice processing, payment runs and financial controls. Comfortable working with SAP and reporting tools,
+          and motivated by continuous improvement—especially through technology and AI when it brings measurable value.
+        </p>
+      </div>
 
-<section id="contact" class="card">
-  <h2>Contact</h2>
-  <p>
-    LinkedIn:
-    <a href="https://linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noreferrer">
-      linkedin.com/in/aurélien-henry-galmiche-687329102
-    </a>
-  </p>
-</section>
+      <div>
+        <h2>Details</h2>
+        <p class="muted"><strong>Location:</strong> Pfastatt, France</p>
+        <p class="muted"><strong>Nationality:</strong> French</p>
+        <p class="muted"><strong>Driving licence:</strong> Yes</p>
+        <p class="muted"><strong>Languages:</strong> French (native), English (professional), German & Spanish (school level)</p>
+      </div>
+    </div>
+  </section>
 
-<footer>© Aurélien Henry Galmiche</footer>
+  <section class="wrap" id="highlights">
+    <div class="card">
+      <h2>Career Highlights</h2>
+
+      <div class="item">
+        <h3>Supplier issue resolved → 90K CHF discount obtained</h3>
+        <div class="meta">Jet Aviation (Basel, CH)</div>
+        <p class="muted">
+          Identified supplier inconsistencies, led clarification and negotiation, and secured a 90K CHF discount.
+        </p>
+      </div>
+
+      <div class="item">
+        <h3>Accounting system takeover & process implementation</h3>
+        <div class="meta">Recordati (Basel/Zug, CH)</div>
+        <p class="muted">
+          Took over an accounting setup during company growth, reviewed workflows and implemented clearer processes with a fresh perspective.
+        </p>
+      </div>
+
+      <div class="item">
+        <h3>Contract review with a financial & qualitative approach</h3>
+        <div class="meta">EHPAD Jean Monnet (Village-Neuf, FR)</div>
+        <p class="muted">
+          Reviewed supplier contracts to improve value-for-money and alignment with operational needs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="skills">
+    <div class="card">
+      <h2>Core Skills</h2>
+
+      <div class="skill">
+        <div class="label"><span>AP/AR & invoice workflows (PO / non-PO)</span><span>Advanced</span></div>
+        <div class="bar"><div style="width:94%"></div></div>
+      </div>
+
+      <div class="skill">
+        <div class="label"><span>Month-end close · reconciliations · multi-currency</span><span>Strong</span></div>
+        <div class="bar"><div style="width:88%"></div></div>
+      </div>
+
+      <div class="skill">
+        <div class="label"><span>SAP (vendor master data, payment runs, reporting)</span><span>Strong</span></div>
+        <div class="bar"><div style="width:86%"></div></div>
+      </div>
+
+      <div class="skill">
+        <div class="label"><span>Financial reporting · controls · audit support</span><span>Strong</span></div>
+        <div class="bar"><div style="width:84%"></div></div>
+      </div>
+
+      <div class="skill">
+        <div class="label"><span>Excel (advanced) · PowerPoint</span><span>Strong</span></div>
+        <div class="bar"><div style="width:85%"></div></div>
+      </div>
+
+      <p class="muted" style="margin-top:12px;">
+        Also: GAAP / auditing principles, tax awareness, time management, clear written & verbal communication.
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap" id="experience">
+    <div class="card">
+      <h2>Experience</h2>
+
+      <div class="item">
+        <h3>Financial Accountant</h3>
+        <div class="meta">Recordati AG (Basel & Zug, CH) — Current</div>
+        <p class="muted">
+          AP functions, vendor PO validation, invoice verification, AP ledger reconciliations, bank reconciliations (multi-currency),
+          analytic accounting (cost center reporting & allocations), Synertrade supplier registration, and payment run execution.
+        </p>
+      </div>
+
+      <div class="item">
+        <h3>Accounts Payable Specialist & Billing Specialist</h3>
+        <div class="meta">Jet Aviation AG – Carbon60 (Basel, CH) — 2022–2023</div>
+        <p class="muted">
+          End-to-end AP workflow in SAP (PO/non-PO), vendor reconciliations, on-time payments, T&E processing, audit support,
+          plus client invoicing, dispute resolution and AR follow-up.
+        </p>
+      </div>
+
+      <div class="item">
+        <h3>Finance Manager</h3>
+        <div class="meta">EHPAD Jean Monnet (Village-Neuf, FR) — 2021–2022</div>
+        <p class="muted">
+          Budgeting & FP&A, financial statements, compliance and audit coordination, supervision of AP/AR operations,
+          and decision support for strategic planning.
+        </p>
+      </div>
+
+      <div class="item">
+        <h3>AR/AP Specialist · Accountant & Case Manager · Treasury Accountant</h3>
+        <div class="meta">CAPI Sécurité · Judicial Officer · Galeries Lafayette (FR) — 2010–2021</div>
+        <p class="muted">
+          Progression through treasury accounting, law firm accounting and AP/AR operations: bank reconciliations, invoicing,
+          payment tracking, vendor management, reporting and internal control.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="contact">
+    <div class="card">
+      <h2>Contact</h2>
+      <p class="muted"><strong>Email:</strong> aureliengalmiche89@gmail.com</p>
+      <p class="muted"><strong>Phone:</strong> +33 6 32 39 67 41</p>
+      <p>
+        <strong>LinkedIn:</strong>
+        <a href="https://linkedin.com/in/aur%C3%A9lien-galmiche-687329102" target="_blank" rel="noreferrer">
+          linkedin.com/in/aurélien-galmiche-687329102
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Aurélien Henry Galmiche
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
