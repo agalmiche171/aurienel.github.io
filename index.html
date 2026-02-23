@@ -57,7 +57,10 @@ nav .wrap{
 
 .hero{
   padding:100px 0 38px;
-  background:linear-gradient(135deg,#ffffff 0%,#eef4fb 100%);
+  background:
+    radial-gradient(1200px 500px at 20% 20%, rgba(255,255,255,0.12), transparent 60%),
+    linear-gradient(135deg,#6f7e90 0%,#6a7686 45%,#5f6b7a 100%);
+  color:#fff;
 }
 .hero-grid{
   display:grid;gap:24px;
@@ -119,17 +122,27 @@ h1{margin:0;font-size:44px}
 
 .tag{
   position:absolute;
-  background:white;
-  border:1px solid var(--line);
+  background:rgba(255,255,255,0.95);
+  border:1px solid rgba(255,255,255,0.9);
   border-radius:999px;
   padding:8px 12px;
   font-size:13px;
   font-weight:800;
-  box-shadow:var(--shadow);
+  box-shadow:0 14px 30px rgba(0,0,0,0.18);
+  color:#0a2540;
+
+  animation:floatY 6s ease-in-out infinite;
 }
-.tag1{top:18px;left:-12px}
-.tag2{top:122px;right:-12px}
-.tag3{bottom:28px;left:18px}
+
+.tag1{top:-6px;left:10px;animation-delay:0s}
+.tag2{top:120px;right:-14px;animation-delay:1.5s}
+.tag3{bottom:18px;left:12px;animation-delay:3s}
+
+@keyframes floatY{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+  100%{transform:translateY(0)}
+}
 
 .card{
   background:white;
@@ -515,3 +528,4 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
     </div>
   </div>
 </section>
+
