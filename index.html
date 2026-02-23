@@ -175,10 +175,20 @@ h1{
 }
 }
 
-.tag1{ top:0;    left:50%; --x:-50%;  --y:-50%;  animation-delay:0s; }
-.tag2{ top:50%;  left:50%; --x:160px; --y:-50%;  animation-delay:1.5s; }
-.tag3{ top:100%; left:50%; --x:-50%;  --y:-50%;  animation-delay:3s; }
-.tag4{ top:50%;  left:50%; --x:-172px;--y:-50%;  animation-delay:4.5s; } 
+/* centre commun */
+.tag1,.tag2,.tag3,.tag4{ top:50%; left:50%; }
+
+/* haut (centré) */
+.tag1{ --x:-50%; --y:-190px; animation-delay:0s; }
+
+/* gauche (épaule gauche) */
+.tag4{ --x:-245px; --y:-25px; animation-delay:4.5s; }
+
+/* droite (épaule droite) */
+.tag2{ --x:120px; --y:-10px; animation-delay:1.5s; }
+
+/* bas (centré) */
+.tag3{ --x:-50%; --y:165px; animation-delay:3s; }
 
 .tag{
   position:absolute;
@@ -588,6 +598,7 @@ SAP S/4HANA
     </div>
   </div>
 </section>
+
 
 
 
