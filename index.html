@@ -117,6 +117,7 @@ h1{margin:0;font-size:44px}
   object-position:50% 18%;
 }
 
+/* ===== TAGS AUTOUR DE LA PHOTO (ANIMÉS) ===== */
 .tag{
   position:absolute;
   background:white;
@@ -126,11 +127,19 @@ h1{margin:0;font-size:44px}
   font-size:13px;
   font-weight:800;
   box-shadow:var(--shadow);
+  animation:floatY 6s ease-in-out infinite;
 }
-.tag1{top:18px;left:-12px}
-.tag2{top:122px;right:-12px}
-.tag3{bottom:28px;left:18px}
+.tag1{top:18px;left:-12px;animation-delay:0s}
+.tag2{top:122px;right:-12px;animation-delay:1.5s}
+.tag3{bottom:28px;left:18px;animation-delay:3s}
 
+@keyframes floatY{
+  0%{transform:translateY(0px)}
+  50%{transform:translateY(-12px)}
+  100%{transform:translateY(0px)}
+}
+
+/* ===== RESTE ===== */
 .card{
   background:white;
   border-radius:var(--radius);
@@ -194,45 +203,6 @@ h1{margin:0;font-size:44px}
 
 footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
 </style>
-</head>
-
-<body>
-
-<nav>
-  <div class="wrap">
-    <div class="brand">Aurélien Henry Galmiche</div>
-    <div class="links">
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#passions">Passions</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap hero-grid">
-
-    <div>
-      <h1>Aurélien Henry <span class="name2">Galmiche</span></h1>
-
-      <div class="headline">
-        Finance Accountant | AP/AR • Financial Reporting • SAP S4 Hana | Interested in AI & Process Optimization
-      </div>
-
-      <p class="summary">
-        Finance professional with accounting experience since 2010 (16 years).
-        Specialized in AP/AR, reconciliations, reporting and SAP S/4HANA processes in international environments.
-        Versatile profile across private and public sectors, collections and legal-context accounting.
-        Strong curiosity for AI 🤖🧠🚀 and continuous process improvement ✨.
-      </p>
-
-      <a class="btn primary" href="CV_Aurelien_Henry_Galmiche.pdf" download>Download CV</a>
-      <a href="https://www.linkedin.com/in/aurélien-henry-galmiche-687329102">
-  <img src="https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white">
-</a>
       
     </div>
 
@@ -409,58 +379,61 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
     <div class="card exp">
 
       <div class="role">
-        <h3>Account Payable specialist</h3>
-        <p><b>Recordati — Basel and Baar Switzerland | 2024 – Present</b></p>
+        <h3>Accounts Payable Specialist</h3>
+        <p><b>Recordati — Basel and Baar Switzerland 🇨🇭 | 2024 – Present</b></p>
         <p>~800 invoices/month · 3 working days processing · SAP S/4HANA</p>
-        <ul>
-          <li>Handled end-to-end accounts payable and general accounting activities, including invoice processing, vendor and bank reconciliations (multi-currency),
-            month- and quarter-end close, financial reporting by cost center, supplier onboarding (Synertrade), and payment run execution.</li>
-        </ul>
+        <p>
+          Handled end-to-end accounts payable and general accounting activities, including invoice processing, vendor and bank reconciliations (multi-currency),
+          month- and quarter-end close, financial reporting by cost center, supplier onboarding (Synertrade), and payment run execution.
+        </p>
       </div>
 
       <div class="role">
-        <h3>Account Payable & Billing Specialist</h3>
-        <p><b>Jet Aviation — Basel Switzerland | 2022 – 2023</b></p>
-                <ul>
-            <li>Independently managed end-to-end AP processes in SAP (PO and non-PO), including vendor reconciliations, timely payment setup, advance payments, 
-            and supplier master data maintenance; processed travel and expense claims, supported audits, and ensured compliance with internal policies and legal requirements.
-
-              Managed client invoicing and cash application, including billing accuracy checks, discrepancy resolution, AR aging follow-up, and collaboration with sales/account teams; 
-            maintained billing records for audit and supported month- and year-end close.</li>
-        </ul>
+        <h3>Accounts Payable & Billing Specialist</h3>
+        <p><b>Jet Aviation — Basel Switzerland 🇨🇭 | 2022 – 2023</b></p>
+        <p>
+          Independently managed end-to-end AP processes in SAP (PO and non-PO), including vendor reconciliations, timely payment setup, advance payments,
+          and supplier master data maintenance; processed travel and expense claims, supported audits, and ensured compliance with internal policies and legal requirements.
+          Managed client invoicing and cash application, including billing accuracy checks, discrepancy resolution, AR aging follow-up, and collaboration with sales/account teams;
+          maintained billing records for audit and supported month- and year-end close.
+        </p>
       </div>
 
       <div class="role">
         <h3>Finance Manager</h3>
-        <p><b>EHPAD Jean Monnet — Village-Neuf France | 2021 – 2022</b></p>
-                <ul>
-            <li>Led budgeting and financial planning, monitored performance against budget, and delivered management reporting with cost-saving and revenue optimization insights; 
-              prepared compliant financial statements and coordinated audits. Supervised accounting operations (AP, AR, payroll), approved transactions, and improved processes. 
-              Provided financial analysis and decision support, including investment evaluation and long-term strategic planning.</li>  
+        <p><b>EHPAD Jean Monnet — Village-Neuf France 🇫🇷 | 2021 – 2022</b></p>
+        <p>
+          Led budgeting and financial planning, monitored performance against budget, and delivered management reporting with cost-saving and revenue optimization insights;
+          prepared compliant financial statements and coordinated audits. Supervised accounting operations (AP, AR, payroll), approved transactions, and improved processes.
+          Provided financial analysis and decision support, including investment evaluation and long-term strategic planning.
+        </p>
       </div>
 
       <div class="role">
         <h3>AR/AP Specialist</h3>
-        <p><b>CAPI Sécurité — Saint-Louis France | 2019 – 2020</b></p>
-                <ul>
-              <li>Managed full-cycle accounts payable and receivable, including invoice processing and coding, vendor and customer reconciliations, payment execution, 
-                AR aging follow-up, discrepancy resolution, and maintenance of vendor/customer records; supported month-end close with accruals and reconciliations and handled billing and account inquiries.</li> 
+        <p><b>CAPI Sécurité — Saint-Louis France 🇫🇷 | 2019 – 2020</b></p>
+        <p>
+          Managed full-cycle accounts payable and receivable, including invoice processing and coding, vendor and customer reconciliations, payment execution,
+          AR aging follow-up, discrepancy resolution, and maintenance of vendor/customer records; supported month-end close with accruals and reconciliations and handled billing and account inquiries.
+        </p>
       </div>
 
       <div class="role">
-        <h3>Accountant & Case Manager - Saint-Louis and Ferrette</h3>
-        <p><b>Judicial Officers — France | 2015 – 2019</b></p>
-                <ul>
-              <li>Maintained general ledger accuracy and recorded financial transactions, including client billing, payments, and expenses; managed invoicing, payment tracking, and vendor invoices while monitoring costs. 
-                Performed bank reconciliations, prepared financial reports, supported audits, and ensured compliance with accounting standards and regulatory requirements.</li> 
+        <h3>Accountant & Case Manager</h3>
+        <p><b>Judicial Officers — Saint-Louis and Ferrette France 🇫🇷 | 2015 – 2019</b></p>
+        <p>
+          Maintained general ledger accuracy and recorded financial transactions, including client billing, payments, and expenses; managed invoicing, payment tracking, and vendor invoices while monitoring costs.
+          Performed bank reconciliations, prepared financial reports, supported audits, and ensured compliance with accounting standards and regulatory requirements.
+        </p>
       </div>
 
       <div class="role">
         <h3>Treasury Accountant</h3>
-        <p><b>Galeries Lafayette — Belfort and Paris France | 2010 – 2015</b></p>
-              <ul>
-              <li>Monitored daily cash positions and liquidity, managed banking relationships, and prepared cash flow forecasts; 
-                executed treasury transactions and bank reconciliations while assessing financial risks and ensuring compliance with internal controls and regulatory requirements.</li> 
+        <p><b>Galeries Lafayette — Belfort and Paris France 🇫🇷 | 2010 – 2015</b></p>
+        <p>
+          Monitored daily cash positions and liquidity, managed banking relationships, and prepared cash flow forecasts; executed treasury transactions and bank reconciliations
+          while assessing financial risks and ensuring compliance with internal controls and regulatory requirements.
+        </p>
       </div>
 
     </div>
@@ -515,3 +488,4 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
     </div>
   </div>
 </section>
+
