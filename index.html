@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,19 +19,17 @@
   --radius:20px;
   --shadow:0 18px 40px rgba(10,37,64,0.12);
 }
-
 *{box-sizing:border-box}
-
 body{
   margin:0;
   font-family:Segoe UI, Arial, sans-serif;
   color:var(--text);
   background:var(--light);
+  scroll-behavior:smooth;
 }
-
 .wrap{max-width:1100px;margin:auto;padding:0 18px}
+section{padding:46px 0}
 
-/* NAV */
 nav{
   position:fixed;top:0;width:100%;
   background:#ffffffd9;
@@ -43,6 +42,7 @@ nav .wrap{
   padding:10px 18px;
 }
 .brand{font-weight:900;font-size:14px}
+.links{display:flex;flex-wrap:wrap;justify-content:flex-end}
 .links a{
   margin-left:10px;
   text-decoration:none;
@@ -54,57 +54,54 @@ nav .wrap{
   border:1px solid var(--line);
   background:#fff;
 }
+.links a:hover{background:#eef3fa}
 
-/* HERO */
 .hero{
-  padding:120px 0 60px;
-  position:relative;
-  overflow:hidden;
-  color:white;
+  padding:100px 0 38px;
+  background:linear-gradient(135deg,#ffffff 0%,#eef4fb 100%);
 }
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(90deg, rgba(10,37,64,0.92) 0%, rgba(10,37,64,0.75) 35%, rgba(10,37,64,0.35) 65%),
-    url("images/4efa6c05-1219-42cc-9d55-a384d9dac0d6.png");
-  background-size:cover;
-  background-position:center right;
-  z-index:0;
-}
-.hero .wrap{position:relative;z-index:1}
-
 .hero-grid{
-  display:grid;
-  gap:24px;
+  display:grid;gap:24px;
   grid-template-columns:1fr;
   align-items:center;
 }
 @media(min-width:900px){
   .hero-grid{grid-template-columns:1.1fr .9fr}
 }
-
 h1{margin:0;font-size:44px}
-.name2{color:#6fa8ff}
-.headline{margin-top:10px;font-weight:800;color:#d7e6ff}
-.summary{margin-top:14px;color:#e6eefc;line-height:1.6;max-width:60ch}
+.name2{color:var(--accent)}
+.headline{
+  margin-top:8px;
+  font-weight:800;
+  color:var(--blue2);
+}
+.summary{
+  margin-top:12px;
+  color:var(--muted);
+  line-height:1.65;
+  max-width:60ch;
+}
 
 .btn{
   display:inline-block;
-  margin-top:16px;
+  margin-top:14px;
   padding:10px 16px;
   border-radius:999px;
   font-weight:900;
   font-size:13px;
   text-decoration:none;
-  border:1px solid #ffffff55;
-  color:white;
-  background:rgba(255,255,255,0.10);
+  border:1px solid var(--blue);
 }
-.btn:hover{background:rgba(255,255,255,0.2)}
+.btn.primary{
+  background:var(--blue);
+  color:white;
+}
 
-.portrait{position:relative;display:flex;justify-content:center}
+.portrait{
+  position:relative;
+  display:flex;
+  justify-content:center;
+}
 .circle{
   width:320px;height:320px;
   border-radius:50%;
@@ -121,7 +118,7 @@ h1{margin:0;font-size:44px}
   object-position:50% 18%;
 }
 
-/* TAGS ANIMÉS */
+/* ===== TAGS AUTOUR DE LA PHOTO (ANIMÉS) ===== */
 .tag{
   position:absolute;
   background:white;
@@ -132,69 +129,157 @@ h1{margin:0;font-size:44px}
   font-weight:800;
   box-shadow:var(--shadow);
   animation:floatY 6s ease-in-out infinite;
-  color:var(--blue);
 }
 .tag1{top:18px;left:-12px;animation-delay:0s}
 .tag2{top:122px;right:-12px;animation-delay:1.5s}
 .tag3{bottom:28px;left:18px;animation-delay:3s}
 
 @keyframes floatY{
-  0%{transform:translateY(0)}
+  0%{transform:translateY(0px)}
   50%{transform:translateY(-12px)}
-  100%{transform:translateY(0)}
+  100%{transform:translateY(0px)}
 }
+
+/* ===== RESTE ===== */
+.card{
+  background:white;
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  padding:20px;
+}
+.section-title{text-align:center;margin-bottom:22px}
+.section-title h2{margin:0;font-size:32px}
+.section-title p{margin:6px 0 0;color:var(--muted)}
+
+.bubbles{display:grid;gap:12px}
+.bubble{
+  display:flex;gap:12px;align-items:center;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px;
+  box-shadow:var(--shadow);
+}
+.bubble .icon{
+  width:40px;height:40px;
+  background:#eef4fb;
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+}
+.bubble b{font-size:12px;color:var(--accent)}
+.bubble span{display:block;font-weight:900}
+
+.edu-grid{display:grid;gap:14px}
+.edu-date{color:var(--accent);font-weight:900;font-size:13px}
+.edu-title{font-weight:950;margin:6px 0}
+.edu-school{color:var(--muted);font-weight:800;margin-bottom:8px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{
+  background:#eef4fb;
+  border:1px solid #d9e6fb;
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.skills-grid{display:grid;gap:14px}
+@media(min-width:900px){
+  .skills-grid{grid-template-columns:1fr 1fr 1fr}
+}
+.skillcol{padding:18px}
+
+.exp .role{padding:12px 0;border-top:1px solid var(--line)}
+.exp .role:first-child{border-top:none}
+
+.pass-grid{display:grid;gap:14px}
+@media(min-width:900px){ .pass-grid{grid-template-columns:1.2fr .8fr} }
+
+.touch-grid{display:grid;gap:14px}
+@media(min-width:900px){
+  .touch-grid{grid-template-columns:1fr 1fr 1fr 1fr}
+}
+.touch{text-align:center}
+
+footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
 </style>
-</head>
-
-<body>
-
-<nav>
-  <div class="wrap">
-    <div class="brand">Aurélien Henry Galmiche</div>
-    <div class="links">
-      <a href="#">Home</a>
+      
     </div>
-  </div>
-</nav>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-
-      <div>
-        <h1>Aurélien Henry <span class="name2">Galmiche</span></h1>
-
-        <div class="headline">
-          Finance Accountant | AP/AR · Financial Reporting · SAP S/4HANA |
-          Interested in AI & Process Optimization
-        </div>
-
-        <p class="summary">
-          Finance professional with accounting experience since 2010 (16 years).
-          Specialized in AP/AR, reconciliations, reporting and SAP S/4HANA
-          processes in international environments.
-        </p>
-
-        <a class="btn" href="CV_Aurelien_Henry_Galmiche.pdf">Download CV</a>
-        <a class="btn" href="https://www.linkedin.com/in/aurélien-henry-galmiche-687329102">LinkedIn Profile</a>
+    <div class="portrait">
+      <div class="circle">
+        <img src="photo.png" alt="Aurélien Henry Galmiche">
       </div>
 
-      <div class="portrait">
-        <div class="circle">
-          <img src="photo.png" alt="Aurélien Henry Galmiche">
-        </div>
-
-        <div class="tag tag1">📍 Brunstatt 🇫🇷 · Bouznika 🇲🇦</div>
-        <div class="tag tag2">🌍 International Accounting</div>
-        <div class="tag tag3">🤖 AI Curiosity</div>
-      </div>
-
+      <div class="tag tag1">📍 Brunstatt 🇫🇷 · Bouznika 🇲🇦</div>
+      <div class="tag tag2">🌍 International Accounting</div>
+      <div class="tag tag3">🤖 AI Curiosity</div>
     </div>
+
   </div>
 </header>
 
-</body>
-</html>
+<section id="about">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>About</h2>
+      <p>Professional overview</p>
+    </div>
+
+    <div class="edu-grid">
+      <div class="card">
+        <p>
+          Finance Accountant with 16 years of experience across AP/AR, treasury, reconciliations and reporting.
+          I enjoy working in international environments and bring versatility from private/public accounting,
+          collections and legal-related finance activities.
+        </p>
+
+        <p>
+          I value accuracy, compliance and clear processes. I’m also strongly interested in AI 🤖🧠🚀
+          and automation opportunities in finance operations.
+        </p>
+        
+  <p>
+          Rapid learning of business interests : Law, Pharma Industry, Aeronautic industry. 
+        </p>
+
+
+        <b>Key facts - Career Success</b>
+        <ul>
+          <li>Takeover of a accounting system following the growing of the company. Accounting review and implementation of processes with a new point of view.</li>
+          <li>Track invoices: different business setup</li>
+          <li>Book VIM (~800 invoices per month)</li>
+          <li>Identified supplier inconsistencies and secured a discount through accounting analysis and negotiation; reviewed supplier contracts with a strong focus on quality and financial alignment with organizational objectives.</li>
+        </ul>
+      </div>
+
+      <div class="bubbles">
+        <div class="bubble">
+          <div class="icon">📍</div>
+          <div><b>LOCATION</b><span>Brunstatt 🇫🇷 / Bouznika 🇲🇦</span></div>
+        </div>
+
+        <div class="bubble">
+          <div class="icon">💼</div>
+          <div><b>ROLE</b><span>Finance Accountant</span></div>
+        </div>
+
+        <div class="bubble">
+          <div class="icon">🧾</div>
+          <div><b>SYSTEM</b><span>SAP S/4HANA</span></div>
+        </div>
+
+        <div class="bubble">
+          <div class="icon">🪪</div>
+          <div><b>WORK PERMIT</b><span>Frontalier G</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
 <section id="education">
   <div class="wrap">
     <div class="section-title">
@@ -204,45 +289,29 @@ h1{margin:0;font-size:44px}
 
     <div class="edu-grid">
 
-      <div class="card">
+      <div class="card edu-card">
         <div class="edu-date">2005 - 2007</div>
-        <div class="edu-title">
-          French Baccalaureate Management Sciences & Technologies
-          (specializing in Marketing & Accounting)
-        </div>
-        <div class="edu-school">
-          Georges Colomb High School (Lure) & Lumière High School (Luxeuil-les-Bains)
-        </div>
+        <div class="edu-title">French Baccalaureate Management Sciences & Technologies (specializing in Marketing & Accounting)</div>
+        <div class="edu-school">Georges Colomb High School (Lure) & Lumière High School (Luxeuil-Les-Bains)</div>
       </div>
 
-      <div class="card">
-        <div class="edu-date">2007 - 2009</div>
-        <div class="edu-title">
-          French Higher National Diploma (BTS) in Management Assistance
-          (Accounting specialization)
-        </div>
-        <div class="edu-school">
-          Georges Colomb High School (Lure)
-        </div>
+      <div class="card edu-card">
+        <div class="edu-date">2007 – 2009</div>
+        <div class="edu-title">French Higher National Diploma (BTS) in Management Assistance (Accounting specialization)</div>
+        <div class="edu-school">Georges Colomb High School (Lure)</div>
       </div>
 
-      <div class="card">
-        <div class="edu-date">2009 - 2010</div>
-        <div class="edu-title">
-          French Bachelor’s Degree in History
-        </div>
-        <div class="edu-school">
-          Faculty of Humanities and Social Sciences,
-          University of Franche-Comté (Besançon)
-        </div>
+      <div class="card edu-card">
+        <div class="edu-date">2009 – 2010</div>
+        <div class="edu-title">French Bachelor's Degree</div>
+        <div class="edu-school">Faculty of Humanities and Social Sciences, University of Franche-Comté (Besançon)</div>
       </div>
 
-      <div class="card">
+      <div class="card edu-card">
         <div class="edu-date">Continuous Learning</div>
         <div class="edu-title">Professional Development</div>
         <div class="edu-school">On-the-job learning</div>
-
-        <div class="tags" style="margin-top:10px">
+        <div class="tags">
           <span>International Finance</span>
           <span>Collections</span>
           <span>Contracts</span>
@@ -256,6 +325,7 @@ h1{margin:0;font-size:44px}
   </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
   <div class="wrap">
     <div class="section-title">
@@ -263,52 +333,38 @@ h1{margin:0;font-size:44px}
       <p>Core strengths</p>
     </div>
 
-    <div class="edu-grid">
-
-      <div class="card">
-        <div class="edu-title">Accounting & Finance</div>
-        <div class="tags" style="margin-top:10px">
+    <div class="skills-grid">
+      <div class="card skillcol">
+        <h3>Finance & Accounting</h3>
+        <div class="tags">
           <span>AP / AR</span>
           <span>Reconciliations</span>
-          <span>Financial Reporting</span>
-          <span>Treasury</span>
-          <span>Month-End Close</span>
+          <span>Reporting</span>
+          <span>Collections</span>
           <span>Multi-currency</span>
         </div>
       </div>
 
-      <div class="card">
-        <div class="edu-title">Systems & Tools</div>
-        <div class="tags" style="margin-top:10px">
+      <div class="card skillcol">
+        <h3>Systems</h3>
+        <div class="tags">
           <span>SAP S/4HANA</span>
-          <span>VIM</span>
+          <span>SAP</span>
           <span>Synertrade</span>
           <span>Excel</span>
-          <span>ERP</span>
         </div>
       </div>
 
-      <div class="card">
-        <div class="edu-title">International & Compliance</div>
-        <div class="tags" style="margin-top:10px">
-          <span>International Accounting</span>
-          <span>Regulatory Compliance</span>
-          <span>Audit Support</span>
-          <span>Internal Controls</span>
-          <span>Contracts</span>
+      <div class="card skillcol">
+        <h3>Strengths</h3>
+        <div class="tags">
+          <span>International</span>
+          <span>Versatile</span>
+          <span>Process Optimization</span>
+          <span>AI</span>
+          <span>Legal Awareness</span>
         </div>
       </div>
-
-      <div class="card">
-        <div class="edu-title">Process & AI</div>
-        <div class="tags" style="margin-top:10px">
-          <span>Process Improvement</span>
-          <span>Automation</span>
-          <span>AI Curiosity</span>
-          <span>Digital Finance</span>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -317,72 +373,67 @@ h1{margin:0;font-size:44px}
 <section id="experience">
   <div class="wrap">
     <div class="section-title">
-      <h2>Experience</h2>
-      <p>Financial Accountant career path</p>
+      <h2>Experience - Financial Accountant</h2>
+      <p>Recent roles first</p>
     </div>
 
-    <div class="edu-grid">
+    <div class="card exp">
 
-      <div class="card">
-        <div class="edu-date">2024 – Present</div>
-        <div class="edu-title">Accounts Payable Specialist</div>
-        <div class="edu-school">Recordati — Basel & Baar, Switzerland 🇨🇭</div>
+      <div class="role">
+        <h3>Accounts Payable Specialist</h3>
+        <p><b>Recordati — Basel and Baar Switzerland 🇨🇭 | 2024 – Present</b></p>
+        <p>~800 invoices/month · 3 working days processing · SAP S/4HANA</p>
         <p>
-          Handled end-to-end accounts payable and general accounting activities, including invoice processing,
-          vendor and bank reconciliations (multi-currency), month- and quarter-end close, financial reporting
-          by cost center, supplier onboarding (Synertrade), and payment run execution.
+          Handled end-to-end accounts payable and general accounting activities, including invoice processing, vendor and bank reconciliations (multi-currency),
+          month- and quarter-end close, financial reporting by cost center, supplier onboarding (Synertrade), and payment run execution.
         </p>
       </div>
 
-      <div class="card">
-        <div class="edu-date">2022 – 2023</div>
-        <div class="edu-title">Accounts Payable & Billing Specialist</div>
-        <div class="edu-school">Jet Aviation — Basel, Switzerland 🇨🇭</div>
+      <div class="role">
+        <h3>Accounts Payable & Billing Specialist</h3>
+        <p><b>Jet Aviation — Basel Switzerland 🇨🇭 | 2022 – 2023</b></p>
         <p>
-          Managed end-to-end AP processes in SAP (PO and non-PO), including vendor reconciliations,
-          payment setup, advance payments and supplier master data. Also handled client invoicing,
-          cash application, AR aging follow-up and billing discrepancy resolution.
+          Independently managed end-to-end AP processes in SAP (PO and non-PO), including vendor reconciliations, timely payment setup, advance payments,
+          and supplier master data maintenance; processed travel and expense claims, supported audits, and ensured compliance with internal policies and legal requirements.
+          Managed client invoicing and cash application, including billing accuracy checks, discrepancy resolution, AR aging follow-up, and collaboration with sales/account teams;
+          maintained billing records for audit and supported month- and year-end close.
         </p>
       </div>
 
-      <div class="card">
-        <div class="edu-date">2021 – 2022</div>
-        <div class="edu-title">Finance Manager</div>
-        <div class="edu-school">EHPAD Jean Monnet — Village-Neuf, France 🇫🇷</div>
+      <div class="role">
+        <h3>Finance Manager</h3>
+        <p><b>EHPAD Jean Monnet — Village-Neuf France 🇫🇷 | 2021 – 2022</b></p>
         <p>
-          Led budgeting and financial planning, produced management reporting and compliant financial
-          statements, supervised accounting operations (AP, AR, payroll) and supported strategic decision-making
-          and investment evaluation.
+          Led budgeting and financial planning, monitored performance against budget, and delivered management reporting with cost-saving and revenue optimization insights;
+          prepared compliant financial statements and coordinated audits. Supervised accounting operations (AP, AR, payroll), approved transactions, and improved processes.
+          Provided financial analysis and decision support, including investment evaluation and long-term strategic planning.
         </p>
       </div>
 
-      <div class="card">
-        <div class="edu-date">2019 – 2020</div>
-        <div class="edu-title">AR / AP Specialist</div>
-        <div class="edu-school">CAPI Sécurité — Saint-Louis, France 🇫🇷</div>
+      <div class="role">
+        <h3>AR/AP Specialist</h3>
+        <p><b>CAPI Sécurité — Saint-Louis France 🇫🇷 | 2019 – 2020</b></p>
         <p>
-          Managed full-cycle accounts payable and receivable, including invoice processing, reconciliations,
-          payment execution, AR follow-up and month-end support with accruals and reporting.
+          Managed full-cycle accounts payable and receivable, including invoice processing and coding, vendor and customer reconciliations, payment execution,
+          AR aging follow-up, discrepancy resolution, and maintenance of vendor/customer records; supported month-end close with accruals and reconciliations and handled billing and account inquiries.
         </p>
       </div>
 
-      <div class="card">
-        <div class="edu-date">2015 – 2019</div>
-        <div class="edu-title">Accountant & Case Manager</div>
-        <div class="edu-school">Judicial Officers — Saint-Louis & Ferrette, France 🇫🇷</div>
+      <div class="role">
+        <h3>Accountant & Case Manager</h3>
+        <p><b>Judicial Officers — Saint-Louis and Ferrette France 🇫🇷 | 2015 – 2019</b></p>
         <p>
-          Maintained general ledger accuracy, recorded financial transactions, managed invoicing and vendor
-          payments, performed bank reconciliations and prepared financial reports in a regulated legal context.
+          Maintained general ledger accuracy and recorded financial transactions, including client billing, payments, and expenses; managed invoicing, payment tracking, and vendor invoices while monitoring costs.
+          Performed bank reconciliations, prepared financial reports, supported audits, and ensured compliance with accounting standards and regulatory requirements.
         </p>
       </div>
 
-      <div class="card">
-        <div class="edu-date">2010 – 2015</div>
-        <div class="edu-title">Treasury Accountant</div>
-        <div class="edu-school">Galeries Lafayette — Belfort & Paris, France 🇫🇷</div>
+      <div class="role">
+        <h3>Treasury Accountant</h3>
+        <p><b>Galeries Lafayette — Belfort and Paris France 🇫🇷 | 2010 – 2015</b></p>
         <p>
-          Monitored daily cash positions, prepared cash flow forecasts, executed treasury transactions,
-          reconciled bank accounts and ensured compliance with internal controls and financial regulations.
+          Monitored daily cash positions and liquidity, managed banking relationships, and prepared cash flow forecasts; executed treasury transactions and bank reconciliations
+          while assessing financial risks and ensuring compliance with internal controls and regulatory requirements.
         </p>
       </div>
 
@@ -390,37 +441,26 @@ h1{margin:0;font-size:44px}
   </div>
 </section>
 
-<section id="recommendations">
+<section id="recommandations">
   <div class="wrap">
     <div class="section-title">
       <h2>Recommendations</h2>
-      <p>Professional references</p>
     </div>
 
-    <div class="edu-grid">
-
+    <div class="pass-grid">
       <div class="card">
-        <div class="edu-title">LinkedIn Recommendations</div>
-        <div class="edu-school">Professional testimonials available on my LinkedIn profile</div>
-        <a class="btn" href="https://www.linkedin.com/in/aurélien-henry-galmiche-687329102" target="_blank">
-          View LinkedIn Recommendations
+        <h3>LinkedIn</h3>
+        <p>View my professional recommendations.</p>
+        <a href="https://www.linkedin.com/in/aurélien-henry-galmiche-687329102">
+          <img src="https://img.shields.io/badge/LinkedIn-Recommendations-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white">
         </a>
       </div>
 
       <div class="card">
-        <div class="edu-title">Manager References</div>
-        <div class="edu-school">
-          Written and verbal recommendations from all previous managers
-          available upon request
-        </div>
-        <div class="tags" style="margin-top:10px">
-          <span>Leadership</span>
-          <span>Reliability</span>
-          <span>Finance Expertise</span>
-          <span>Process Improvement</span>
-        </div>
+        <h3>Managers</h3>
+        <p>Recommendations from all previous managers available upon request.</p>
+        <img src="https://img.shields.io/badge/Manager-Recommendations-grey?style=for-the-badge">
       </div>
-
     </div>
   </div>
 </section>
@@ -449,8 +489,4 @@ h1{margin:0;font-size:44px}
     </div>
   </div>
 </section>
-
-
-
-
 
