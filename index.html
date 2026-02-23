@@ -142,15 +142,56 @@ h1{
   animation:floatY 6s ease-in-out infinite;
 }
 
-.tag1{ top:-10px; left:50%; --tx:-50%; animation-delay:0s; }        
-.tag2{ top:50%; right:-10px; --tx:0px;  animation-delay:1.5s; }     
-.tag3{ bottom:-10px; left:50%; --tx:-50%; animation-delay:3s; }      
-.tag4{ top:50%; left:-10px; --tx:0px;  animation-delay:4.5s; }       
+/* ===== TAGS COLLÉS AU CERCLE ===== */
 
-@keyframes floatY{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-12px)}
-  100%{transform:translateY(0)}
+/* haut */
+.tag1{
+  top:0;
+  left:50%;
+  transform:translate(-50%, -50%);
+  animation-delay:0s;
+}
+
+/* droite */
+.tag2{
+  top:50%;
+  left:50%;
+  transform:translate(160px, -50%);
+  animation-delay:1.5s;
+}
+
+/* bas */
+.tag3{
+  top:100%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  animation-delay:3s;
+}
+
+/* gauche */
+.tag4{
+  top:50%;
+  left:50%;
+  transform:translate(-160px, -50%);
+  animation-delay:4.5s;
+}    
+
+.tag{
+  position:absolute;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:13px;
+  font-weight:800;
+  box-shadow:var(--shadow);
+  animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%   { transform:translate(var(--x,0), var(--y,0)); }
+  50%  { transform:translate(var(--x,0), calc(var(--y,0) - 10px)); }
+  100% { transform:translate(var(--x,0), var(--y,0)); }
 }
 
 .card{
@@ -540,6 +581,7 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
     </div>
   </div>
 </section>
+
 
 
 
