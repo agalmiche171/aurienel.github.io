@@ -131,36 +131,27 @@ h1{
 /* AI tech badges (glass + glow + motion) */
 .tag{
   position:absolute;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
+  z-index:3;
 
-  padding:9px 14px;
+  background:rgba(255,255,255,0.92);
+  border:1px solid rgba(255,255,255,0.85);
   border-radius:999px;
-
-  background:rgba(255,255,255,0.10);
-  border:1px solid rgba(255,255,255,0.22);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  color:#ffffff;
+  padding:8px 12px;
   font-size:13px;
   font-weight:800;
-  letter-spacing:0.2px;
+  box-shadow:0 14px 30px rgba(0,0,0,0.18);
+  color:#0a2540;
 
-  box-shadow:
-    0 16px 40px rgba(0,0,0,0.25),
-    0 0 0 1px rgba(111,168,255,0.12);
-
-  /* motion */
-  animation: floatTech 6s ease-in-out infinite;
+  --fy:0px;
+  transform:translate(var(--x), calc(var(--y) + var(--fy)));
+  animation: floatSoft 6s ease-in-out infinite;
   will-change: transform;
 }
 
-@keyframes floatTech{
-  0%   { transform: translate(var(--x,0px), var(--y,0px)); }
-  50%  { transform: translate(var(--x,0px), calc(var(--y,0px) - 10px)); }
-  100% { transform: translate(var(--x,0px), var(--y,0px)); }
+@keyframes floatSoft{
+  0%{--fy:0px}
+  50%{--fy:-10px}
+  100%{--fy:0px}
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -178,19 +169,11 @@ h1{
 /* centre commun */
 .tag1,.tag2,.tag3,.tag4{ top:50%; left:50%; }
 
-/* haut (centré) */
-.tag1{ --x:-50%; --y:-190px; animation-delay:0s; }
+.tag1{ --x:-50%;  --y:-190px; animation-delay:0s; }   /* haut */
+.tag2{ --x:150px; --y:-20px;  animation-delay:1.5s; } /* droite */
+.tag3{ --x:-50%;  --y:165px;  animation-delay:3s; }   /* bas */
 
-/* gauche (épaule gauche) */
-.tag4{ --x:-245px; --y:-25px; animation-delay:4.5s; }
-
-/* droite (épaule droite) */
-.tag2{ --x:120px; --y:-10px; animation-delay:1.5s; }
-
-/* bas (centré) */
-.tag3{ --x:-50%; --y:165px; animation-delay:3s; }
-
-.tag{
+.tag4{
   position:absolute;
   background:white;
   border:1px solid var(--line);
@@ -598,6 +581,7 @@ SAP S/4HANA
     </div>
   </div>
 </section>
+
 
 
 
