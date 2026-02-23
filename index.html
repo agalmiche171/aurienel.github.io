@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurélien Henry Galmiche | SAP S/4HANA Specialist</title>
+
 <style>
 :root{
   --blue:#0a2540;
@@ -11,17 +18,19 @@
   --radius:20px;
   --shadow:0 18px 40px rgba(10,37,64,0.12);
 }
+
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:Segoe UI, Arial, sans-serif;
   color:var(--text);
   background:var(--light);
-  scroll-behavior:smooth;
 }
-.wrap{max-width:1100px;margin:auto;padding:0 18px}
-section{padding:46px 0}
 
+.wrap{max-width:1100px;margin:auto;padding:0 18px}
+
+/* NAV */
 nav{
   position:fixed;top:0;width:100%;
   background:#ffffffd9;
@@ -34,7 +43,6 @@ nav .wrap{
   padding:10px 18px;
 }
 .brand{font-weight:900;font-size:14px}
-.links{display:flex;flex-wrap:wrap;justify-content:flex-end}
 .links a{
   margin-left:10px;
   text-decoration:none;
@@ -46,16 +54,14 @@ nav .wrap{
   border:1px solid var(--line);
   background:#fff;
 }
-.links a:hover{background:#eef3fa}
 
-/* ===== HERO (CORRECT + BACKGROUND WITHOUT BREAKING LAYOUT) ===== */
+/* HERO */
 .hero{
   padding:120px 0 60px;
   position:relative;
   overflow:hidden;
-  color:#fff;
+  color:white;
 }
-
 .hero::before{
   content:"";
   position:absolute;
@@ -67,61 +73,38 @@ nav .wrap{
   background-position:center right;
   z-index:0;
 }
+.hero .wrap{position:relative;z-index:1}
 
-.hero .wrap{
-  position:relative;
-  z-index:1;
-}
-
-/* YOU WERE MISSING THIS (it centers your title/text + photo) */
 .hero-grid{
   display:grid;
   gap:24px;
   grid-template-columns:1fr;
   align-items:center;
 }
-
 @media(min-width:900px){
   .hero-grid{grid-template-columns:1.1fr .9fr}
 }
 
 h1{margin:0;font-size:44px}
-.name2{color:var(--accent)}
-.headline{
-  margin-top:8px;
-  font-weight:800;
-  color:#d7e6ff; /* readable on dark background */
-}
-.summary{
-  margin-top:12px;
-  color:#e6eefc; /* readable on dark background */
-  line-height:1.65;
-  max-width:60ch;
-}
+.name2{color:#6fa8ff}
+.headline{margin-top:10px;font-weight:800;color:#d7e6ff}
+.summary{margin-top:14px;color:#e6eefc;line-height:1.6;max-width:60ch}
 
 .btn{
   display:inline-block;
-  margin-top:14px;
+  margin-top:16px;
   padding:10px 16px;
   border-radius:999px;
   font-weight:900;
   font-size:13px;
   text-decoration:none;
   border:1px solid #ffffff55;
-}
-.btn.primary{
-  background:rgba(255,255,255,0.10);
   color:white;
+  background:rgba(255,255,255,0.10);
 }
-.btn.primary:hover{
-  background:rgba(255,255,255,0.18);
-}
+.btn:hover{background:rgba(255,255,255,0.2)}
 
-.portrait{
-  position:relative;
-  display:flex;
-  justify-content:center;
-}
+.portrait{position:relative;display:flex;justify-content:center}
 .circle{
   width:320px;height:320px;
   border-radius:50%;
@@ -138,7 +121,7 @@ h1{margin:0;font-size:44px}
   object-position:50% 18%;
 }
 
-/* ===== TAGS AUTOUR DE LA PHOTO (ANIMÉS) ===== */
+/* TAGS ANIMÉS */
 .tag{
   position:absolute;
   background:white;
@@ -156,76 +139,62 @@ h1{margin:0;font-size:44px}
 .tag3{bottom:28px;left:18px;animation-delay:3s}
 
 @keyframes floatY{
-  0%{transform:translateY(0px)}
+  0%{transform:translateY(0)}
   50%{transform:translateY(-12px)}
-  100%{transform:translateY(0px)}
+  100%{transform:translateY(0)}
 }
-
-/* ===== RESTE ===== */
-.card{
-  background:white;
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  padding:20px;
-}
-.section-title{text-align:center;margin-bottom:22px}
-.section-title h2{margin:0;font-size:32px}
-.section-title p{margin:6px 0 0;color:var(--muted)}
-
-.bubbles{display:grid;gap:12px}
-.bubble{
-  display:flex;gap:12px;align-items:center;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:14px;
-  box-shadow:var(--shadow);
-}
-.bubble .icon{
-  width:40px;height:40px;
-  background:#eef4fb;
-  border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-}
-.bubble b{font-size:12px;color:var(--accent)}
-.bubble span{display:block;font-weight:900}
-
-.edu-grid{display:grid;gap:14px}
-.edu-date{color:var(--accent);font-weight:900;font-size:13px}
-.edu-title{font-weight:950;margin:6px 0}
-.edu-school{color:var(--muted);font-weight:800;margin-bottom:8px}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.tags span{
-  background:#eef4fb;
-  border:1px solid #d9e6fb;
-  border-radius:999px;
-  padding:6px 10px;
-  font-size:12px;
-  font-weight:800;
-}
-
-.skills-grid{display:grid;gap:14px}
-@media(min-width:900px){
-  .skills-grid{grid-template-columns:1fr 1fr 1fr}
-}
-.skillcol{padding:18px}
-
-.exp .role{padding:12px 0;border-top:1px solid var(--line)}
-.exp .role:first-child{border-top:none}
-
-.pass-grid{display:grid;gap:14px}
-@media(min-width:900px){ .pass-grid{grid-template-columns:1.2fr .8fr} }
-
-.touch-grid{display:grid;gap:14px}
-@media(min-width:900px){
-  .touch-grid{grid-template-columns:1fr 1fr 1fr 1fr}
-}
-.touch{text-align:center}
-
-footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
 </style>
+</head>
 
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Aurélien Henry Galmiche</div>
+    <div class="links">
+      <a href="#">Home</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div>
+        <h1>Aurélien Henry <span class="name2">Galmiche</span></h1>
+
+        <div class="headline">
+          Finance Accountant | AP/AR · Financial Reporting · SAP S/4HANA |
+          Interested in AI & Process Optimization
+        </div>
+
+        <p class="summary">
+          Finance professional with accounting experience since 2010 (16 years).
+          Specialized in AP/AR, reconciliations, reporting and SAP S/4HANA
+          processes in international environments.
+        </p>
+
+        <a class="btn" href="CV_Aurelien_Henry_Galmiche.pdf">Download CV</a>
+        <a class="btn" href="https://www.linkedin.com/in/aurélien-henry-galmiche-687329102">LinkedIn Profile</a>
+      </div>
+
+      <div class="portrait">
+        <div class="circle">
+          <img src="photo.png" alt="Aurélien Henry Galmiche">
+        </div>
+
+        <div class="tag tag1">📍 Brunstatt 🇫🇷 · Bouznika 🇲🇦</div>
+        <div class="tag tag2">🌍 International Accounting</div>
+        <div class="tag tag3">🤖 AI Curiosity</div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+</body>
+</html>
 <!-- EDUCATION -->
 <section id="education">
   <div class="wrap">
@@ -436,6 +405,7 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
     </div>
   </div>
 </section>
+
 
 
 
