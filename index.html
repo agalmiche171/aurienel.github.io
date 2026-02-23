@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +13,13 @@
   --card:#ffffff;
   --text:#0a2540;
   --muted:#5b6b7c;
-  --accent:#1a73e8;
+  --accent:#6fa8ff;
   --line:#e3eaf3;
   --radius:20px;
   --shadow:0 18px 40px rgba(10,37,64,0.12);
 }
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:Segoe UI, Arial, sans-serif;
@@ -27,9 +27,11 @@ body{
   background:var(--light);
   scroll-behavior:smooth;
 }
+
 .wrap{max-width:1100px;margin:auto;padding:0 18px}
 section{padding:46px 0}
 
+/* NAV */
 nav{
   position:fixed;top:0;width:100%;
   background:#ffffffd9;
@@ -56,61 +58,86 @@ nav .wrap{
 }
 .links a:hover{background:#eef3fa}
 
+/* HERO — inspired from reference image */
 .hero{
-  padding:100px 0 38px;
-  background:linear-gradient(135deg,#ffffff 0%,#eef4fb 100%);
+  padding:100px 0 48px;
+  background:
+    radial-gradient(1200px 500px at 20% 20%, rgba(255,255,255,0.14), transparent 60%),
+    linear-gradient(135deg, #6f7e90 0%, #6a7686 45%, #5f6b7a 100%);
+  color:#fff;
 }
+
 .hero-grid{
-  display:grid;gap:24px;
+  display:grid;
+  gap:24px;
   grid-template-columns:1fr;
   align-items:center;
 }
 @media(min-width:900px){
   .hero-grid{grid-template-columns:1.1fr .9fr}
 }
-h1{margin:0;font-size:44px}
-.name2{color:var(--accent)}
-.headline{
-  margin-top:8px;
-  font-weight:800;
-  color:var(--blue2);
+
+/* TEXT */
+h1{
+  margin:0;
+  font-size:46px;
+  letter-spacing:-0.5px;
+  color:#fff;
 }
-.summary{
-  margin-top:12px;
-  color:var(--muted);
-  line-height:1.65;
-  max-width:60ch;
+.name2{color:var(--accent)}
+
+.headline{
+  margin-top:10px;
+  font-weight:900;
+  color:#e8f0ff;
 }
 
+.summary{
+  margin-top:14px;
+  color:#f0f4ff;
+  line-height:1.65;
+  max-width:60ch;
+  opacity:0.95;
+}
+
+/* BUTTONS — outline pills */
 .btn{
   display:inline-block;
-  margin-top:14px;
+  margin-top:18px;
+  margin-right:10px;
   padding:10px 16px;
   border-radius:999px;
   font-weight:900;
   font-size:13px;
   text-decoration:none;
-  border:1px solid var(--blue);
+  border:1px solid rgba(255,255,255,0.35);
+  color:#fff;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
 }
-.btn.primary{
-  background:var(--blue);
-  color:white;
+.btn:hover{
+  background:rgba(255,255,255,0.14);
+  border-color:rgba(255,255,255,0.5);
 }
 
+/* PORTRAIT */
 .portrait{
   position:relative;
   display:flex;
   justify-content:center;
 }
+
+/* BIG WHITE RING */
 .circle{
-  width:320px;height:320px;
+  width:340px;height:340px;
   border-radius:50%;
-  background:white;
-  border:6px solid #fff;
-  box-shadow:var(--shadow);
+  background:rgba(255,255,255,0.18);
+  border:10px solid rgba(255,255,255,0.92);
+  box-shadow:0 18px 40px rgba(0,0,0,0.18);
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
 }
+
 .circle img{
   width:270px;height:270px;
   border-radius:50%;
@@ -118,82 +145,40 @@ h1{margin:0;font-size:44px}
   object-position:50% 18%;
 }
 
+/* FLOATING TAGS */
 .tag{
   position:absolute;
-  background:white;
-  border:1px solid var(--line);
+  background:rgba(255,255,255,0.92);
+  border:1px solid rgba(255,255,255,0.9);
   border-radius:999px;
   padding:8px 12px;
   font-size:13px;
-  font-weight:800;
-  box-shadow:var(--shadow);
-}
-.tag1{top:18px;left:-12px}
-.tag2{top:122px;right:-12px}
-.tag3{bottom:28px;left:18px}
+  font-weight:900;
+  box-shadow:0 14px 30px rgba(0,0,0,0.16);
+  color:#0a2540;
 
-.card{
-  background:white;
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  padding:20px;
-}
-.section-title{text-align:center;margin-bottom:22px}
-.section-title h2{margin:0;font-size:32px}
-.section-title p{margin:6px 0 0;color:var(--muted)}
-
-.bubbles{display:grid;gap:12px}
-.bubble{
-  display:flex;gap:12px;align-items:center;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:14px;
-  box-shadow:var(--shadow);
-}
-.bubble .icon{
-  width:40px;height:40px;
-  background:#eef4fb;
-  border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-}
-.bubble b{font-size:12px;color:var(--accent)}
-.bubble span{display:block;font-weight:900}
-
-.edu-grid{display:grid;gap:14px}
-.edu-date{color:var(--accent);font-weight:900;font-size:13px}
-.edu-title{font-weight:950;margin:6px 0}
-.edu-school{color:var(--muted);font-weight:800;margin-bottom:8px}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.tags span{
-  background:#eef4fb;
-  border:1px solid #d9e6fb;
-  border-radius:999px;
-  padding:6px 10px;
-  font-size:12px;
-  font-weight:800;
+  animation: floatY 6s ease-in-out infinite;
 }
 
-.skills-grid{display:grid;gap:14px}
-@media(min-width:900px){
-  .skills-grid{grid-template-columns:1fr 1fr 1fr}
+.tag1{top:-6px;left:10px;animation-delay:0s}
+.tag2{top:120px;right:-14px;animation-delay:1.5s}
+.tag3{bottom:18px;left:12px;animation-delay:3s}
+
+@keyframes floatY{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+  100%{transform:translateY(0)}
 }
-.skillcol{padding:18px}
 
-.exp .role{padding:12px 0;border-top:1px solid var(--line)}
-.exp .role:first-child{border-top:none}
-
-.pass-grid{display:grid;gap:14px}
-@media(min-width:900px){ .pass-grid{grid-template-columns:1.2fr .8fr} }
-
-.touch-grid{display:grid;gap:14px}
-@media(min-width:900px){
-  .touch-grid{grid-template-columns:1fr 1fr 1fr 1fr}
+/* DOT ICON (first badge) */
+.dot{
+  display:inline-block;
+  width:8px;height:8px;
+  border-radius:50%;
+  background:#ff4d6d;
+  margin-right:8px;
+  vertical-align:middle;
 }
-.touch{text-align:center}
-
-footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
 </style>
 </head>
 
@@ -220,21 +205,27 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
       <h1>Aurélien Henry <span class="name2">Galmiche</span></h1>
 
       <div class="headline">
-        Finance Accountant | AP/AR • Financial Reporting • SAP S4 Hana | Interested in AI & Process Optimization
+        Finance Accountant | AP/AR • Financial Reporting • SAP S4 Hana |
+        Interested in AI & Process Optimization
       </div>
 
       <p class="summary">
         Finance professional with accounting experience since 2010 (16 years).
-        Specialized in AP/AR, reconciliations, reporting and SAP S/4HANA processes in international environments.
-        Versatile profile across private and public sectors, collections and legal-context accounting.
+        Specialized in AP/AR, reconciliations, reporting and SAP S/4HANA processes
+        in international environments.
+        Versatile profile across private and public sectors, collections and
+        legal-context accounting.
         Strong curiosity for AI 🤖🧠🚀 and continuous process improvement ✨.
       </p>
 
-      <a class="btn primary" href="CV_Aurelien_Henry_Galmiche.pdf" download>Download CV</a>
-      <a href="https://www.linkedin.com/in/aurélien-henry-galmiche-687329102">
-  <img src="https://img.shields.io/badge/LinkedIn-Profile-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white">
-</a>
-      
+      <a class="btn" href="CV_Aurelien_Henry_Galmiche.pdf" download>
+        Download CV
+      </a>
+
+      <a class="btn"
+         href="https://www.linkedin.com/in/aurélien-henry-galmiche-687329102">
+        LinkedIn Profile
+      </a>
     </div>
 
     <div class="portrait">
@@ -242,7 +233,11 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
         <img src="photo.png" alt="Aurélien Henry Galmiche">
       </div>
 
-      <div class="tag tag1">📍 Brunstatt 🇫🇷 · Bouznika 🇲🇦</div>
+      <div class="tag tag1">
+        <span class="dot"></span>
+        Brunstatt FR · Bouznika MA
+      </div>
+
       <div class="tag tag2">🌍 International Accounting</div>
       <div class="tag tag3">🤖 AI Curiosity</div>
     </div>
@@ -516,3 +511,4 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
     </div>
   </div>
 </section>
+
