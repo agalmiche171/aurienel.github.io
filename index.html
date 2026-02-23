@@ -41,6 +41,7 @@ nav .wrap{
   padding:10px 18px;
 }
 .brand{font-weight:900;font-size:14px}
+.links{display:flex;flex-wrap:wrap;justify-content:flex-end}
 .links a{
   margin-left:10px;
   text-decoration:none;
@@ -52,6 +53,7 @@ nav .wrap{
   border:1px solid var(--line);
   background:#fff;
 }
+.links a:hover{background:#eef3fa}
 
 .hero{
   padding:100px 0 38px;
@@ -60,11 +62,11 @@ nav .wrap{
 .hero-grid{
   display:grid;gap:24px;
   grid-template-columns:1fr;
+  align-items:center;
 }
 @media(min-width:900px){
   .hero-grid{grid-template-columns:1.1fr .9fr}
 }
-
 h1{margin:0;font-size:44px}
 .name2{color:var(--accent)}
 .headline{
@@ -72,12 +74,26 @@ h1{margin:0;font-size:44px}
   font-weight:800;
   color:var(--blue2);
 }
-
 .summary{
   margin-top:12px;
   color:var(--muted);
   line-height:1.65;
   max-width:60ch;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:14px;
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:13px;
+  text-decoration:none;
+  border:1px solid var(--blue);
+}
+.btn.primary{
+  background:var(--blue);
+  color:white;
 }
 
 .portrait{
@@ -126,11 +142,28 @@ h1{margin:0;font-size:44px}
 .section-title h2{margin:0;font-size:32px}
 .section-title p{margin:6px 0 0;color:var(--muted)}
 
+.bubbles{display:grid;gap:12px}
+.bubble{
+  display:flex;gap:12px;align-items:center;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px;
+  box-shadow:var(--shadow);
+}
+.bubble .icon{
+  width:40px;height:40px;
+  background:#eef4fb;
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+}
+.bubble b{font-size:12px;color:var(--accent)}
+.bubble span{display:block;font-weight:900}
+
 .edu-grid{display:grid;gap:14px}
 .edu-date{color:var(--accent);font-weight:900;font-size:13px}
 .edu-title{font-weight:950;margin:6px 0}
 .edu-school{color:var(--muted);font-weight:800;margin-bottom:8px}
-
 .tags{display:flex;flex-wrap:wrap;gap:6px}
 .tags span{
   background:#eef4fb;
@@ -141,20 +174,24 @@ h1{margin:0;font-size:44px}
   font-weight:800;
 }
 
+.skills-grid{display:grid;gap:14px}
+@media(min-width:900px){
+  .skills-grid{grid-template-columns:1fr 1fr 1fr}
+}
+.skillcol{padding:18px}
+
 .exp .role{padding:12px 0;border-top:1px solid var(--line)}
 .exp .role:first-child{border-top:none}
+
+.pass-grid{display:grid;gap:14px}
+@media(min-width:900px){ .pass-grid{grid-template-columns:1.2fr .8fr} }
 
 .touch-grid{display:grid;gap:14px}
 @media(min-width:900px){
   .touch-grid{grid-template-columns:1fr 1fr 1fr 1fr}
 }
 .touch{text-align:center}
-.touch .icon{
-  width:40px;height:40px;margin:auto;
-  border-radius:12px;background:#eef4fb;
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:8px;
-}
+
 footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
 </style>
 </head>
@@ -177,19 +214,22 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
 
 <header class="hero">
   <div class="wrap hero-grid">
+
     <div>
       <h1>Aurélien Henry <span class="name2">Galmiche</span></h1>
 
-      <!-- UPDATED HEADLINE -->
       <div class="headline">
         Finance Accountant | AP/AR • Financial Reporting • SAP | Interested in AI & Process Optimization
       </div>
 
       <p class="summary">
-        Finance professional with accounting experience since 2010.
+        Finance professional with accounting experience since 2010 (16 years).
         Specialized in AP/AR, reconciliations, reporting and SAP S/4HANA processes in international environments.
         Versatile profile across private and public sectors, collections and legal-context accounting.
+        Strong curiosity for AI 🤖🧠🚀 and continuous process improvement ✨.
       </p>
+
+      <a class="btn primary" href="CV_Aurelien_Henry_Galmiche.pdf" download>Download CV</a>
     </div>
 
     <div class="portrait">
@@ -201,13 +241,257 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
       <div class="tag tag2">🌍 International Accounting</div>
       <div class="tag tag3">🤖 AI Curiosity</div>
     </div>
+
   </div>
 </header>
 
-<!-- Toutes les autres sections inchangées -->
-<!-- Education, Skills, Experience, Passions, Contact identiques à la version précédente -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>About</h2>
+      <p>Professional overview</p>
+    </div>
+
+    <div class="edu-grid">
+      <div class="card">
+        <p>
+          Finance Accountant with 16 years of experience across AP/AR, treasury, reconciliations and reporting.
+          I enjoy working in international environments and bring versatility from private/public accounting,
+          collections and legal-related finance activities.
+        </p>
+
+        <p>
+          I value accuracy, compliance and clear processes. I’m also strongly interested in AI 🤖🧠🚀
+          and automation opportunities in finance operations.
+        </p>
+
+        <b>Key facts</b>
+        <ul>
+          <li>Track invoices: 3 different business setup (SPC / RRD / ENDO)</li>
+          <li>Book VIM (~800 invoices per month)</li>
+          <li>Track approvals workflow</li>
+          <li>Book bank payments</li>
+          <li>Reconcile bank accounts</li>
+        </ul>
+      </div>
+
+      <div class="bubbles">
+        <div class="bubble">
+          <div class="icon">📍</div>
+          <div><b>LOCATION</b><span>Brunstatt 🇫🇷 / Bouznika 🇲🇦</span></div>
+        </div>
+
+        <div class="bubble">
+          <div class="icon">💼</div>
+          <div><b>ROLE</b><span>Finance Accountant</span></div>
+        </div>
+
+        <div class="bubble">
+          <div class="icon">🧾</div>
+          <div><b>SYSTEM</b><span>SAP S/4HANA</span></div>
+        </div>
+
+        <div class="bubble">
+          <div class="icon">🪪</div>
+          <div><b>WORK PERMIT</b><span>Frontalier G</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Education</h2>
+      <p>Schools & training</p>
+    </div>
+
+    <div class="edu-grid">
+
+      <div class="card edu-card">
+        <div class="edu-date">2007</div>
+        <div class="edu-title">Baccalauréat</div>
+        <div class="edu-school">France</div>
+      </div>
+
+      <div class="card edu-card">
+        <div class="edu-date">2007 – 2009</div>
+        <div class="edu-title">Brevet de Technicien Supérieur (BTS)</div>
+        <div class="edu-school">Lycée Georges Colomb — Lure</div>
+      </div>
+
+      <div class="card edu-card">
+        <div class="edu-date">2009 – 2010</div>
+        <div class="edu-title">Université de Franche-Comté</div>
+        <div class="edu-school">Besançon</div>
+      </div>
+
+      <div class="card edu-card">
+        <div class="edu-date">Continuous Learning</div>
+        <div class="edu-title">Professional Development</div>
+        <div class="edu-school">On-the-job learning</div>
+        <div class="tags">
+          <span>International Finance</span>
+          <span>Collections</span>
+          <span>Contracts</span>
+          <span>Process Improvement</span>
+          <span>German</span>
+          <span>AI</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Skills & Expertise</h2>
+      <p>Core strengths</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="card skillcol">
+        <h3>Finance & Accounting</h3>
+        <div class="tags">
+          <span>AP / AR</span>
+          <span>Reconciliations</span>
+          <span>Reporting</span>
+          <span>Collections</span>
+          <span>Multi-currency</span>
+        </div>
+      </div>
+
+      <div class="card skillcol">
+        <h3>Systems</h3>
+        <div class="tags">
+          <span>SAP S/4HANA</span>
+          <span>SAP</span>
+          <span>Synertrade</span>
+          <span>Excel</span>
+        </div>
+      </div>
+
+      <div class="card skillcol">
+        <h3>Strengths</h3>
+        <div class="tags">
+          <span>International</span>
+          <span>Versatile</span>
+          <span>Process Optimization</span>
+          <span>AI</span>
+          <span>Legal Awareness</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Experience</h2>
+      <p>Recent roles first</p>
+    </div>
+
+    <div class="card exp">
+
+      <div class="role">
+        <h3>Financial Accountant</h3>
+        <p><b>Recordati — Switzerland | 2024 – Present</b></p>
+        <p>~800 invoices/month · 3 working days processing · SAP S/4HANA</p>
+        <ul>
+          <li>Run AP operations and vendor follow-up</li>
+          <li>Perform reconciliations and month-end support</li>
+          <li>Ensure efficient invoice turnaround</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <h3>Accounts Payable & Billing Specialist</h3>
+        <p><b>Jet Aviation — Basel | 2022 – 2023</b></p>
+      </div>
+
+      <div class="role">
+        <h3>Finance Manager</h3>
+        <p><b>EHPAD Jean Monnet — France | 2021 – 2022</b></p>
+      </div>
+
+      <div class="role">
+        <h3>AR/AP Specialist</h3>
+        <p><b>CAPI Sécurité — France | 2019 – 2020</b></p>
+      </div>
+
+      <div class="role">
+        <h3>Accountant & Case Manager</h3>
+        <p><b>Judicial Officers — France | 2015 – 2019</b></p>
+      </div>
+
+      <div class="role">
+        <h3>Treasury Accountant</h3>
+        <p><b>Galeries Lafayette — France | 2010 – 2015</b></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="passions">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Passions & Interests</h2>
+    </div>
+
+    <div class="pass-grid">
+      <div class="card">
+        <h3>AI & Finance Innovation</h3>
+        <p>Interest in automation and AI applied to finance processes.</p>
+      </div>
+
+      <div class="card">
+        <h3>Travel</h3>
+        <p>Morocco and international cultures.</p>
+      </div>
+
+      <div class="card">
+        <h3>Football</h3>
+        <p>Team spirit and discipline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Contact</h2>
+    </div>
+
+    <div class="touch-grid">
+      <div class="card touch">
+        <b>Email</b><br>
+        <a href="mailto:aureliengalmiche89@gmail.com">aureliengalmiche89@gmail.com</a>
+      </div>
+
+      <div class="card touch">
+        <b>Phone</b><br>
+        <a href="tel:+33632396741">+33 6 32 39 67 41</a>
+      </div>
+
+      <div class="card touch">
+        <b>Location</b><br>
+        Brunstatt 🇫🇷 / Bouznika 🇲🇦
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>© <span id="y"></span> Aurélien Henry Galmiche</footer>
+
 <script>
 document.getElementById("y").textContent = new Date().getFullYear();
 </script>
