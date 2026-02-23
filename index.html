@@ -56,14 +56,19 @@ nav .wrap{
 .links a:hover{background:#eef3fa}
 
 .hero{
-  padding:100px 0 38px;
-  position:relative;
-  background:
-    linear-gradient(90deg, rgba(10,37,64,0.85) 0%, rgba(10,37,64,0.75) 40%, rgba(10,37,64,0.35) 70%),
-    url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png");
-  background-size:cover;
-  background-position:center right;
-  color:#fff;
+.hero-text::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  padding:1px;
+  background:linear-gradient(120deg, transparent, rgba(110,168,255,0.6), transparent);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+}
 }
 
 h1{
@@ -579,6 +584,7 @@ SAP S/4HANA
     </div>
   </div>
 </section>
+
 
 
 
