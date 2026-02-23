@@ -142,10 +142,10 @@ h1{
   animation:floatY 6s ease-in-out infinite;
 }
 
-.tag1{ top:-8px; left:-8px; animation-delay:0s; }
-.tag2{ top:-8px; right:-8px; animation-delay:1.5s; }
-.tag3{ bottom:-8px; left:-8px; animation-delay:3s; }
-.tag4{ bottom:-8px; right:-8px; animation-delay:4.5s; }
+.tag1{ top:-10px; left:50%; --tx:-50%; animation-delay:0s; }        
+.tag2{ top:50%; right:-10px; --tx:0px;  animation-delay:1.5s; }     
+.tag3{ bottom:-10px; left:50%; --tx:-50%; animation-delay:3s; }      
+.tag4{ top:50%; left:-10px; --tx:0px;  animation-delay:4.5s; }       
 
 @keyframes floatY{
   0%{transform:translateY(0)}
@@ -540,6 +540,7 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
     </div>
   </div>
 </section>
+
 
 
 
