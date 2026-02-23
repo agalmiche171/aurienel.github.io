@@ -57,41 +57,39 @@ nav .wrap{
 
 .hero{
   padding:100px 0 38px;
-
+  position:relative;
   background:
-    linear-gradient(90deg,
-      rgba(10,37,64,0.85) 0%,
-      rgba(10,37,64,0.75) 35%,
-      rgba(10,37,64,0.35) 65%,
-      rgba(10,37,64,0.15) 100%
-    ),
+    linear-gradient(90deg, rgba(10,37,64,0.85) 0%, rgba(10,37,64,0.75) 40%, rgba(10,37,64,0.35) 70%),
     url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png");
-
   background-size:cover;
   background-position:center right;
-  background-repeat:no-repeat;
+  color:#fff;
 }
+
+h1{
+  margin:0;
+  font-size:44px;
+  color:#ffffff;
+  text-shadow:0 2px 12px rgba(0,0,0,0.35);
 }
-.hero-grid{
-  display:grid;gap:24px;
-  grid-template-columns:1fr;
-  align-items:center;
+
+.name2{
+  color:#6ea8ff; /* bleu moderne lumineux */
 }
-@media(min-width:900px){
-  .hero-grid{grid-template-columns:1.1fr .9fr}
-}
-h1{margin:0;font-size:44px}
-.name2{color:var(--accent)}
+
 .headline{
-  margin-top:8px;
-  font-weight:800;
-  color:var(--blue2);
+  margin-top:10px;
+  font-weight:700;
+  color:#dbe7ff;
+  text-shadow:0 1px 8px rgba(0,0,0,0.35);
 }
+
 .summary{
-  margin-top:12px;
-  color:var(--muted);
-  line-height:1.65;
+  margin-top:14px;
+  color:#e8f0ff;
+  line-height:1.7;
   max-width:60ch;
+  text-shadow:0 1px 6px rgba(0,0,0,0.35);
 }
 
 .btn{
@@ -540,6 +538,7 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
     </div>
   </div>
 </section>
+
 
 
 
