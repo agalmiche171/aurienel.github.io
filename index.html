@@ -59,15 +59,43 @@ nav .wrap{
 .hero{
   padding:100px 0 38px;
   position:relative;
-  background:
-    linear-gradient(90deg, rgba(10,37,64,0.85) 0%, rgba(10,37,64,0.75) 40%, rgba(10,37,64,0.35) 70%),
-    url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png");
-  background-size:cover;
-  background-position:center right;
   color:#fff;
+  overflow:hidden;
+
+  /* gradient fixe */
+  background:linear-gradient(
+    90deg,
+    rgba(10,37,64,0.85) 0%,
+    rgba(10,37,64,0.75) 40%,
+    rgba(10,37,64,0.35) 70%
+  );
 }
 
-/* ✅ missing in your prompt */
+/* globe animé */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png") center right / cover no-repeat;
+  z-index:0;
+
+  transform-origin:70% 50%;
+  animation: rotateGlobe 120s linear infinite;
+}
+
+@keyframes rotateGlobe{
+  0%{ transform:rotate(-2deg); }
+  50%{ transform:rotate(2deg); }
+  100%{ transform:rotate(-2deg); }
+}
+
+/* contenu au-dessus du globe */
+.hero > .wrap{
+  position:relative;
+  z-index:1;
+}
+
+/* HERO GRID */
 .hero-grid{
   display:grid;
   gap:24px;
@@ -117,7 +145,7 @@ h1{
 
 /* PORTRAIT */
 .portrait{
-  position:relative; /* anchor for tags */
+  position:relative;
   display:flex;
   justify-content:center;
 }
@@ -137,7 +165,7 @@ h1{
   object-position:50% 18%;
 }
 
-/* ✅ CLEAN TAGS (AI-ish + MOVING) */
+/* TAGS */
 .tag{
   position:absolute;
   z-index:3;
@@ -150,7 +178,6 @@ h1{
   box-shadow:0 14px 30px rgba(0,0,0,0.18);
   color:#0a2540;
 
-  /* float without breaking positioning */
   --fy:0px;
   transform:translate(var(--x), calc(var(--y) + var(--fy)));
   animation: floatSoft 6s ease-in-out infinite;
@@ -163,82 +190,12 @@ h1{
   100%{--fy:0px}
 }
 
-@media (prefers-reduced-motion: reduce){
-  .tag{animation:none}
-}
-
-/* anchor at circle center */
 .tag1,.tag2,.tag3,.tag4{ top:50%; left:50%; }
+.tag1{ --x:-50%;  --y:-150px; animation-delay:0s; }
+.tag2{ --x:150px; --y:-20px;  animation-delay:1.5s; }
+.tag3{ --x:-50%;  --y:165px;  animation-delay:3s; }
+.tag4{ --x:-245px; --y:40px;  animation-delay:4.5s; }
 
-/* positions around portrait */
-.tag1{ --x:-50%;  --y:-150px; animation-delay:0s; }   /* head level */
-.tag2{ --x:150px; --y:-20px;  animation-delay:1.5s; } /* right */
-.tag3{ --x:-50%;  --y:165px;  animation-delay:3s; }   /* bottom */
-.tag4{ --x:-245px; --y:40px;  animation-delay:4.5s; } /* hands level (left) */
-
-/* REST */
-.card{
-  background:white;
-  border-radius:var(--radius);
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  padding:20px;
-}
-.section-title{text-align:center;margin-bottom:22px}
-.section-title h2{margin:0;font-size:32px}
-.section-title p{margin:6px 0 0;color:var(--muted)}
-
-.bubbles{display:grid;gap:12px}
-.bubble{
-  display:flex;gap:12px;align-items:center;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:14px;
-  box-shadow:var(--shadow);
-}
-.bubble .icon{
-  width:40px;height:40px;
-  background:#eef4fb;
-  border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-}
-.bubble b{font-size:12px;color:var(--accent)}
-.bubble span{display:block;font-weight:900}
-
-.edu-grid{display:grid;gap:14px}
-.edu-date{color:var(--accent);font-weight:900;font-size:13px}
-.edu-title{font-weight:950;margin:6px 0}
-.edu-school{color:var(--muted);font-weight:800;margin-bottom:8px}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.tags span{
-  background:#eef4fb;
-  border:1px solid #d9e6fb;
-  border-radius:999px;
-  padding:6px 10px;
-  font-size:12px;
-  font-weight:800;
-}
-
-.skills-grid{display:grid;gap:14px}
-@media(min-width:900px){
-  .skills-grid{grid-template-columns:1fr 1fr 1fr}
-}
-.skillcol{padding:18px}
-
-.exp .role{padding:12px 0;border-top:1px solid var(--line)}
-.exp .role:first-child{border-top:none}
-
-.pass-grid{display:grid;gap:14px}
-@media(min-width:900px){ .pass-grid{grid-template-columns:1.2fr .8fr} }
-
-.touch-grid{display:grid;gap:14px}
-@media(min-width:900px){
-  .touch-grid{grid-template-columns:1fr 1fr 1fr 1fr}
-}
-.touch{text-align:center}
-
-footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
 </style>
 </head>
 
@@ -572,6 +529,7 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
     </div>
   </div>
 </section>
+
 
 
 
