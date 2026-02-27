@@ -55,55 +55,71 @@ nav .wrap{
 }
 .links a:hover{background:#eef3fa}
 
-/* HERO */
+/* HERO (image statique comme avant) */
 .hero{
   padding:100px 0 38px;
   position:relative;
   color:#fff;
   overflow:hidden;
 
-  /* gradient fixe */
-  background:linear-gradient(
+  /* image complète statique */
+  background: url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png");
+  background-size:cover;
+  background-position:center right;
+}
+
+/* dégradé sombre AU-DESSUS de l'image (pour la clarté/lisibilité) */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
     90deg,
     rgba(10,37,64,0.85) 0%,
     rgba(10,37,64,0.75) 40%,
     rgba(10,37,64,0.35) 70%
   );
+  z-index:1;
+  pointer-events:none;
 }
 
-/* globe animé */
+/* globe SEUL animé (découpage en cercle) */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
-  background:url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png") center right / cover no-repeat;
-  z-index:0;
 
-  transform-origin:70% 50%;
-  animation: rotateGlobe 120s linear infinite;
+  /* on remet la même image, parfaitement alignée */
+  background: url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png");
+  background-size:cover;
+  background-position:center right;
+
+  /* on découpe un cercle autour du globe (à ajuster si besoin) */
+  clip-path: circle(260px at 86% 52%);
+
+  /* rotation autour du centre du cercle */
+  transform-origin: 86% 52%;
+  animation: globeSpin 80s linear infinite;
+
+  z-index:2;
+  pointer-events:none;
 }
 
-@keyframes rotateGlobe{
-  0%{ transform:rotate(-2deg); }
-  50%{ transform:rotate(2deg); }
-  100%{ transform:rotate(-2deg); }
-}
-
-/* contenu au-dessus du globe */
+/* contenu au-dessus */
 .hero > .wrap{
   position:relative;
-  z-index:1;
+  z-index:3;
 }
 
-/* HERO GRID */
-.hero-grid{
-  display:grid;
-  gap:24px;
-  grid-template-columns:1fr;
-  align-items:center;
+/* rotation douce */
+@keyframes globeSpin{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
 }
-@media(min-width:900px){
-  .hero-grid{grid-template-columns:1.1fr .9fr}
+
+/* accessibilité */
+@media (prefers-reduced-motion: reduce){
+  .hero::after{ animation:none; }
 }
 
 h1{
@@ -529,6 +545,7 @@ h1{
     </div>
   </div>
 </section>
+
 
 
 
