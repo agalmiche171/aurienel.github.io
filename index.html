@@ -84,39 +84,34 @@ nav .wrap{
 }
 
 /* globe SEUL animé (découpage en cercle) */
+/* globe ENTIER animé */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
 
-  /* on remet la même image, parfaitement alignée */
-  background: url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png");
+  background:url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png");
   background-size:cover;
   background-position:center right;
 
-  /* on découpe un cercle autour du globe (à ajuster si besoin) */
-  clip-path: circle(260px at 86% 52%);
+  /* cercle couvrant tout le globe */
+  clip-path: circle(420px at 87% 52%);
 
-  /* rotation autour du centre du cercle */
-  transform-origin: 86% 52%;
-  animation: globeSpin 80s linear infinite;
+  /* centre du globe */
+  transform-origin:87% 52%;
+
+  /* rotation Terre réelle (droite → gauche visuellement) */
+  animation: globeSpin 120s linear infinite reverse;
 
   z-index:2;
   pointer-events:none;
 }
 
-/* contenu au-dessus */
-.hero > .wrap{
-  position:relative;
-  z-index:3;
-}
-
-/* rotation douce */
+/* rotation */
 @keyframes globeSpin{
   from{ transform:rotate(0deg); }
   to{ transform:rotate(360deg); }
 }
-
 /* accessibilité */
 @media (prefers-reduced-motion: reduce){
   .hero::after{ animation:none; }
@@ -545,6 +540,7 @@ h1{
     </div>
   </div>
 </section>
+
 
 
 
