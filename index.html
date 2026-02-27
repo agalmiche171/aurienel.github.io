@@ -56,24 +56,23 @@ nav .wrap{
 .links a:hover{background:#eef3fa}
 
 /* HERO (image statique comme avant) */
+/* HERO : image statique + contenu au-dessus (police/lisibilité OK) */
 .hero{
   padding:100px 0 38px;
   position:relative;
   color:#fff;
   overflow:hidden;
 
-  /* image complète statique */
-  background: url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png");
-  background-size:cover;
-  background-position:center right;
+  /* fond statique (comme avant) */
+  background:url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png") center right / cover no-repeat;
 }
 
-/* dégradé sombre AU-DESSUS de l'image (pour la clarté/lisibilité) */
+/* voile lisibilité AU-DESSUS du fond, mais SOUS le texte */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background: linear-gradient(
+  background:linear-gradient(
     90deg,
     rgba(10,37,64,0.85) 0%,
     rgba(10,37,64,0.75) 40%,
@@ -83,36 +82,47 @@ nav .wrap{
   pointer-events:none;
 }
 
-/* globe SEUL animé (découpage en cercle) */
-/* globe ENTIER animé */
+/* GLOBE seul : masque circulaire + "rotation planète" via déplacement horizontal */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
 
-  background:url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png");
-  background-size:cover;
-  background-position:center right;
+  /* même image, parfaitement alignée */
+  background:url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png") no-repeat;
 
-  /* cercle couvrant tout le globe */
-  clip-path: circle(420px at 87% 52%);
+  /* IMPORTANT : on sur-zoome un peu pour pouvoir "glisser" sans voir de bords */
+  background-size:120% auto;
 
-  /* centre du globe */
-  transform-origin:87% 52%;
+  /* position de départ (centre du globe) */
+  background-position: 92% 52%;
 
-  /* rotation Terre réelle (droite → gauche visuellement) */
-  animation: globeSpin 120s linear infinite reverse;
+  /* masque : toute la planète (adaptatif) */
+  -webkit-clip-path: circle(clamp(320px, 28vw, 560px) at 88% 52%);
+  clip-path: circle(clamp(320px, 28vw, 560px) at 88% 52%);
 
-  z-index:2;
+  /* animation : sens planète (ouest -> est) */
+  animation: earthSpin 50s linear infinite;
+
+  /* entre voile et texte */
+  z-index:0;
   pointer-events:none;
+  opacity:1;
 }
 
-/* rotation */
-@keyframes globeSpin{
-  from{ transform:rotate(0deg); }
-  to{ transform:rotate(360deg); }
+/* Le contenu doit être au-dessus du voile */
+.hero .hero-grid{
+  position:relative;
+  z-index:2;
 }
-/* accessibilité */
+
+/* Terre : déplacement vers la gauche (sens typique visible) */
+@keyframes earthSpin{
+  from { background-position: 94% 52%; }
+  to   { background-position: 86% 52%; }
+}
+
+/* Accessibilité */
 @media (prefers-reduced-motion: reduce){
   .hero::after{ animation:none; }
 }
@@ -540,6 +550,7 @@ h1{
     </div>
   </div>
 </section>
+
 
 
 
