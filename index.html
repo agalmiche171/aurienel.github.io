@@ -55,76 +55,81 @@ nav .wrap{
 }
 .links a:hover{background:#eef3fa}
 
-/* HERO (image statique comme avant) */
-/* HERO : image statique + contenu au-dessus (police/lisibilité OK) */
+/* HERO : fond statique + overlay + globe séparé animé */
 .hero{
   padding:100px 0 38px;
   position:relative;
   color:#fff;
   overflow:hidden;
 
-  /* fond statique (comme avant) */
-  background:url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png") center right / cover no-repeat;
+  /* fond hero comme avant */
+  background:
+    linear-gradient(90deg,
+      rgba(10,37,64,0.85) 0%,
+      rgba(10,37,64,0.75) 40%,
+      rgba(10,37,64,0.35) 70%
+    ),
+    url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png");
+  background-size:cover;
+  background-position:center right;
 }
 
-/* voile lisibilité AU-DESSUS du fond, mais SOUS le texte */
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    90deg,
-    rgba(10,37,64,0.85) 0%,
-    rgba(10,37,64,0.75) 40%,
-    rgba(10,37,64,0.35) 70%
-  );
-  z-index:1;
-  pointer-events:none;
-}
-
-/* GLOBE seul : masque circulaire + "rotation planète" via déplacement horizontal */
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-
-  /* même image, parfaitement alignée */
-  background:url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png") no-repeat;
-
-  /* IMPORTANT : on sur-zoome un peu pour pouvoir "glisser" sans voir de bords */
-  background-size:120% auto;
-
-  /* position de départ (centre du globe) */
-  background-position: 92% 52%;
-
-  /* masque : toute la planète (adaptatif) */
-  -webkit-clip-path: circle(clamp(320px, 28vw, 560px) at 88% 52%);
-  clip-path: circle(clamp(320px, 28vw, 560px) at 88% 52%);
-
-  /* animation : sens planète (ouest -> est) */
-  animation: earthSpin 50s linear infinite;
-
-  /* entre voile et texte */
-  z-index:0;
-  pointer-events:none;
-  opacity:1;
-}
-
-/* Le contenu doit être au-dessus du voile */
+/* contenu au-dessus */
 .hero .hero-grid{
   position:relative;
+  z-index:3;
+}
+
+/* GLOBE : élément séparé = rotation réaliste (défilement horizontal) */
+.globe{
+  position:absolute;
+  right:-70px;          /* ajuste si tu veux +/− à droite */
+  top:50%;
+  transform:translateY(-50%) translateZ(0);
+  width:min(720px, 62vw);
+  aspect-ratio:1/1;
   z-index:2;
+  pointer-events:none;
+
+  /* même image (on se cale sur la zone globe à droite) */
+  background-image:url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png");
+  background-repeat:no-repeat;
+
+  /* on surdimensionne pour permettre le "wrap" visuel */
+  background-size:165% auto;
+
+  /* cale la zone globe (à ajuster légèrement si besoin) */
+  background-position: 98% 50%;
+
+  /* masque circulaire doux */
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 64%, transparent 68%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 64%, transparent 68%);
+
+  will-change: background-position;
+  animation: earthRotate 16s linear infinite;
 }
 
-/* Terre : déplacement vers la gauche (sens typique visible) */
-@keyframes earthSpin{
-  from { background-position: 94% 52%; }
-  to   { background-position: 86% 52%; }
+/* Rotation type Terre : texture qui se décale horizontalement */
+@keyframes earthRotate{
+  /* sens "Terre" visible : continents glissent vers la gauche */
+  from { background-position: 106% 50%; }
+  to   { background-position:  86% 50%; }
 }
 
-/* Accessibilité */
+/* accessibilité */
 @media (prefers-reduced-motion: reduce){
-  .hero::after{ animation:none; }
+  .globe{ animation:none; }
+}
+
+/* HERO GRID */
+.hero-grid{
+  display:grid;
+  gap:24px;
+  grid-template-columns:1fr;
+  align-items:center;
+}
+@media(min-width:900px){
+  .hero-grid{grid-template-columns:1.1fr .9fr}
 }
 
 h1{
@@ -216,7 +221,6 @@ h1{
 .tag2{ --x:150px; --y:-20px;  animation-delay:1.5s; }
 .tag3{ --x:-50%;  --y:165px;  animation-delay:3s; }
 .tag4{ --x:-245px; --y:40px;  animation-delay:4.5s; }
-
 </style>
 </head>
 
@@ -253,8 +257,8 @@ h1{
         Strong curiosity for AI 🤖🧠🚀 and continuous process improvement ✨.
       </p>
 
-      <a class="btn primary" href="CV_Aurelien_Henry_Galmiche.pdf" download>Download CV</a>  
-      <a class="btn primary" href="https://www.linkedin.com/in/aurélien-henry-galmiche-687329102" target="_blank">
+      <a class="btn primary" href="CV_Aurelien_Henry_Galmiche.pdf" download>Download CV</a>
+      <a class="btn primary" href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
              alt="LinkedIn"
              style="width:18px; filter:invert(1); vertical-align:middle;">
@@ -275,10 +279,12 @@ h1{
              alt="SAP" style="height:14px; margin-right:2px; vertical-align:middle;">
         SAP S/4HANA
       </div>
-
     </div>
 
   </div>
+
+  <!-- ✅ globe séparé qui tourne -->
+  <div class="globe" aria-hidden="true"></div>
 </header>
 
 </body>
@@ -550,6 +556,7 @@ h1{
     </div>
   </div>
 </section>
+
 
 
 
