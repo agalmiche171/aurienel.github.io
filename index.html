@@ -568,6 +568,109 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CV – Experience</title>
   <link rel="stylesheet" href="style.css" />
+  /* ===== EXPERIENCE ONLY ===== */
+
+.exp .role-ai{
+  display:flex;
+  gap:16px;
+  padding:16px 18px;
+  border-radius:16px;
+  background:#ffffff;
+  border:1px solid rgba(120,130,160,0.18);
+  position:relative;
+  overflow:hidden;
+}
+
+.exp .role-ai::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:16px;
+  padding:1px;
+  background:linear-gradient(120deg,#7c5cff55,#00c2ff44,#7c5cff33);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+}
+
+.exp .logo-col{
+  width:46px;
+  flex-shrink:0;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:2px;
+}
+
+.exp .logo-col img{
+  width:30px;
+  height:30px;
+  object-fit:contain;
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+.exp .role-content{
+  flex:1;
+  min-width:0;
+}
+
+.exp .role-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.exp .role-content h3{
+  margin:0;
+  font-size:18px;
+}
+
+.exp .ai-chip{
+  font-size:11px;
+  padding:3px 10px;
+  border-radius:999px;
+  background:rgba(124,92,255,0.12);
+  border:1px solid rgba(124,92,255,0.25);
+  white-space:nowrap;
+}
+
+.exp .role-meta{
+  margin:4px 0 8px 0;
+}
+
+.exp .ai-metrics{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:6px;
+}
+
+.exp .ai-metrics span{
+  font-size:12px;
+  padding:3px 8px;
+  border-radius:10px;
+  background:rgba(0,194,255,0.08);
+  border:1px solid rgba(0,194,255,0.25);
+}
+
+.exp .role-ai ul{
+  margin:6px 0 0 18px;
+}
+
+.exp .role-ai li{
+  line-height:1.4;
+}
+
+@media (max-width:560px){
+  .exp .role-ai{ padding:14px; }
+  .exp .logo-col{ width:40px; }
+  .exp .logo-col img{ width:28px;height:28px; }
+  .exp .role-header{ flex-direction:column; align-items:flex-start; }
+}
 </head>
 
 <body>
@@ -795,6 +898,7 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
     </div>
   </div>
 </section>
+
 
 
 
