@@ -29,6 +29,7 @@ body{
 .wrap{max-width:1100px;margin:auto;padding:0 18px}
 section{padding:46px 0}
 
+/* NAV */
 nav{
   position:fixed;top:0;width:100%;
   background:#ffffffd9;
@@ -67,7 +68,6 @@ nav .wrap{
   color:#fff;
 }
 
-/* ✅ missing in your prompt */
 .hero-grid{
   display:grid;
   gap:24px;
@@ -117,7 +117,7 @@ h1{
 
 /* PORTRAIT */
 .portrait{
-  position:relative; /* anchor for tags */
+  position:relative;
   display:flex;
   justify-content:center;
 }
@@ -137,7 +137,7 @@ h1{
   object-position:50% 18%;
 }
 
-/* ✅ CLEAN TAGS (AI-ish + MOVING) */
+/* TAGS */
 .tag{
   position:absolute;
   z-index:3;
@@ -150,33 +150,26 @@ h1{
   box-shadow:0 14px 30px rgba(0,0,0,0.18);
   color:#0a2540;
 
-  /* float without breaking positioning */
   --fy:0px;
   transform:translate(var(--x), calc(var(--y) + var(--fy)));
   animation: floatSoft 6s ease-in-out infinite;
   will-change: transform;
 }
-
 @keyframes floatSoft{
   0%{--fy:0px}
   50%{--fy:-10px}
   100%{--fy:0px}
 }
-
 @media (prefers-reduced-motion: reduce){
   .tag{animation:none}
 }
-
-/* anchor at circle center */
 .tag1,.tag2,.tag3,.tag4{ top:50%; left:50%; }
+.tag1{ --x:-50%;  --y:-150px; animation-delay:0s; }
+.tag2{ --x:150px; --y:-20px;  animation-delay:1.5s; }
+.tag3{ --x:-50%;  --y:165px;  animation-delay:3s; }
+.tag4{ --x:-245px; --y:40px;  animation-delay:4.5s; }
 
-/* positions around portrait */
-.tag1{ --x:-50%;  --y:-150px; animation-delay:0s; }   /* head level */
-.tag2{ --x:150px; --y:-20px;  animation-delay:1.5s; } /* right */
-.tag3{ --x:-50%;  --y:165px;  animation-delay:3s; }   /* bottom */
-.tag4{ --x:-245px; --y:40px;  animation-delay:4.5s; } /* hands level (left) */
-
-/* REST */
+/* CARDS / SECTIONS */
 .card{
   background:white;
   border-radius:var(--radius);
@@ -226,19 +219,114 @@ h1{
 }
 .skillcol{padding:18px}
 
-.exp .role{padding:12px 0;border-top:1px solid var(--line)}
-.exp .role:first-child{border-top:none}
-
-.pass-grid{display:grid;gap:14px}
-@media(min-width:900px){ .pass-grid{grid-template-columns:1.2fr .8fr} }
-
-.touch-grid{display:grid;gap:14px}
-@media(min-width:900px){
-  .touch-grid{grid-template-columns:1fr 1fr 1fr 1fr}
+/* ===== EXPERIENCE ONLY (style AI scoped) ===== */
+#experience .card.exp{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 }
-.touch{text-align:center}
 
-footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
+#experience .role-ai{
+  display:flex;
+  gap:16px;
+  padding:16px 18px;
+  border-radius:16px;
+  background:#ffffff;
+  border:1px solid rgba(120,130,160,0.18);
+  position:relative;
+  overflow:hidden;
+}
+
+#experience .role-ai::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:16px;
+  padding:1px;
+  background:linear-gradient(120deg,#7c5cff55,#00c2ff44,#7c5cff33);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
+}
+
+#experience .logo-col{
+  width:46px;
+  flex-shrink:0;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:2px;
+}
+
+#experience .logo-col img{
+  width:30px;
+  height:30px;
+  object-fit:contain;
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+#experience .role-content{
+  flex:1;
+  min-width:0;
+}
+
+#experience .role-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+#experience .role-content h3{
+  margin:0;
+  font-size:18px;
+}
+
+#experience .ai-chip{
+  font-size:11px;
+  padding:3px 10px;
+  border-radius:999px;
+  background:rgba(124,92,255,0.12);
+  border:1px solid rgba(124,92,255,0.25);
+  white-space:nowrap;
+}
+
+#experience .role-meta{
+  margin:4px 0 8px 0;
+}
+
+#experience .ai-metrics{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:6px;
+}
+
+#experience .ai-metrics span{
+  font-size:12px;
+  padding:3px 8px;
+  border-radius:10px;
+  background:rgba(0,194,255,0.08);
+  border:1px solid rgba(0,194,255,0.25);
+}
+
+#experience .role-ai ul{
+  margin:6px 0 0 18px;
+}
+
+#experience .role-ai li{
+  line-height:1.4;
+}
+
+@media (max-width:560px){
+  #experience .role-ai{ padding:14px; }
+  #experience .logo-col{ width:40px; }
+  #experience .logo-col img{ width:28px;height:28px; }
+  #experience .role-header{ flex-direction:column; align-items:flex-start; }
+}
 </style>
 </head>
 
@@ -265,7 +353,7 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
       <h1>Aurélien Henry <span class="name2">Galmiche</span></h1>
 
       <div class="headline">
-        Finance Accountant | AP/AR • Financial Reporting • SAP S4 Hana | Interested in AI & Process Optimization
+        Finance Accountant | AP/AR • Financial Reporting • SAP S4 Hana | Interested in AI &amp; Process Optimization
       </div>
 
       <p class="summary">
@@ -275,8 +363,8 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
         Strong curiosity for AI 🤖🧠🚀 and continuous process improvement ✨.
       </p>
 
-      <a class="btn primary" href="CV_Aurelien_Henry_Galmiche.pdf" download>Download CV</a>  
-      <a class="btn primary" href="https://www.linkedin.com/in/aurélien-henry-galmiche-687329102" target="_blank">
+      <a class="btn primary" href="CV_Aurelien_Henry_Galmiche.pdf" download>Download CV</a>
+      <a class="btn primary" href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noopener">
         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
              alt="LinkedIn"
              style="width:18px; filter:invert(1); vertical-align:middle;">
@@ -297,15 +385,12 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
              alt="SAP" style="height:14px; margin-right:2px; vertical-align:middle;">
         SAP S/4HANA
       </div>
-
     </div>
 
   </div>
 </header>
 
-</body>
-</html>
-
+<!-- ABOUT -->
 <section id="about">
   <div class="wrap">
     <div class="section-title">
@@ -325,11 +410,10 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
           I value accuracy, compliance and clear processes. I’m also strongly interested in AI 🤖🧠🚀
           and automation opportunities in finance operations.
         </p>
-        
-  <p>
-          Rapid learning of business interests : Law, Pharma Industry, Aeronautic industry. 
-        </p>
 
+        <p>
+          Rapid learning of business interests : Law, Pharma Industry, Aeronautic industry.
+        </p>
 
         <b>Key facts - Career Success</b>
         <ul>
@@ -374,7 +458,6 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
     </div>
 
     <div class="edu-grid">
-
       <div class="card edu-card">
         <div class="edu-date">2005 - 2007</div>
         <div class="edu-title">French Baccalaureate Management Sciences & Technologies (specializing in Marketing & Accounting)</div>
@@ -406,7 +489,6 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
           <span>AI</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -455,363 +537,155 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
   </div>
 </section>
 
-<section class="section">
-  <h2>Experience</h2>
-/* ===== EXPERIENCE ONLY ===== */
-
-.exp .role-ai{
-  display:flex;
-  gap:16px;
-  padding:16px 18px;
-  border-radius:16px;
-  background:#ffffff;
-  border:1px solid rgba(120,130,160,0.18);
-  position:relative;
-  overflow:hidden;
-}
-
-.exp .role-ai::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:16px;
-  padding:1px;
-  background:linear-gradient(120deg,#7c5cff55,#00c2ff44,#7c5cff33);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  pointer-events:none;
-}
-
-.exp .logo-col{
-  width:46px;
-  flex-shrink:0;
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  padding-top:2px;
-}
-
-.exp .logo-col img{
-  width:30px;
-  height:30px;
-  object-fit:contain;
-  border-radius:8px;
-  background:#fff;
-  box-shadow:0 2px 6px rgba(0,0,0,0.08);
-}
-
-.exp .role-content{
-  flex:1;
-  min-width:0;
-}
-
-.exp .role-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
-
-.exp .role-content h3{
-  margin:0;
-  font-size:18px;
-}
-
-.exp .ai-chip{
-  font-size:11px;
-  padding:3px 10px;
-  border-radius:999px;
-  background:rgba(124,92,255,0.12);
-  border:1px solid rgba(124,92,255,0.25);
-  white-space:nowrap;
-}
-
-.exp .role-meta{
-  margin:4px 0 8px 0;
-}
-
-.exp .ai-metrics{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-bottom:6px;
-}
-
-.exp .ai-metrics span{
-  font-size:12px;
-  padding:3px 8px;
-  border-radius:10px;
-  background:rgba(0,194,255,0.08);
-  border:1px solid rgba(0,194,255,0.25);
-}
-
-.exp .role-ai ul{
-  margin:6px 0 0 18px;
-}
-
-.exp .role-ai li{
-  line-height:1.4;
-}
-
-/* mobile */
-@media (max-width:560px){
-  .exp .role-ai{ padding:14px; }
-  .exp .logo-col{ width:40px; }
-  .exp .logo-col img{ width:28px;height:28px; }
-  .exp .role-header{ flex-direction:column; align-items:flex-start; }
-
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV – Experience</title>
-  <link rel="stylesheet" href="style.css" />
-  
-  /* ===== EXPERIENCE ONLY ===== */
-
-.exp .role-ai{
-  display:flex;
-  gap:16px;
-  padding:16px 18px;
-  border-radius:16px;
-  background:#ffffff;
-  border:1px solid rgba(120,130,160,0.18);
-  position:relative;
-  overflow:hidden;
-}
-
-.exp .role-ai::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:16px;
-  padding:1px;
-  background:linear-gradient(120deg,#7c5cff55,#00c2ff44,#7c5cff33);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  pointer-events:none;
-}
-
-.exp .logo-col{
-  width:46px;
-  flex-shrink:0;
-  display:flex;
-  justify-content:center;
-  align-items:flex-start;
-  padding-top:2px;
-}
-
-.exp .logo-col img{
-  width:30px;
-  height:30px;
-  object-fit:contain;
-  border-radius:8px;
-  background:#fff;
-  box-shadow:0 2px 6px rgba(0,0,0,0.08);
-}
-
-.exp .role-content{
-  flex:1;
-  min-width:0;
-}
-
-.exp .role-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
-
-.exp .role-content h3{
-  margin:0;
-  font-size:18px;
-}
-
-.exp .ai-chip{
-  font-size:11px;
-  padding:3px 10px;
-  border-radius:999px;
-  background:rgba(124,92,255,0.12);
-  border:1px solid rgba(124,92,255,0.25);
-  white-space:nowrap;
-}
-
-.exp .role-meta{
-  margin:4px 0 8px 0;
-}
-
-.exp .ai-metrics{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-bottom:6px;
-}
-
-.exp .ai-metrics span{
-  font-size:12px;
-  padding:3px 8px;
-  border-radius:10px;
-  background:rgba(0,194,255,0.08);
-  border:1px solid rgba(0,194,255,0.25);
-}
-
-.exp .role-ai ul{
-  margin:6px 0 0 18px;
-}
-
-.exp .role-ai li{
-  line-height:1.4;
-}
-
-@media (max-width:560px){
-  .exp .role-ai{ padding:14px; }
-  .exp .logo-col{ width:40px; }
-  .exp .logo-col img{ width:28px;height:28px; }
-  .exp .role-header{ flex-direction:column; align-items:flex-start; }
-}
-</head>
-
-<body>
-  <section class="section">
-<h2>Experience</h2>
-
-<div class="card exp">
-
-  <!-- Recordati -->
-  <div class="role role-ai">
-    <div class="logo-col">
-      <img src="recordati7029.jpg" alt="Recordati">
+<!-- EXPERIENCE (AI style ONLY HERE) -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Experience</h2>
+      <p>Recent roles first</p>
     </div>
 
-    <div class="role-content">
-      <div class="role-header">
-        <h3>Account Payable specialist</h3>
-        <span class="ai-chip">AI-ready</span>
+    <div class="card exp">
+
+      <!-- Recordati -->
+      <div class="role role-ai">
+        <div class="logo-col">
+          <img src="recordati7029.jpg" alt="Recordati">
+        </div>
+
+        <div class="role-content">
+          <div class="role-header">
+            <h3>Account Payable specialist</h3>
+            <span class="ai-chip">AI-ready</span>
+          </div>
+
+          <p class="role-meta"><b>Recordati AG – Basel and Baar Switzerland | 2024 – Present</b></p>
+
+          <div class="ai-metrics">
+            <span>~800 invoices/month</span>
+            <span>3 days processing</span>
+            <span>SAP S/4HANA</span>
+          </div>
+
+          <ul>
+            <li>Handled end-to-end accounts payable and general accounting activities, including invoice processing, vendor and bank reconciliations (multi-currency), month- and quarter-end close, financial reporting by cost center, supplier onboarding (Synertrade), and payment run execution.</li>
+          </ul>
+        </div>
       </div>
 
-      <p class="role-meta"><b>Recordati AG – Basel and Baar Switzerland | 2024 – Present</b></p>
+      <!-- Jet Aviation -->
+      <div class="role role-ai">
+        <div class="logo-col">
+          <img src="20210119_JA_Full_Logo_Navy.jpg" alt="Jet Aviation">
+        </div>
 
-      <div class="ai-metrics">
-        <span>~800 invoices/month</span>
-        <span>3 days processing</span>
-        <span>SAP S/4HANA</span>
+        <div class="role-content">
+          <div class="role-header">
+            <h3>Account Payable & Billing Specialist</h3>
+            <span class="ai-chip">Automation</span>
+          </div>
+
+          <p class="role-meta"><b>Jet Aviation – Basel Switzerland | 2022 – 2023</b></p>
+
+          <div class="ai-metrics">
+            <span>SAP AP</span>
+            <span>Vendor reconciliation</span>
+            <span>Audit support</span>
+          </div>
+
+          <ul>
+            <li>Independently managed end-to-end AP processes in SAP (PO and non-PO), including vendor reconciliations, payment setup, advance payments, supplier master data maintenance, and audit support.</li>
+            <li>Managed client invoicing and cash application, including billing accuracy checks, discrepancy resolution, AR aging follow-up, and collaboration with sales/account teams; supported month- and year-end close.</li>
+          </ul>
+        </div>
       </div>
 
-      <ul>
-        <li>Handled end-to-end accounts payable and general accounting activities, including invoice processing, vendor and bank reconciliations (multi-currency), month- and quarter-end close, financial reporting by cost center, supplier onboarding (Synertrade), and payment run execution.</li>
-      </ul>
+      <!-- EHPAD -->
+      <div class="role role-ai">
+        <div class="logo-col">
+          <img src="capi.jpg" alt="EHPAD Jean Monnet">
+        </div>
+
+        <div class="role-content">
+          <div class="role-header">
+            <h3>Finance Manager</h3>
+            <span class="ai-chip">Leadership</span>
+          </div>
+
+          <p class="role-meta"><b>EHPAD Jean Monnet — Village-Neuf France | 2021 – 2022</b></p>
+
+          <ul>
+            <li>Led budgeting and financial planning, monitored performance against budget, and delivered management reporting with cost-saving and revenue optimization insights; prepared compliant financial statements and coordinated audits. Supervised accounting operations (AP, AR, payroll), approved transactions, and improved processes. Provided financial analysis and decision support, including investment evaluation and long-term strategic planning.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CAPI -->
+      <div class="role role-ai">
+        <div class="logo-col">
+          <img src="capi.jpg" alt="CAPI Sécurité">
+        </div>
+
+        <div class="role-content">
+          <div class="role-header">
+            <h3>AR/AP Specialist</h3>
+            <span class="ai-chip">Ops</span>
+          </div>
+
+          <p class="role-meta"><b>CAPI Sécurité — Saint-Louis France | 2019 – 2020</b></p>
+
+          <ul>
+            <li>Managed full-cycle accounts payable and receivable, including invoice processing and coding, vendor and customer reconciliations, payment execution, AR aging follow-up, discrepancy resolution, and maintenance of vendor/customer records; supported month-end close with accruals and reconciliations and handled billing and account inquiries.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Judicial Officers -->
+      <div class="role role-ai">
+        <div class="logo-col">
+          <img src="huissier de justice.jpg" alt="Judicial Officers">
+        </div>
+
+        <div class="role-content">
+          <div class="role-header">
+            <h3>Accountant & Case Manager - Saint-Louis and Ferrette</h3>
+            <span class="ai-chip">Compliance</span>
+          </div>
+
+          <p class="role-meta"><b>Judicial Officers — France | 2015 – 2019</b></p>
+
+          <ul>
+            <li>Maintained general ledger accuracy and recorded financial transactions, including client billing, payments, and expenses; managed invoicing, payment tracking, and vendor invoices while monitoring costs. Performed bank reconciliations, prepared financial reports, supported audits, and ensured compliance with accounting standards and regulatory requirements.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Galeries Lafayette -->
+      <div class="role role-ai">
+        <div class="logo-col">
+          <img src="galeries lafayette.jpg" alt="Galeries Lafayette">
+        </div>
+
+        <div class="role-content">
+          <div class="role-header">
+            <h3>Treasury Accountant</h3>
+            <span class="ai-chip">Treasury</span>
+          </div>
+
+          <p class="role-meta"><b>Galeries Lafayette — Belfort and Paris France | 2010 – 2015</b></p>
+
+          <ul>
+            <li>Monitored daily cash positions and liquidity, managed banking relationships, and prepared cash flow forecasts; executed treasury transactions and bank reconciliations while assessing financial risks and ensuring compliance with internal controls and regulatory requirements.</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
+</section>
 
-  <!-- Jet Aviation -->
-  <div class="role role-ai">
-    <div class="logo-col">
-      <img src="20210119_JA_Full_Logo_Navy.jpg" alt="Jet Aviation">
-    </div>
-
-    <div class="role-content">
-      <div class="role-header">
-        <h3>Account Payable & Billing Specialist</h3>
-        <span class="ai-chip">Automation</span>
-      </div>
-
-      <p class="role-meta"><b>Jet Aviation – Basel Switzerland | 2022 – 2023</b></p>
-
-      <div class="ai-metrics">
-        <span>SAP AP</span>
-        <span>Vendor reconciliation</span>
-        <span>Audit support</span>
-      </div>
-
-      <ul>
-        <li>Independently managed end-to-end AP processes in SAP (PO and non-PO), including vendor reconciliations, payment setup, advance payments, supplier master data maintenance, and audit support.</li>
-        <li>Managed client invoicing and cash application, including billing accuracy checks, discrepancy resolution, AR aging follow-up, and collaboration with sales/account teams; supported month- and year-end close.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- EHPAD -->
-  <div class="role role-ai">
-    <div class="logo-col">
-      <img src="capi.jpg" alt="EHPAD">
-    </div>
-
-    <div class="role-content">
-      <div class="role-header">
-        <h3>Finance Manager</h3>
-        <span class="ai-chip">Leadership</span>
-      </div>
-
-      <p class="role-meta"><b>EHPAD Jean Monnet — Village-Neuf France | 2021 – 2022</b></p>
-
-      <ul>
-        <li>Led budgeting and financial planning, monitored performance against budget, and delivered management reporting with cost-saving and revenue optimization insights; prepared compliant financial statements and coordinated audits. Supervised accounting operations (AP, AR, payroll), approved transactions, and improved processes. Provided financial analysis and decision support, including investment evaluation and long-term strategic planning.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- CAPI -->
-  <div class="role role-ai">
-    <div class="logo-col">
-      <img src="capi.jpg" alt="CAPI Sécurité">
-    </div>
-
-    <div class="role-content">
-      <div class="role-header">
-        <h3>AR/AP Specialist</h3>
-        <span class="ai-chip">Ops</span>
-      </div>
-
-      <p class="role-meta"><b>CAPI Sécurité — Saint-Louis France | 2019 – 2020</b></p>
-
-      <ul>
-        <li>Managed full-cycle accounts payable and receivable, including invoice processing and coding, vendor and customer reconciliations, payment execution, AR aging follow-up, discrepancy resolution, and maintenance of vendor/customer records; supported month-end close with accruals and reconciliations and handled billing and account inquiries.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Judicial Officers -->
-  <div class="role role-ai">
-    <div class="logo-col">
-      <img src="huissier de justice.jpg" alt="Judicial Officers">
-    </div>
-
-    <div class="role-content">
-      <div class="role-header">
-        <h3>Accountant & Case Manager - Saint-Louis and Ferrette</h3>
-        <span class="ai-chip">Compliance</span>
-      </div>
-
-      <p class="role-meta"><b>Judicial Officers — France | 2015 – 2019</b></p>
-
-      <ul>
-        <li>Maintained general ledger accuracy and recorded financial transactions, including client billing, payments, and expenses; managed invoicing, payment tracking, and vendor invoices while monitoring costs. Performed bank reconciliations, prepared financial reports, supported audits, and ensured compliance with accounting standards and regulatory requirements.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Galeries Lafayette -->
-  <div class="role role-ai">
-    <div class="logo-col">
-      <img src="galeries lafayette.jpg" alt="Galeries Lafayette">
-    </div>
-
-    <div class="role-content">
-      <div class="role-header">
-        <h3>Treasury Accountant</h3>
-        <span class="ai-chip">Treasury</span>
-      </div>
-
-      <p class="role-meta"><b>Galeries Lafayette — Belfort and Paris France | 2010 – 2015</b></p>
-
-      <ul>
-        <li>Monitored daily cash positions and liquidity, managed banking relationships, and prepared cash flow forecasts; executed treasury transactions and bank reconciliations while assessing financial risks and ensuring compliance with internal controls and regulatory requirements.</li>
-      </ul>
-    </div>
-  </div>
+</body>
+</html>
 
 </div>
   </section>
@@ -869,6 +743,7 @@ footer{text-align:center;padding:24px 0;color:var(--muted);font-weight:800}
     </div>
   </div>
 </section>
+
 
 
 
