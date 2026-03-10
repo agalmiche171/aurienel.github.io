@@ -374,6 +374,45 @@
       padding:18px;
     }
 
+    /* LIGHT AI STYLE FOR EDUCATION / SKILLS / RECOMMENDATIONS */
+    .edu-card,
+    .skillcol,
+    #recommendations .bubble,
+    #recommendations .intro-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,250,255,0.92));
+      border:1px solid rgba(120,130,160,0.16);
+      box-shadow:
+        0 20px 50px rgba(10,37,64,0.10),
+        inset 0 1px 0 rgba(255,255,255,0.85);
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .edu-card::before,
+    .skillcol::before,
+    #recommendations .bubble::before,
+    #recommendations .intro-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at top right, rgba(110,168,255,0.10), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(0,194,255,0.08), transparent 30%);
+      pointer-events:none;
+    }
+
+    .edu-card:hover,
+    .skillcol:hover,
+    #recommendations .bubble:hover,
+    #recommendations .intro-card:hover{
+      transform:translateY(-4px);
+      box-shadow:
+        0 24px 60px rgba(10,37,64,0.14),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+      border-color:rgba(110,168,255,0.24);
+    }
+
     /* FLAGS / LINKEDIN */
     .flag,
     .li-logo{
@@ -663,6 +702,8 @@
       transition:transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
       backdrop-filter:blur(14px);
       isolation:isolate;
+      display:flex;
+      flex-direction:column;
     }
 
     .hobby-card::before{
@@ -778,6 +819,8 @@
     /* RECOMMENDATIONS */
     #recommendations .intro-card p{
       line-height:1.7;
+      position:relative;
+      z-index:1;
     }
 
     .recommendations-row{
@@ -795,10 +838,14 @@
       margin:6px 0 0 0;
       color:var(--muted);
       line-height:1.55;
+      position:relative;
+      z-index:1;
     }
 
     #recommendations .bubble .btn{
       margin-top:12px;
+      position:relative;
+      z-index:1;
     }
 
     /* CONTACT AI STYLE */
@@ -851,6 +898,12 @@
       font-size:20px;
     }
 
+    .whatsapp-icon{
+      background:#e9fff2;
+      color:#18b85b;
+      font-size:22px;
+    }
+
     .contact-content{
       flex:1;
     }
@@ -870,13 +923,6 @@
       margin:4px 0 8px;
     }
 
-    .contact-text{
-      margin:0 0 12px 0;
-      color:var(--muted);
-      line-height:1.5;
-      word-break:break-word;
-    }
-
     .contact-ai a{
       color:var(--blue);
       font-weight:800;
@@ -886,6 +932,89 @@
 
     .contact-ai a:hover{
       text-decoration:underline;
+    }
+
+    /* FINAL AI MEDALLION */
+    .final-signature{
+      padding:10px 0 70px;
+      background:linear-gradient(180deg, rgba(245,248,252,0.4), rgba(245,248,252,1));
+    }
+
+    .final-signature-wrap{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+    }
+
+    .ai-profile-medal{
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width:210px;
+      height:210px;
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.72)),
+        linear-gradient(135deg, rgba(110,168,255,0.35), rgba(0,194,255,0.18));
+      box-shadow:
+        0 24px 70px rgba(10,37,64,0.18),
+        0 0 30px rgba(110,168,255,0.35),
+        0 0 60px rgba(0,194,255,0.18);
+      overflow:hidden;
+    }
+
+    .ai-profile-medal::before{
+      content:"";
+      position:absolute;
+      inset:8px;
+      border-radius:50%;
+      border:1px solid rgba(110,168,255,0.35);
+      box-shadow:inset 0 0 25px rgba(110,168,255,0.15);
+      pointer-events:none;
+    }
+
+    .ai-profile-medal::after{
+      content:"";
+      position:absolute;
+      width:280px;
+      height:280px;
+      border-radius:50%;
+      background:
+        conic-gradient(from 0deg, rgba(110,168,255,0.0), rgba(110,168,255,0.35), rgba(0,194,255,0.0), rgba(110,168,255,0.18), rgba(110,168,255,0.0));
+      animation:spinGlow 12s linear infinite;
+      opacity:0.9;
+      pointer-events:none;
+    }
+
+    .ai-profile-medal img{
+      position:relative;
+      z-index:1;
+      width:168px;
+      height:168px;
+      border-radius:50%;
+      object-fit:cover;
+      border:4px solid #fff;
+      box-shadow:
+        0 16px 35px rgba(0,0,0,0.18),
+        0 0 18px rgba(255,255,255,0.65);
+      background:#fff;
+    }
+
+    .final-signature p{
+      margin:0;
+      font-weight:800;
+      color:#5f7390;
+      letter-spacing:0.04em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+
+    @keyframes spinGlow{
+      from{transform:rotate(0deg);}
+      to{transform:rotate(360deg);}
     }
 
     /* SCROLL REVEAL */
@@ -990,6 +1119,16 @@
 
       .hobby-card{
         min-height:auto;
+      }
+
+      .ai-profile-medal{
+        width:180px;
+        height:180px;
+      }
+
+      .ai-profile-medal img{
+        width:144px;
+        height:144px;
       }
     }
   </style>
@@ -1276,10 +1415,10 @@
           </div>
           <div class="role-content">
             <div class="role-header">
-              <h3>Accountant & Case Manager - Saint-Louis and Ferrette</h3>
+              <h3>Accountant & Case Manager</h3>
               <span class="ai-chip">Compliance</span>
             </div>
-            <p class="role-meta"><b>Judicial Officers — France <span class="flag">🇫🇷</span> | 2015 – 2019</b></p>
+            <p class="role-meta"><b>Judicial Officers — Saint-Louis and Ferrette, France <span class="flag">🇫🇷</span> | 2015 – 2019</b></p>
             <ul>
               <li>Maintained general ledger accuracy and recorded financial transactions, including client billing, payments, and expenses; managed invoicing, payment tracking, and vendor invoices while monitoring costs. Performed bank reconciliations, prepared financial reports, supported audits, and ensured compliance with accounting standards and regulatory requirements.</li>
             </ul>
@@ -1487,18 +1626,16 @@
           <div class="contact-content">
             <div class="contact-label">Email</div>
             <span class="contact-title">Email Me</span>
-            <p class="contact-text">For opportunities, interviews and professional discussions.</p>
             <a href="mailto:aureliengalmiche89@gmail.com">aureliengalmiche89@gmail.com</a>
           </div>
         </div>
 
         <div class="contact-ai reveal reveal-delay-2">
-          <div class="contact-icon">📱</div>
+          <div class="contact-icon whatsapp-icon">🟢</div>
           <div class="contact-content">
             <div class="contact-label">Phone</div>
-            <span class="contact-title">Call Me</span>
-            <p class="contact-text">Available for direct contact regarding roles and collaborations.</p>
-            <a href="tel:+33632396741">+33 6 32 39 67 41</a>
+            <span class="contact-title">WhatsApp</span>
+            <a href="https://wa.me/33632396741" target="_blank" rel="noopener">+33 6 32 39 67 41</a>
           </div>
         </div>
 
@@ -1507,7 +1644,6 @@
           <div class="contact-content">
             <div class="contact-label">Address</div>
             <span class="contact-title">Postal Address</span>
-            <p class="contact-text">My mailing address for professional correspondence.</p>
             <a href="https://maps.google.com/?q=7+rue+des+capucins+68350+Brunstatt" target="_blank" rel="noopener">
               7 rue des capucins, F-68350 Brunstatt
             </a>
@@ -1532,12 +1668,23 @@
               </span>
             </div>
             <span class="contact-title">Professional Profile</span>
-            <p class="contact-text">Connect with me and view my professional background and recommendations.</p>
             <a href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noopener">
               View LinkedIn Profile
             </a>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL AI MEDALLION -->
+  <section class="final-signature">
+    <div class="wrap">
+      <div class="final-signature-wrap reveal">
+        <div class="ai-profile-medal">
+          <img src="moi132.png" alt="Aurélien Henry Galmiche AI medallion" />
+        </div>
+        <p>Aurélien Henry Galmiche</p>
       </div>
     </div>
   </section>
