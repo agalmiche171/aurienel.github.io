@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aurélien Henry Galmiche | SAP S/4HANA Specialist</title>
+  <title>Aurélien Henry Galmiche | Accounting Specialist</title>
 
   <style>
     :root{
@@ -19,15 +19,11 @@
       --shadow:0 18px 40px rgba(10,37,64,0.12);
       --dark:#071427;
       --dark2:#0c1c33;
-      --glow1:rgba(110,168,255,0.35);
-      --glow2:rgba(0,194,255,0.18);
     }
 
     *{box-sizing:border-box}
 
-    html{
-      scroll-behavior:smooth;
-    }
+    html{scroll-behavior:smooth}
 
     body{
       margin:0;
@@ -42,11 +38,8 @@
       padding:0 18px;
     }
 
-    section{
-      padding:46px 0;
-    }
+    section{padding:46px 0}
 
-    /* NAV */
     nav{
       position:fixed;
       top:0;
@@ -87,7 +80,7 @@
       border-radius:999px;
       border:1px solid var(--line);
       background:#fff;
-      transition:0.2s ease;
+      transition:.2s ease;
     }
 
     .links a:hover{
@@ -95,12 +88,11 @@
       transform:translateY(-1px);
     }
 
-    /* HERO */
     .hero{
       padding:100px 0 38px;
       position:relative;
       background:
-        linear-gradient(90deg, rgba(10,37,64,0.85) 0%, rgba(10,37,64,0.75) 40%, rgba(10,37,64,0.35) 70%),
+        linear-gradient(90deg, rgba(10,37,64,0.86) 0%, rgba(10,37,64,0.78) 40%, rgba(10,37,64,0.38) 70%),
         url("4efa6c05-1219-42cc-9d55-a384d9dac0d6.png");
       background-size:cover;
       background-position:center right;
@@ -115,27 +107,23 @@
     }
 
     @media(min-width:900px){
-      .hero-grid{
-        grid-template-columns:1.1fr .9fr;
-      }
+      .hero-grid{grid-template-columns:1.1fr .9fr}
     }
 
     h1{
       margin:0;
       font-size:44px;
-      color:#ffffff;
-      text-shadow:0 2px 12px rgba(0,0,0,0.35);
+      color:#fff;
+      text-shadow:0 2px 12px rgba(0,0,0,.35);
     }
 
-    .name2{
-      color:#6ea8ff;
-    }
+    .name2{color:#6ea8ff}
 
     .headline{
       margin-top:10px;
       font-weight:700;
       color:#dbe7ff;
-      text-shadow:0 1px 8px rgba(0,0,0,0.35);
+      text-shadow:0 1px 8px rgba(0,0,0,.35);
       line-height:1.5;
     }
 
@@ -143,8 +131,8 @@
       margin-top:14px;
       color:#e8f0ff;
       line-height:1.7;
-      max-width:60ch;
-      text-shadow:0 1px 6px rgba(0,0,0,0.35);
+      max-width:64ch;
+      text-shadow:0 1px 6px rgba(0,0,0,.35);
     }
 
     .hero-actions{
@@ -165,7 +153,7 @@
       font-size:13px;
       text-decoration:none;
       border:1px solid var(--blue);
-      transition:0.2s ease;
+      transition:.2s ease;
     }
 
     .btn.primary{
@@ -198,7 +186,6 @@
       padding:0;
     }
 
-    /* PORTRAIT */
     .portrait{
       position:relative;
       display:flex;
@@ -209,7 +196,7 @@
       width:320px;
       height:320px;
       border-radius:50%;
-      background:white;
+      background:#fff;
       border:6px solid #fff;
       box-shadow:var(--shadow);
       display:flex;
@@ -226,17 +213,16 @@
       object-position:50% 18%;
     }
 
-    /* TAGS */
     .tag{
       position:absolute;
       z-index:3;
-      background:rgba(255,255,255,0.92);
-      border:1px solid rgba(255,255,255,0.85);
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(255,255,255,.85);
       border-radius:999px;
       padding:8px 12px;
       font-size:13px;
       font-weight:800;
-      box-shadow:0 14px 30px rgba(0,0,0,0.18);
+      box-shadow:0 14px 30px rgba(0,0,0,.18);
       color:#0a2540;
       --fy:0px;
       transform:translate(var(--x), calc(var(--y) + var(--fy)));
@@ -250,19 +236,19 @@
       100%{--fy:0px}
     }
 
-    .tag1,.tag2,.tag3,.tag4{
+    .tag1,.tag2,.tag3,.tag4,.tag5{
       top:50%;
       left:50%;
     }
 
-    .tag1{ --x:-50%; --y:-150px; animation-delay:0s; }
-    .tag2{ --x:150px; --y:-20px; animation-delay:1.5s; }
-    .tag3{ --x:-50%; --y:165px; animation-delay:3s; }
-    .tag4{ --x:-245px; --y:40px; animation-delay:4.5s; }
+    .tag1{--x:-50%; --y:-152px; animation-delay:0s}
+    .tag2{--x:155px; --y:-15px; animation-delay:1.5s}
+    .tag3{--x:-58%; --y:170px; animation-delay:3s}
+    .tag4{--x:-250px; --y:30px; animation-delay:4.5s}
+    .tag5{--x:110px; --y:165px; animation-delay:2.2s}
 
-    /* GENERIC SECTIONS */
     .card{
-      background:white;
+      background:#fff;
       border-radius:var(--radius);
       border:1px solid var(--line);
       box-shadow:var(--shadow);
@@ -284,47 +270,32 @@
       color:var(--muted);
     }
 
-    .edu-grid{
+    .edu-grid{display:grid; gap:14px}
+
+    .skills-grid{
       display:grid;
       gap:14px;
     }
 
-    .bubbles{
-      display:grid;
-      gap:12px;
+    @media(min-width:900px){
+      .skills-grid{grid-template-columns:1fr 1fr 1fr}
     }
 
-    .bubble{
+    .skillcol{padding:18px}
+
+    .tags{
       display:flex;
-      gap:12px;
-      align-items:center;
-      background:white;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:14px;
-      box-shadow:var(--shadow);
+      flex-wrap:wrap;
+      gap:6px;
     }
 
-    .bubble .icon{
-      width:40px;
-      height:40px;
+    .tags span{
       background:#eef4fb;
-      border-radius:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-shrink:0;
-    }
-
-    .bubble b{
+      border:1px solid #d9e6fb;
+      border-radius:999px;
+      padding:6px 10px;
       font-size:12px;
-      color:var(--accent);
-      display:block;
-    }
-
-    .bubble span{
-      display:block;
-      font-weight:900;
+      font-weight:800;
     }
 
     .edu-date{
@@ -344,76 +315,76 @@
       margin-bottom:8px;
     }
 
-    .tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:6px;
-    }
-
-    .tags span{
-      background:#eef4fb;
-      border:1px solid #d9e6fb;
-      border-radius:999px;
-      padding:6px 10px;
-      font-size:12px;
-      font-weight:800;
-    }
-
-    .skills-grid{
-      display:grid;
-      gap:14px;
-    }
-
-    @media(min-width:900px){
-      .skills-grid{
-        grid-template-columns:1fr 1fr 1fr;
-      }
-    }
-
-    .skillcol{
-      padding:18px;
-    }
-
-    /* LIGHT AI STYLE FOR EDUCATION / SKILLS / RECOMMENDATIONS */
+    .light-ai-card,
     .edu-card,
     .skillcol,
     #recommendations .bubble,
-    #recommendations .intro-card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,250,255,0.92));
-      border:1px solid rgba(120,130,160,0.16);
+    #recommendations .intro-card,
+    .info-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(247,250,255,.92));
+      border:1px solid rgba(120,130,160,.16);
       box-shadow:
-        0 20px 50px rgba(10,37,64,0.10),
-        inset 0 1px 0 rgba(255,255,255,0.85);
+        0 20px 50px rgba(10,37,64,.10),
+        inset 0 1px 0 rgba(255,255,255,.85);
       transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
       position:relative;
       overflow:hidden;
     }
 
+    .light-ai-card::before,
     .edu-card::before,
     .skillcol::before,
     #recommendations .bubble::before,
-    #recommendations .intro-card::before{
+    #recommendations .intro-card::before,
+    .info-card::before{
       content:"";
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at top right, rgba(110,168,255,0.10), transparent 28%),
-        radial-gradient(circle at bottom left, rgba(0,194,255,0.08), transparent 30%);
+        radial-gradient(circle at top right, rgba(110,168,255,.10), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(0,194,255,.08), transparent 30%);
       pointer-events:none;
     }
 
+    .light-ai-card:hover,
     .edu-card:hover,
     .skillcol:hover,
     #recommendations .bubble:hover,
-    #recommendations .intro-card:hover{
+    #recommendations .intro-card:hover,
+    .info-card:hover{
       transform:translateY(-4px);
       box-shadow:
-        0 24px 60px rgba(10,37,64,0.14),
-        inset 0 1px 0 rgba(255,255,255,0.9);
-      border-color:rgba(110,168,255,0.24);
+        0 24px 60px rgba(10,37,64,.14),
+        inset 0 1px 0 rgba(255,255,255,.9);
+      border-color:rgba(110,168,255,.24);
     }
 
-    /* FLAGS / LINKEDIN */
+    .info-grid{
+      display:grid;
+      gap:14px;
+    }
+
+    @media(min-width:900px){
+      .info-grid{grid-template-columns:1fr 1fr}
+    }
+
+    .info-card h3{
+      margin:0 0 12px;
+      font-size:22px;
+    }
+
+    .info-card p,
+    .info-card li{
+      position:relative;
+      z-index:1;
+      line-height:1.7;
+    }
+
+    .info-card ul{
+      margin:10px 0 0 18px;
+      padding:0;
+    }
+
     .flag,
     .li-logo{
       display:inline-flex;
@@ -422,9 +393,7 @@
       vertical-align:middle;
     }
 
-    .flag{
-      font-size:14px;
-    }
+    .flag{font-size:14px}
 
     .li-logo svg{
       width:16px;
@@ -433,19 +402,16 @@
       fill:#0A66C2;
     }
 
-    .li-logo.white svg{
-      fill:#ffffff;
-    }
+    .li-logo.white svg{fill:#fff}
 
-    /* ABOUT IMAGE VERSION */
     .about-orbit-card.image-version{
       padding:0;
       overflow:hidden;
       background:#071427;
-      border:1px solid rgba(120,170,255,0.12);
+      border:1px solid rgba(120,170,255,.12);
       box-shadow:
-        0 20px 60px rgba(2,8,23,0.35),
-        inset 0 0 30px rgba(80,180,255,0.05);
+        0 20px 60px rgba(2,8,23,.35),
+        inset 0 0 30px rgba(80,180,255,.05);
     }
 
     .about-orbit-image{
@@ -456,7 +422,6 @@
       border-radius:20px;
     }
 
-    /* EXPERIENCE */
     #experience .card.exp{
       display:flex;
       flex-direction:column;
@@ -468,8 +433,8 @@
       gap:16px;
       padding:16px 18px;
       border-radius:16px;
-      background:#ffffff;
-      border:1px solid rgba(120,130,160,0.18);
+      background:#fff;
+      border:1px solid rgba(120,130,160,.18);
       position:relative;
       overflow:hidden;
     }
@@ -499,7 +464,7 @@
       border-radius:12px;
       background:#fff;
       padding:6px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.12);
+      box-shadow:0 4px 10px rgba(0,0,0,.12);
     }
 
     #experience .role-content{
@@ -523,14 +488,12 @@
       font-size:11px;
       padding:3px 10px;
       border-radius:999px;
-      background:rgba(124,92,255,0.12);
-      border:1px solid rgba(124,92,255,0.25);
+      background:rgba(124,92,255,.12);
+      border:1px solid rgba(124,92,255,.25);
       white-space:nowrap;
     }
 
-    #experience .role-meta{
-      margin:4px 0 8px 0;
-    }
+    #experience .role-meta{margin:4px 0 8px}
 
     #experience .ai-metrics{
       display:flex;
@@ -543,23 +506,20 @@
       font-size:12px;
       padding:3px 8px;
       border-radius:10px;
-      background:rgba(0,194,255,0.08);
-      border:1px solid rgba(0,194,255,0.25);
+      background:rgba(0,194,255,.08);
+      border:1px solid rgba(0,194,255,.25);
     }
 
     #experience .role-ai ul{
       margin:6px 0 0 18px;
     }
 
-    #experience .role-ai li{
-      line-height:1.45;
-    }
+    #experience .role-ai li{line-height:1.45}
 
-    /* HOBBIES - APPLE / TESLA / AI PORTFOLIO STYLE */
     #hobbies{
       position:relative;
       background:
-        radial-gradient(circle at top center, rgba(88,150,255,0.10), transparent 38%),
+        radial-gradient(circle at top center, rgba(88,150,255,.10), transparent 38%),
         linear-gradient(180deg, #071427 0%, #0b1730 50%, #081224 100%);
       color:#fff;
       overflow:hidden;
@@ -570,9 +530,9 @@
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at 20% 30%, rgba(0,194,255,0.10), transparent 22%),
-        radial-gradient(circle at 80% 20%, rgba(124,92,255,0.12), transparent 20%),
-        radial-gradient(circle at 50% 80%, rgba(110,168,255,0.10), transparent 24%);
+        radial-gradient(circle at 20% 30%, rgba(0,194,255,.10), transparent 22%),
+        radial-gradient(circle at 80% 20%, rgba(124,92,255,.12), transparent 20%),
+        radial-gradient(circle at 50% 80%, rgba(110,168,255,.10), transparent 24%);
       pointer-events:none;
     }
 
@@ -599,11 +559,11 @@
       margin-bottom:20px;
       padding:0;
       overflow:hidden;
-      background:linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-      border:1px solid rgba(255,255,255,0.10);
+      background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
       box-shadow:
-        0 25px 80px rgba(0,0,0,0.30),
-        inset 0 0 30px rgba(255,255,255,0.03);
+        0 25px 80px rgba(0,0,0,.30),
+        inset 0 0 30px rgba(255,255,255,.03);
     }
 
     .hobbies-hero-wrap{
@@ -633,8 +593,8 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(90deg, rgba(7,20,39,0.08) 0%, rgba(7,20,39,0.00) 35%, rgba(7,20,39,0.18) 100%),
-        linear-gradient(0deg, rgba(7,20,39,0.12) 0%, rgba(7,20,39,0.00) 45%);
+        linear-gradient(90deg, rgba(7,20,39,.08) 0%, rgba(7,20,39,0) 35%, rgba(7,20,39,.18) 100%),
+        linear-gradient(0deg, rgba(7,20,39,.12) 0%, rgba(7,20,39,0) 45%);
       pointer-events:none;
     }
 
@@ -643,8 +603,7 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
     }
 
     .hobbies-eyebrow{
@@ -657,16 +616,16 @@
       border-radius:999px;
       font-size:12px;
       font-weight:900;
-      letter-spacing:0.05em;
+      letter-spacing:.05em;
       text-transform:uppercase;
       color:#d8e8ff;
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.10);
       backdrop-filter:blur(8px);
     }
 
     .hobbies-summary h3{
-      margin:0 0 12px 0;
+      margin:0 0 12px;
       font-size:34px;
       line-height:1.15;
       color:#fff;
@@ -693,13 +652,12 @@
       min-height:280px;
       border-radius:24px;
       padding:24px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
-      border:1px solid rgba(255,255,255,0.12);
+      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12);
       box-shadow:
-        0 20px 60px rgba(0,0,0,0.22),
-        inset 0 1px 0 rgba(255,255,255,0.08);
-      transition:transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        0 20px 60px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
       backdrop-filter:blur(14px);
       isolation:isolate;
       display:flex;
@@ -712,9 +670,9 @@
       inset:-1px;
       border-radius:24px;
       background:
-        radial-gradient(circle at top right, rgba(110,168,255,0.25), transparent 28%),
-        radial-gradient(circle at bottom left, rgba(0,194,255,0.18), transparent 30%);
-      opacity:0.75;
+        radial-gradient(circle at top right, rgba(110,168,255,.25), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(0,194,255,.18), transparent 30%);
+      opacity:.75;
       z-index:-2;
     }
 
@@ -723,7 +681,7 @@
       position:absolute;
       inset:0;
       border-radius:24px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.00));
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
       z-index:-1;
       pointer-events:none;
     }
@@ -731,10 +689,10 @@
     .hobby-card:hover{
       transform:translateY(-8px) scale(1.015);
       box-shadow:
-        0 28px 80px rgba(0,0,0,0.30),
-        0 0 0 1px rgba(255,255,255,0.05),
-        0 0 35px rgba(110,168,255,0.18);
-      border-color:rgba(170,210,255,0.28);
+        0 28px 80px rgba(0,0,0,.30),
+        0 0 0 1px rgba(255,255,255,.05),
+        0 0 35px rgba(110,168,255,.18);
+      border-color:rgba(170,210,255,.28);
     }
 
     .hobby-top{
@@ -753,9 +711,9 @@
       align-items:center;
       justify-content:center;
       font-size:28px;
-      background:rgba(255,255,255,0.10);
-      border:1px solid rgba(255,255,255,0.10);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,0.08);
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
     }
 
     .hobby-chip{
@@ -767,21 +725,21 @@
       font-size:11px;
       font-weight:900;
       text-transform:uppercase;
-      letter-spacing:0.06em;
+      letter-spacing:.06em;
       color:#d7ebff;
-      border:1px solid rgba(255,255,255,0.10);
-      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.06);
     }
 
     .hobby-card h3{
-      margin:0 0 10px 0;
+      margin:0 0 10px;
       font-size:24px;
       color:#fff;
-      letter-spacing:-0.02em;
+      letter-spacing:-.02em;
     }
 
     .hobby-card p{
-      margin:0 0 18px 0;
+      margin:0 0 18px;
       color:#d6e6ff;
       line-height:1.7;
       font-size:14px;
@@ -800,8 +758,8 @@
       color:#e6f2ff;
       padding:6px 10px;
       border-radius:999px;
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.10);
     }
 
     .hobby-card .shine{
@@ -810,13 +768,12 @@
       width:180px;
       height:180px;
       border-radius:50%;
-      background:radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+      background:radial-gradient(circle, rgba(255,255,255,.15), transparent 70%);
       filter:blur(10px);
-      opacity:0.55;
+      opacity:.55;
       pointer-events:none;
     }
 
-    /* RECOMMENDATIONS */
     #recommendations .intro-card p{
       line-height:1.7;
       position:relative;
@@ -832,10 +789,25 @@
     #recommendations .bubble{
       align-items:flex-start;
       height:100%;
+      display:flex;
+      gap:12px;
+      border-radius:18px;
+      padding:16px;
+    }
+
+    #recommendations .bubble .icon{
+      width:40px;
+      height:40px;
+      background:#eef4fb;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
     }
 
     #recommendations .bubble p{
-      margin:6px 0 0 0;
+      margin:6px 0 0;
       color:var(--muted);
       line-height:1.55;
       position:relative;
@@ -848,16 +820,92 @@
       z-index:1;
     }
 
-    /* CONTACT AI STYLE */
+    /* TESTIMONIALS */
+    .testimonials-grid{
+      display:grid;
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .testimonial-ai{
+      position:relative;
+      overflow:hidden;
+      padding:22px 22px 20px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(247,250,255,.92));
+      border:1px solid rgba(120,130,160,.16);
+      box-shadow:
+        0 20px 50px rgba(10,37,64,.10),
+        inset 0 1px 0 rgba(255,255,255,.85);
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .testimonial-ai::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at top right, rgba(110,168,255,.14), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(0,194,255,.10), transparent 30%);
+      pointer-events:none;
+    }
+
+    .testimonial-ai:hover{
+      transform:translateY(-4px);
+      box-shadow:
+        0 24px 60px rgba(10,37,64,.14),
+        0 0 28px rgba(110,168,255,.12);
+      border-color:rgba(110,168,255,.24);
+    }
+
+    .testimonial-top{
+      position:relative;
+      z-index:1;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:12px;
+    }
+
+    .testimonial-badge{
+      width:34px;
+      height:34px;
+      min-width:34px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:14px;
+      font-weight:900;
+      color:#fff;
+      background:linear-gradient(135deg, #6ea8ff, #1a73e8);
+      box-shadow:0 10px 24px rgba(26,115,232,.25);
+    }
+
+    .testimonial-role{
+      font-size:16px;
+      font-weight:900;
+      color:var(--blue);
+      line-height:1.35;
+    }
+
+    .testimonial-quote{
+      position:relative;
+      z-index:1;
+      margin:0;
+      font-size:18px;
+      line-height:1.75;
+      font-style:italic;
+      color:#233b57;
+    }
+
     .contact-ai-grid{
       display:grid;
       gap:14px;
     }
 
     @media(min-width:900px){
-      .contact-ai-grid{
-        grid-template-columns:1fr 1fr 1fr 1fr;
-      }
+      .contact-ai-grid{grid-template-columns:1fr 1fr 1fr 1fr}
     }
 
     .contact-ai{
@@ -866,8 +914,8 @@
       align-items:flex-start;
       padding:16px 18px;
       border-radius:16px;
-      background:#ffffff;
-      border:1px solid rgba(120,130,160,0.18);
+      background:#fff;
+      border:1px solid rgba(120,130,160,.18);
       position:relative;
       overflow:hidden;
       box-shadow:var(--shadow);
@@ -904,15 +952,13 @@
       font-size:22px;
     }
 
-    .contact-content{
-      flex:1;
-    }
+    .contact-content{flex:1}
 
     .contact-label{
       font-size:12px;
       color:var(--accent);
       font-weight:900;
-      letter-spacing:0.04em;
+      letter-spacing:.04em;
       text-transform:uppercase;
     }
 
@@ -930,14 +976,11 @@
       word-break:break-word;
     }
 
-    .contact-ai a:hover{
-      text-decoration:underline;
-    }
+    .contact-ai a:hover{text-decoration:underline}
 
-    /* FINAL AI MEDALLION */
     .final-signature{
       padding:10px 0 70px;
-      background:linear-gradient(180deg, rgba(245,248,252,0.4), rgba(245,248,252,1));
+      background:linear-gradient(180deg, rgba(245,248,252,.4), rgba(245,248,252,1));
     }
 
     .final-signature-wrap{
@@ -957,12 +1000,12 @@
       height:210px;
       border-radius:50%;
       background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.72)),
-        linear-gradient(135deg, rgba(110,168,255,0.35), rgba(0,194,255,0.18));
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.95), rgba(255,255,255,.72)),
+        linear-gradient(135deg, rgba(110,168,255,.35), rgba(0,194,255,.18));
       box-shadow:
-        0 24px 70px rgba(10,37,64,0.18),
-        0 0 30px rgba(110,168,255,0.35),
-        0 0 60px rgba(0,194,255,0.18);
+        0 24px 70px rgba(10,37,64,.18),
+        0 0 30px rgba(110,168,255,.35),
+        0 0 60px rgba(0,194,255,.18);
       overflow:hidden;
     }
 
@@ -971,8 +1014,8 @@
       position:absolute;
       inset:8px;
       border-radius:50%;
-      border:1px solid rgba(110,168,255,0.35);
-      box-shadow:inset 0 0 25px rgba(110,168,255,0.15);
+      border:1px solid rgba(110,168,255,.35);
+      box-shadow:inset 0 0 25px rgba(110,168,255,.15);
       pointer-events:none;
     }
 
@@ -983,9 +1026,9 @@
       height:280px;
       border-radius:50%;
       background:
-        conic-gradient(from 0deg, rgba(110,168,255,0.0), rgba(110,168,255,0.35), rgba(0,194,255,0.0), rgba(110,168,255,0.18), rgba(110,168,255,0.0));
+        conic-gradient(from 0deg, rgba(110,168,255,0), rgba(110,168,255,.35), rgba(0,194,255,0), rgba(110,168,255,.18), rgba(110,168,255,0));
       animation:spinGlow 12s linear infinite;
-      opacity:0.9;
+      opacity:.9;
       pointer-events:none;
     }
 
@@ -998,8 +1041,8 @@
       object-fit:cover;
       border:4px solid #fff;
       box-shadow:
-        0 16px 35px rgba(0,0,0,0.18),
-        0 0 18px rgba(255,255,255,0.65);
+        0 16px 35px rgba(0,0,0,.18),
+        0 0 18px rgba(255,255,255,.65);
       background:#fff;
     }
 
@@ -1007,23 +1050,22 @@
       margin:0;
       font-weight:800;
       color:#5f7390;
-      letter-spacing:0.04em;
+      letter-spacing:.04em;
       text-transform:uppercase;
       font-size:12px;
     }
 
     @keyframes spinGlow{
-      from{transform:rotate(0deg);}
-      to{transform:rotate(360deg);}
+      from{transform:rotate(0deg)}
+      to{transform:rotate(360deg)}
     }
 
-    /* SCROLL REVEAL */
     .reveal{
       opacity:0;
-      transform:translateY(34px) scale(0.985);
+      transform:translateY(34px) scale(.985);
       transition:
-        opacity 0.8s cubic-bezier(.2,.8,.2,1),
-        transform 0.8s cubic-bezier(.2,.8,.2,1);
+        opacity .8s cubic-bezier(.2,.8,.2,1),
+        transform .8s cubic-bezier(.2,.8,.2,1);
       will-change:opacity, transform;
     }
 
@@ -1032,36 +1074,27 @@
       transform:translateY(0) scale(1);
     }
 
-    .reveal-delay-1{ transition-delay:0.08s; }
-    .reveal-delay-2{ transition-delay:0.16s; }
-    .reveal-delay-3{ transition-delay:0.24s; }
-    .reveal-delay-4{ transition-delay:0.32s; }
+    .reveal-delay-1{transition-delay:.08s}
+    .reveal-delay-2{transition-delay:.16s}
+    .reveal-delay-3{transition-delay:.24s}
+    .reveal-delay-4{transition-delay:.32s}
 
-    /* RESPONSIVE */
     @media (max-width:1100px){
-      .hobbies-grid{
-        grid-template-columns:repeat(2, 1fr);
-      }
+      .hobbies-grid{grid-template-columns:repeat(2, 1fr)}
     }
 
     @media (max-width:900px){
-      .tag{
-        display:none;
-      }
-
-      .hobbies-hero-wrap{
-        grid-template-columns:1fr;
-      }
-
-      .hobbies-visual{
-        min-height:280px;
-      }
+      .tag{display:none}
+      .hobbies-hero-wrap{grid-template-columns:1fr}
+      .hobbies-visual{min-height:280px}
     }
 
     @media (max-width:700px){
       .recommendations-row,
       .contact-ai-grid,
-      .hobbies-grid{
+      .hobbies-grid,
+      .skills-grid,
+      .info-grid{
         grid-template-columns:1fr;
       }
     }
@@ -1072,13 +1105,9 @@
         align-items:flex-start;
       }
 
-      .links{
-        justify-content:flex-start;
-      }
+      .links{justify-content:flex-start}
 
-      h1{
-        font-size:34px;
-      }
+      h1{font-size:34px}
 
       .circle{
         width:260px;
@@ -1095,9 +1124,7 @@
         flex-direction:column;
       }
 
-      #experience .logo-col{
-        width:auto;
-      }
+      #experience .logo-col{width:auto}
 
       #experience .logo-col img{
         width:72px;
@@ -1109,17 +1136,11 @@
         align-items:flex-start;
       }
 
-      .hobbies-summary{
-        padding:24px 20px;
-      }
+      .hobbies-summary{padding:24px 20px}
 
-      .hobbies-summary h3{
-        font-size:28px;
-      }
+      .hobbies-summary h3{font-size:28px}
 
-      .hobby-card{
-        min-height:auto;
-      }
+      .hobby-card{min-height:auto}
 
       .ai-profile-medal{
         width:180px;
@@ -1130,6 +1151,8 @@
         width:144px;
         height:144px;
       }
+
+      .testimonial-quote{font-size:16px}
     }
   </style>
 </head>
@@ -1157,14 +1180,13 @@
         <h1>Aurélien Henry <span class="name2">Galmiche</span></h1>
 
         <div class="headline">
-          Finance Accountant | AP/AR • Financial Reporting • SAP S/4HANA | Interested in AI &amp; Process Optimization
+          Accounting Specialist | International Environment | AP/AR • Closing • SAP S/4HANA
         </div>
 
         <p class="summary">
-          Finance professional with accounting experience since 2010 (16 years).
-          Specialized in AP/AR, reconciliations, reporting and SAP S/4HANA processes in international environments.
-          Versatile profile across private and public sectors, collections and legal-context accounting.
-          Strong curiosity for AI 🤖🧠🚀 and continuous process improvement ✨.
+          Reliable finance professional combining operational accounting execution, SAP process knowledge and international adaptability.
+          I am targeting Accounting Specialist opportunities in international environments across Switzerland, France and hybrid settings.
+          Experienced in AP/AR, reconciliations, reporting, month-end and quarter-end closing, and SAP S/4HANA finance processes.
         </p>
 
         <div class="hero-actions">
@@ -1185,18 +1207,18 @@
           <img src="photo.png" alt="Aurélien Henry Galmiche" />
         </div>
 
-        <div class="tag tag1">📍 Brunstatt 🇫🇷 · Bouznika 🇲🇦</div>
+        <div class="tag tag1">📍 Based near Basel</div>
         <div class="tag tag2">🌍 International Accounting</div>
-        <div class="tag tag3">🤖 AI Curiosity</div>
+        <div class="tag tag3">🇨🇭 Swiss cross-border permit G</div>
         <div class="tag tag4">
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="SAP" style="height:14px; margin-right:2px; vertical-align:middle;" />
           SAP S/4HANA
         </div>
+        <div class="tag tag5">🤖 AI &amp; Process Optimization</div>
       </div>
     </div>
   </header>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="wrap">
       <div class="section-title reveal">
@@ -1207,27 +1229,19 @@
       <div class="edu-grid">
         <div class="card reveal reveal-delay-1">
           <p>
-            Finance Accountant with 16 years of experience across AP/AR, treasury, reconciliations and reporting.
-            I enjoy working in international environments and bring versatility from private/public accounting,
-            collections and legal-related finance activities.
+            Accounting Specialist with 16 years of experience across accounts payable, accounts receivable,
+            treasury, reconciliations, reporting and closing activities.
+            I enjoy working in international environments and bring versatility from private, public and legal accounting contexts.
           </p>
 
           <p>
-            I value accuracy, compliance and clear processes. I’m also strongly interested in AI 🤖🧠🚀
-            and automation opportunities in finance operations.
+            I value accuracy, compliance and well-structured processes.
+            I am also highly interested in AI, automation and process improvement opportunities in finance operations.
           </p>
 
           <p>
-            Rapid learning of business interests: Law, Pharma Industry, Aeronautic industry.
+            My background combines hands-on accounting execution, SAP process knowledge and strong adaptability across different industries and business environments.
           </p>
-
-          <b>Key facts - Career Success</b>
-          <ul>
-            <li>Takeover of an accounting system following company growth, including accounting review and process implementation with a fresh perspective.</li>
-            <li>Tracked invoices across different business setups.</li>
-            <li>Booked VIM workflows (~800 invoices per month).</li>
-            <li>Identified supplier inconsistencies and secured a discount through accounting analysis and negotiation; reviewed supplier contracts with strong focus on quality and financial alignment.</li>
-          </ul>
         </div>
 
         <div class="card about-orbit-card image-version reveal reveal-delay-2">
@@ -1237,24 +1251,23 @@
     </div>
   </section>
 
-  <!-- EDUCATION -->
   <section id="education">
     <div class="wrap">
       <div class="section-title reveal">
         <h2>Education</h2>
-        <p>Schools & training</p>
+        <p>Schools &amp; training</p>
       </div>
 
       <div class="edu-grid">
         <div class="card edu-card reveal reveal-delay-1">
           <div class="edu-date">2005 - 2007</div>
-          <div class="edu-title">French Baccalaureate Management Sciences & Technologies (specializing in Marketing & Accounting) 🇫🇷</div>
-          <div class="edu-school">Georges Colomb High School (Lure) & Lumière High School (Luxeuil-Les-Bains)</div>
+          <div class="edu-title">French Baccalaureate in Management Sciences &amp; Technologies (Marketing &amp; Accounting) 🇫🇷</div>
+          <div class="edu-school">Georges Colomb High School (Lure) &amp; Lumière High School (Luxeuil-Les-Bains)</div>
         </div>
 
         <div class="card edu-card reveal reveal-delay-1">
           <div class="edu-date">2007 – 2009</div>
-          <div class="edu-title">French Higher National Diploma (BTS) in Management Assistance (Accounting specialization) 🇫🇷</div>
+          <div class="edu-title">French Higher National Diploma (BTS) in Management Assistance, Accounting specialization 🇫🇷</div>
           <div class="edu-school">Georges Colomb High School (Lure)</div>
         </div>
 
@@ -1281,51 +1294,95 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
     <div class="wrap">
       <div class="section-title reveal">
-        <h2>Skills & Expertise</h2>
+        <h2>Skills &amp; Expertise</h2>
         <p>Core strengths</p>
       </div>
 
       <div class="skills-grid">
         <div class="card skillcol reveal reveal-delay-1">
-          <h3>Finance & Accounting</h3>
+          <h3>Finance &amp; Accounting</h3>
           <div class="tags">
             <span>AP / AR</span>
             <span>Reconciliations</span>
             <span>Reporting</span>
-            <span>Collections</span>
+            <span>Month-end close</span>
+            <span>Quarter-end close</span>
             <span>Multi-currency</span>
           </div>
         </div>
 
         <div class="card skillcol reveal reveal-delay-2">
-          <h3>Systems</h3>
+          <h3>Tools &amp; Systems</h3>
           <div class="tags">
             <span>SAP S/4HANA</span>
-            <span>SAP</span>
+            <span>Invoice workflow</span>
+            <span>Vendor master</span>
+            <span>Payment run</span>
+            <span>VIM / OCR</span>
             <span>Synertrade</span>
             <span>Excel</span>
+            <span>PivotTables</span>
+            <span>XLOOKUP</span>
           </div>
         </div>
 
         <div class="card skillcol reveal reveal-delay-3">
-          <h3>Strengths</h3>
+          <h3>Professional Strengths</h3>
           <div class="tags">
-            <span>International</span>
-            <span>Versatile</span>
-            <span>Process Optimization</span>
-            <span>AI</span>
-            <span>Legal Awareness</span>
+            <span>International mindset</span>
+            <span>Process optimization</span>
+            <span>Adaptability</span>
+            <span>Compliance</span>
+            <span>Problem solving</span>
+            <span>AI curiosity</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
+  <section>
+    <div class="wrap">
+      <div class="info-grid">
+        <div class="card info-card reveal reveal-delay-1">
+          <h3>Why Me</h3>
+          <p>
+            Reliable finance professional combining operational accounting execution, SAP process knowledge and international adaptability.
+          </p>
+        </div>
+
+        <div class="card info-card reveal reveal-delay-2">
+          <h3>Mobility &amp; Right to Work</h3>
+          <p>
+            Based near Basel | French nationality | Swiss cross-border work permit (G) | Open to Switzerland / France / hybrid roles
+          </p>
+        </div>
+
+        <div class="card info-card reveal reveal-delay-3">
+          <h3>Languages</h3>
+          <div class="tags">
+            <span>French — Native</span>
+            <span>English — Professional</span>
+            <span>German — Basic / Beginner</span>
+          </div>
+        </div>
+
+        <div class="card info-card reveal reveal-delay-4">
+          <h3>Key Achievements</h3>
+          <ul>
+            <li>Managed high-volume AP workflow up to 800 invoices per month.</li>
+            <li>Supported month-end and quarter-end close in an international environment.</li>
+            <li>Improved supplier issue resolution and negotiated cost reduction.</li>
+            <li>Worked across private, public and legal accounting environments.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="experience">
     <div class="wrap">
       <div class="section-title reveal">
@@ -1340,17 +1397,20 @@
           </div>
           <div class="role-content">
             <div class="role-header">
-              <h3>Account Payable Specialist</h3>
+              <h3>Accounts Payable Specialist</h3>
               <span class="ai-chip">AI-ready</span>
             </div>
             <p class="role-meta"><b>Recordati AG – Basel and Baar, Switzerland <span class="flag">🇨🇭</span> | 2024 – Present</b></p>
             <div class="ai-metrics">
               <span>~800 invoices/month</span>
-              <span>3 days processing</span>
+              <span>5-day close</span>
+              <span>Bank closing specifics</span>
               <span>SAP S/4HANA</span>
             </div>
             <ul>
-              <li>Handled end-to-end accounts payable and general accounting activities, including invoice processing, vendor and bank reconciliations (multi-currency), month- and quarter-end close, financial reporting by cost center, supplier onboarding (Synertrade), and payment run execution.</li>
+              <li>Manage end-to-end accounts payable and general accounting activities, including invoice processing, vendor reconciliations, multi-currency bank reconciliations, supplier onboarding through Synertrade, payment run execution and cost center reporting.</li>
+              <li>Support month-end and quarter-end closing within a 5-day timeline, including bank-related closing specifics, reconciliations and reporting activities in an international environment.</li>
+              <li>Process VIM / OCR invoice workflows and maintain vendor master data within SAP S/4HANA.</li>
             </ul>
           </div>
         </div>
@@ -1361,7 +1421,7 @@
           </div>
           <div class="role-content">
             <div class="role-header">
-              <h3>Account Payable & Billing Specialist</h3>
+              <h3>Accounts Payable &amp; Billing Specialist</h3>
               <span class="ai-chip">Automation</span>
             </div>
             <p class="role-meta"><b>Jet Aviation – Basel, Switzerland <span class="flag">🇨🇭</span> | 2022 – 2023</b></p>
@@ -1371,8 +1431,9 @@
               <span>Audit support</span>
             </div>
             <ul>
-              <li>Independently managed end-to-end AP processes in SAP (PO and non-PO), including vendor reconciliations, payment setup, advance payments, supplier master data maintenance, and audit support.</li>
-              <li>Managed client invoicing and cash application, including billing accuracy checks, discrepancy resolution, AR aging follow-up, and collaboration with sales/account teams; supported month- and year-end close.</li>
+              <li>Managed end-to-end AP processes in SAP, including PO and non-PO invoices, vendor reconciliations, payment setup, advance payments, supplier master data updates and audit support.</li>
+              <li>Handled client billing and cash application, performed billing accuracy checks, resolved discrepancies, followed up on AR aging and collaborated with sales and account teams.</li>
+              <li>Supported month-end and year-end close activities in a fast-paced international environment.</li>
             </ul>
           </div>
         </div>
@@ -1388,7 +1449,9 @@
             </div>
             <p class="role-meta"><b>EHPAD Jean Monnet — Village-Neuf, France <span class="flag">🇫🇷</span> | 2021 – 2022</b></p>
             <ul>
-              <li>Led budgeting and financial planning, monitored performance against budget, and delivered management reporting with cost-saving and revenue optimization insights; prepared compliant financial statements and coordinated audits. Supervised accounting operations (AP, AR, payroll), approved transactions, and improved processes. Provided financial analysis and decision support, including investment evaluation and long-term strategic planning.</li>
+              <li>Led budgeting, financial planning and management reporting while monitoring performance against budget and identifying cost-saving opportunities.</li>
+              <li>Prepared compliant financial statements, coordinated audits and supervised AP, AR and payroll operations.</li>
+              <li>Provided financial analysis and decision support, including investment evaluation and long-term planning.</li>
             </ul>
           </div>
         </div>
@@ -1399,12 +1462,13 @@
           </div>
           <div class="role-content">
             <div class="role-header">
-              <h3>AR/AP Specialist</h3>
+              <h3>AR / AP Specialist</h3>
               <span class="ai-chip">Ops</span>
             </div>
             <p class="role-meta"><b>CAPI Sécurité — Saint-Louis, France <span class="flag">🇫🇷</span> | 2019 – 2020</b></p>
             <ul>
-              <li>Managed full-cycle accounts payable and receivable, including invoice processing and coding, vendor and customer reconciliations, payment execution, AR aging follow-up, discrepancy resolution, and maintenance of vendor/customer records; supported month-end close with accruals and reconciliations and handled billing and account inquiries.</li>
+              <li>Managed full-cycle accounts payable and accounts receivable, including invoice coding, payment execution, customer and vendor reconciliations and AR follow-up.</li>
+              <li>Supported month-end close with accruals, reconciliations and billing issue resolution.</li>
             </ul>
           </div>
         </div>
@@ -1415,12 +1479,13 @@
           </div>
           <div class="role-content">
             <div class="role-header">
-              <h3>Accountant & Case Manager</h3>
+              <h3>Accountant &amp; Case Manager</h3>
               <span class="ai-chip">Compliance</span>
             </div>
             <p class="role-meta"><b>Judicial Officers — Saint-Louis and Ferrette, France <span class="flag">🇫🇷</span> | 2015 – 2019</b></p>
             <ul>
-              <li>Maintained general ledger accuracy and recorded financial transactions, including client billing, payments, and expenses; managed invoicing, payment tracking, and vendor invoices while monitoring costs. Performed bank reconciliations, prepared financial reports, supported audits, and ensured compliance with accounting standards and regulatory requirements.</li>
+              <li>Maintained general ledger accuracy and recorded client billing, payments, expenses and vendor invoices.</li>
+              <li>Performed reconciliations, prepared financial reports, supported audits and ensured compliance with accounting and regulatory requirements.</li>
             </ul>
           </div>
         </div>
@@ -1436,7 +1501,8 @@
             </div>
             <p class="role-meta"><b>Galeries Lafayette — Belfort and Paris, France <span class="flag">🇫🇷</span> | 2010 – 2015</b></p>
             <ul>
-              <li>Monitored daily cash positions and liquidity, managed banking relationships, and prepared cash flow forecasts; executed treasury transactions and bank reconciliations while assessing financial risks and ensuring compliance with internal controls and regulatory requirements.</li>
+              <li>Monitored daily cash positions, managed banking relationships and prepared cash flow forecasts.</li>
+              <li>Executed treasury transactions and bank reconciliations while ensuring compliance with internal controls.</li>
             </ul>
           </div>
         </div>
@@ -1444,11 +1510,10 @@
     </div>
   </section>
 
-  <!-- HOBBIES -->
   <section id="hobbies">
     <div class="wrap">
       <div class="section-title reveal">
-        <h2>Passions & Hobbies</h2>
+        <h2>Passions &amp; Hobbies</h2>
         <p>Beyond finance, the human side of my profile</p>
       </div>
 
@@ -1551,7 +1616,6 @@
     </div>
   </section>
 
-  <!-- RECOMMENDATIONS -->
   <section id="recommendations">
     <div class="wrap">
       <div class="section-title reveal">
@@ -1565,12 +1629,34 @@
             Professional references are available through LinkedIn recommendations and direct manager references upon request.
           </p>
           <p>
-            These recommendations reflect my experience in finance accounting, SAP environments, cross-functional collaboration and reliable execution in international contexts..
+            These recommendations reflect my experience in finance accounting, SAP environments, cross-functional collaboration and reliable execution in international contexts.
           </p>
         </div>
 
+        <div class="testimonials-grid">
+          <article class="testimonial-ai reveal reveal-delay-1">
+            <div class="testimonial-top">
+              <div class="testimonial-badge">1</div>
+              <div class="testimonial-role">Strategic Networking &amp; Multilingual Executive Assistant</div>
+            </div>
+            <p class="testimonial-quote">
+              “A reliable and pragmatic professional who delivers effective solutions under pressure and stays committed until the job is done right.”
+            </p>
+          </article>
+
+          <article class="testimonial-ai reveal reveal-delay-2">
+            <div class="testimonial-top">
+              <div class="testimonial-badge">2</div>
+              <div class="testimonial-role">Finance &amp; Corporate Recruiter (Switzerland &amp; DACH)</div>
+            </div>
+            <p class="testimonial-quote">
+              “A dedicated and goal-oriented professional whose positive mindset enables him to achieve results quickly.”
+            </p>
+          </article>
+        </div>
+
         <div class="recommendations-row">
-          <div class="bubble reveal reveal-delay-2">
+          <div class="bubble reveal reveal-delay-3">
             <div class="icon">
               <span class="li-logo" aria-hidden="true">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1579,14 +1665,7 @@
               </span>
             </div>
             <div>
-              <b>
-                LINKEDIN
-                <span class="li-logo" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
-                  </svg>
-                </span>
-              </b>
+              <b>LINKEDIN</b>
               <span>Professional Recommendations</span>
               <p>View recommendations and endorsements on my LinkedIn profile.</p>
               <a class="btn primary" href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noopener">
@@ -1595,7 +1674,7 @@
             </div>
           </div>
 
-          <div class="bubble reveal reveal-delay-3">
+          <div class="bubble reveal reveal-delay-4">
             <div class="icon">🗂️</div>
             <div>
               <b>MANAGERS</b>
@@ -1609,7 +1688,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="wrap">
       <div class="section-title reveal">
@@ -1656,14 +1734,7 @@
             </span>
           </div>
           <div class="contact-content">
-            <div class="contact-label">
-              LinkedIn
-              <span class="li-logo" aria-hidden="true">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
-                </svg>
-              </span>
-            </div>
+            <div class="contact-label">LinkedIn</div>
             <span class="contact-title">Professional Profile</span>
             <a href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noopener">
               View LinkedIn Profile
@@ -1674,7 +1745,6 @@
     </div>
   </section>
 
-  <!-- FINAL AI MEDALLION -->
   <section class="final-signature">
     <div class="wrap">
       <div class="final-signature-wrap reveal">
@@ -1706,4 +1776,3 @@
 
 </body>
 </html>
-
