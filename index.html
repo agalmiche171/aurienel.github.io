@@ -243,8 +243,19 @@
     }
 
     @media (prefers-reduced-motion: reduce){
-      .tag{animation:none}
-      .spin-globe{animation:none}
+      .tag,
+      .spin-globe,
+      .earth::after,
+      .ring-1,
+      .ring-2,
+      .ring-3,
+      .orbit-move-1,
+      .orbit-move-2,
+      .orbit-move-3,
+      .orbit-move-4,
+      .orbit-move-5{
+        animation:none;
+      }
     }
 
     .tag1,.tag2,.tag3,.tag4{
@@ -411,6 +422,313 @@
     @keyframes spinGlobe{
       from{transform:rotate(0deg);}
       to{transform:rotate(360deg);}
+    }
+
+    /* ABOUT ORBITAL AI MODULE */
+    .about-orbit-card{
+      position:relative;
+      min-height:620px;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at center, rgba(39,123,255,0.10) 0%, rgba(10,37,64,0.02) 35%, transparent 60%),
+        linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+    }
+
+    .about-orbit-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(26,115,232,0.08) 0 2px, transparent 2px),
+        radial-gradient(circle at 80% 30%, rgba(26,115,232,0.08) 0 2px, transparent 2px),
+        radial-gradient(circle at 30% 80%, rgba(26,115,232,0.08) 0 2px, transparent 2px),
+        radial-gradient(circle at 70% 70%, rgba(26,115,232,0.08) 0 2px, transparent 2px);
+      opacity:.8;
+      pointer-events:none;
+    }
+
+    .orbit-scene{
+      position:relative;
+      width:100%;
+      height:580px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .earth-core{
+      position:absolute;
+      width:190px;
+      height:190px;
+      border-radius:50%;
+      z-index:5;
+      box-shadow:
+        0 0 0 10px rgba(26,115,232,0.08),
+        0 0 40px rgba(26,115,232,0.18),
+        0 0 90px rgba(26,115,232,0.16);
+    }
+
+    .earth{
+      position:relative;
+      width:100%;
+      height:100%;
+      border-radius:50%;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.15) 18%, transparent 28%),
+        radial-gradient(circle at 30% 35%, #4dd0ff 0%, #0d6efd 45%, #08274f 85%);
+      box-shadow:
+        inset -30px -25px 50px rgba(0,0,0,0.35),
+        inset 20px 10px 25px rgba(255,255,255,0.12);
+    }
+
+    .earth::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 35% 42%, rgba(96, 255, 174, 0.95) 0 7%, transparent 8%),
+        radial-gradient(circle at 48% 48%, rgba(96, 255, 174, 0.90) 0 9%, transparent 10%),
+        radial-gradient(circle at 58% 38%, rgba(96, 255, 174, 0.90) 0 6%, transparent 7%),
+        radial-gradient(circle at 62% 55%, rgba(96, 255, 174, 0.88) 0 7%, transparent 8%),
+        radial-gradient(circle at 42% 62%, rgba(96, 255, 174, 0.88) 0 8%, transparent 9%);
+      filter:blur(1px);
+      opacity:.9;
+    }
+
+    .earth::after{
+      content:"";
+      position:absolute;
+      inset:-8%;
+      border-radius:50%;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(255,255,255,0.00) 0px,
+          rgba(255,255,255,0.00) 14px,
+          rgba(255,255,255,0.14) 15px,
+          rgba(255,255,255,0.00) 18px
+        );
+      mix-blend-mode:screen;
+      animation:earthSpin 14s linear infinite;
+    }
+
+    @keyframes earthSpin{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(34px); }
+    }
+
+    .orbit-ring{
+      position:absolute;
+      top:50%;
+      left:50%;
+      border:1px solid rgba(26,115,232,0.18);
+      border-radius:50%;
+      transform:translate(-50%, -50%);
+      box-shadow:0 0 25px rgba(26,115,232,0.08);
+    }
+
+    .ring-1{
+      width:310px;
+      height:310px;
+      animation:orbitRotate 26s linear infinite;
+    }
+
+    .ring-2{
+      width:430px;
+      height:430px;
+      animation:orbitRotateReverse 34s linear infinite;
+    }
+
+    .ring-3{
+      width:530px;
+      height:530px;
+      animation:orbitRotate 42s linear infinite;
+    }
+
+    .ring-1::before,
+    .ring-2::before,
+    .ring-3::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:50%;
+      border:1px solid rgba(0,194,255,0.12);
+      transform:scale(1.03);
+    }
+
+    @keyframes orbitRotate{
+      from{ transform:translate(-50%, -50%) rotate(0deg); }
+      to{ transform:translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes orbitRotateReverse{
+      from{ transform:translate(-50%, -50%) rotate(360deg); }
+      to{ transform:translate(-50%, -50%) rotate(0deg); }
+    }
+
+    .orbit-item{
+      position:absolute;
+      top:50%;
+      left:50%;
+      z-index:6;
+    }
+
+    .orbit-card{
+      min-width:190px;
+      max-width:220px;
+      background:rgba(255,255,255,0.96);
+      border:1px solid rgba(120,130,160,0.16);
+      border-radius:16px;
+      padding:12px 14px;
+      box-shadow:
+        0 10px 24px rgba(10,37,64,0.12),
+        0 0 20px rgba(26,115,232,0.08);
+      backdrop-filter:blur(6px);
+      position:relative;
+    }
+
+    .orbit-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:16px;
+      padding:1px;
+      background:linear-gradient(120deg,#7c5cff33,#00c2ff33,#7c5cff22);
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;
+      mask-composite:exclude;
+      pointer-events:none;
+    }
+
+    .orbit-top{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .orbit-icon{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:#eef4fb;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      box-shadow:inset 0 0 0 1px rgba(26,115,232,0.08);
+    }
+
+    .orbit-icon svg{
+      width:18px;
+      height:18px;
+    }
+
+    .orbit-label{
+      font-size:11px;
+      font-weight:900;
+      color:var(--accent);
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      line-height:1.1;
+    }
+
+    .orbit-value{
+      display:block;
+      margin-top:2px;
+      font-size:14px;
+      font-weight:900;
+      color:var(--blue);
+      line-height:1.25;
+    }
+
+    .orbit-move-1{ animation:cardOrbit1 26s linear infinite; }
+    .orbit-move-2{ animation:cardOrbit2 34s linear infinite reverse; }
+    .orbit-move-3{ animation:cardOrbit3 42s linear infinite; }
+    .orbit-move-4{ animation:cardOrbit4 30s linear infinite reverse; }
+    .orbit-move-5{ animation:cardOrbit5 38s linear infinite; }
+
+    @keyframes cardOrbit1{
+      from{ transform:translate(-50%, -50%) rotate(18deg) translateX(215px) rotate(-18deg); }
+      to{ transform:translate(-50%, -50%) rotate(378deg) translateX(215px) rotate(-378deg); }
+    }
+    @keyframes cardOrbit2{
+      from{ transform:translate(-50%, -50%) rotate(88deg) translateX(265px) rotate(-88deg); }
+      to{ transform:translate(-50%, -50%) rotate(448deg) translateX(265px) rotate(-448deg); }
+    }
+    @keyframes cardOrbit3{
+      from{ transform:translate(-50%, -50%) rotate(160deg) translateX(220px) rotate(-160deg); }
+      to{ transform:translate(-50%, -50%) rotate(520deg) translateX(220px) rotate(-520deg); }
+    }
+    @keyframes cardOrbit4{
+      from{ transform:translate(-50%, -50%) rotate(230deg) translateX(275px) rotate(-230deg); }
+      to{ transform:translate(-50%, -50%) rotate(590deg) translateX(275px) rotate(-590deg); }
+    }
+    @keyframes cardOrbit5{
+      from{ transform:translate(-50%, -50%) rotate(305deg) translateX(240px) rotate(-305deg); }
+      to{ transform:translate(-50%, -50%) rotate(665deg) translateX(240px) rotate(-665deg); }
+    }
+
+    .ai-core-label{
+      position:absolute;
+      bottom:30px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:7;
+      background:rgba(255,255,255,0.92);
+      border:1px solid rgba(120,130,160,0.14);
+      border-radius:999px;
+      padding:8px 14px;
+      font-size:12px;
+      font-weight:900;
+      color:var(--blue);
+      box-shadow:0 10px 20px rgba(10,37,64,0.08);
+    }
+
+    .ai-core-label .spark{
+      color:#1a73e8;
+      margin-right:6px;
+    }
+
+    @media (max-width:980px){
+      .about-orbit-card{
+        min-height:auto;
+        padding:22px 16px;
+      }
+
+      .orbit-scene{
+        height:auto;
+        display:grid;
+        gap:12px;
+      }
+
+      .earth-core,
+      .orbit-ring{
+        display:none;
+      }
+
+      .orbit-item{
+        position:relative;
+        top:auto;
+        left:auto;
+        transform:none !important;
+        animation:none !important;
+      }
+
+      .orbit-card{
+        min-width:unset;
+        max-width:none;
+      }
+
+      .ai-core-label{
+        position:relative;
+        left:auto;
+        bottom:auto;
+        transform:none;
+        margin-top:8px;
+        justify-self:center;
+      }
     }
 
     /* EXPERIENCE */
@@ -780,30 +1098,80 @@
           </ul>
         </div>
 
-        <div class="bubbles">
-          <div class="bubble">
-            <div class="icon">📍</div>
-            <div><b>LOCATION</b><span>Brunstatt FR 🇫🇷 / Bouznika MA 🇲🇦</span></div>
-          </div>
+        <div class="card about-orbit-card">
+          <div class="orbit-scene">
 
-          <div class="bubble">
-            <div class="icon">💼</div>
-            <div><b>ROLE</b><span>Finance Accountant</span></div>
-          </div>
+            <div class="earth-core">
+              <div class="earth"></div>
+            </div>
 
-          <div class="bubble">
-            <div class="icon">🧾</div>
-            <div><b>SYSTEM</b><span>SAP S/4HANA</span></div>
-          </div>
+            <div class="orbit-ring ring-1"></div>
+            <div class="orbit-ring ring-2"></div>
+            <div class="orbit-ring ring-3"></div>
 
-          <div class="bubble">
-            <div class="icon">🪪</div>
-            <div><b>WORK PERMIT</b><span>Frontalier G</span></div>
-          </div>
+            <div class="orbit-item orbit-move-1">
+              <div class="orbit-card">
+                <div class="orbit-top">
+                  <div class="orbit-icon">📍</div>
+                  <div>
+                    <div class="orbit-label">Location</div>
+                    <span class="orbit-value">Brunstatt FR 🇫🇷<br>Bouznika MA 🇲🇦</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <div class="bubble">
-            <div class="icon"><span class="spin-globe">🌐</span></div>
-            <div><b>NATIONALITY</b><span>French 🇫🇷</span></div>
+            <div class="orbit-item orbit-move-2">
+              <div class="orbit-card">
+                <div class="orbit-top">
+                  <div class="orbit-icon">💼</div>
+                  <div>
+                    <div class="orbit-label">Role</div>
+                    <span class="orbit-value">Finance Accountant</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="orbit-item orbit-move-3">
+              <div class="orbit-card">
+                <div class="orbit-top">
+                  <div class="orbit-icon">🧾</div>
+                  <div>
+                    <div class="orbit-label">System</div>
+                    <span class="orbit-value">SAP S/4HANA</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="orbit-item orbit-move-4">
+              <div class="orbit-card">
+                <div class="orbit-top">
+                  <div class="orbit-icon">🪪</div>
+                  <div>
+                    <div class="orbit-label">Work Permit</div>
+                    <span class="orbit-value">Frontalier G</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="orbit-item orbit-move-5">
+              <div class="orbit-card">
+                <div class="orbit-top">
+                  <div class="orbit-icon"><span class="spin-globe">🌐</span></div>
+                  <div>
+                    <div class="orbit-label">Nationality</div>
+                    <span class="orbit-value">French 🇫🇷</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ai-core-label">
+              <span class="spark">✦</span>AI Global Identity Network
+            </div>
           </div>
         </div>
       </div>
