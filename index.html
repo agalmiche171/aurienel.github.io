@@ -151,6 +151,7 @@
     .btn{
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:8px;
       padding:10px 16px;
       border-radius:999px;
@@ -172,13 +173,21 @@
     }
 
     .btn.ghost{
-      background:#ffffff14;
+      background:var(--blue);
       color:#fff;
-      border-color:#ffffff40;
+      border-color:var(--blue);
     }
 
     .btn.ghost:hover{
-      background:#ffffff24;
+      background:var(--blue2);
+      border-color:var(--blue2);
+    }
+
+    .btn.icon-only{
+      width:46px;
+      min-width:46px;
+      height:46px;
+      padding:0;
     }
 
     /* PORTRAIT */
@@ -376,9 +385,10 @@
     }
 
     .li-logo svg{
-      width:14px;
-      height:14px;
+      width:16px;
+      height:16px;
       display:block;
+      fill:#0A66C2;
     }
 
     .li-logo.white svg{
@@ -536,7 +546,7 @@
 
     @media(min-width:900px){
       .contact-ai-grid{
-        grid-template-columns:1fr 1fr 1fr;
+        grid-template-columns:1fr 1fr 1fr 1fr;
       }
     }
 
@@ -623,7 +633,8 @@
     }
 
     @media (max-width:700px){
-      .recommendations-row{
+      .recommendations-row,
+      .contact-ai-grid{
         grid-template-columns:1fr;
       }
     }
@@ -709,8 +720,7 @@
         <div class="hero-actions">
           <a class="btn primary" href="CV_Aurelien_Henry_Galmiche.pdf" download>Download CV</a>
 
-          <a class="btn ghost" href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noopener">
-            LinkedIn
+          <a class="btn ghost icon-only" href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noopener" aria-label="LinkedIn">
             <span class="li-logo white" aria-hidden="true">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
@@ -811,19 +821,19 @@
       <div class="edu-grid">
         <div class="card edu-card">
           <div class="edu-date">2005 - 2007</div>
-          <div class="edu-title">French Baccalaureate Management Sciences & Technologies (specializing in Marketing & Accounting)</div>
+          <div class="edu-title">French 🇫🇷 Baccalaureate Management Sciences & Technologies (specializing in Marketing & Accounting)</div>
           <div class="edu-school">Georges Colomb High School (Lure) & Lumière High School (Luxeuil-Les-Bains)</div>
         </div>
 
         <div class="card edu-card">
           <div class="edu-date">2007 – 2009</div>
-          <div class="edu-title">French Higher National Diploma (BTS) in Management Assistance (Accounting specialization)</div>
+          <div class="edu-title">French 🇫🇷 Higher National Diploma (BTS) in Management Assistance (Accounting specialization)</div>
           <div class="edu-school">Georges Colomb High School (Lure)</div>
         </div>
 
         <div class="card edu-card">
           <div class="edu-date">2009 – 2010</div>
-          <div class="edu-title">French Bachelor's Degree</div>
+          <div class="edu-title">French 🇫🇷 Bachelor's Degree</div>
           <div class="edu-school">Faculty of Humanities and Social Sciences, University of Franche-Comté (Besançon)</div>
         </div>
 
@@ -1018,13 +1028,7 @@
       <div class="edu-grid">
         <div class="card intro-card">
           <p>
-            Professional references are available through LinkedIn
-            <span class="li-logo" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="#0A66C2" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
-              </svg>
-            </span>
-            recommendations and direct manager references upon request.
+            Professional references are available through LinkedIn recommendations and direct manager references upon request.
           </p>
           <p>
             These recommendations reflect my experience in finance accounting, SAP environments, cross-functional collaboration and reliable execution in international contexts.
@@ -1036,12 +1040,18 @@
 
         <div class="recommendations-row">
           <div class="bubble">
-            <div class="icon">💼</div>
+            <div class="icon">
+              <span class="li-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
+                </svg>
+              </span>
+            </div>
             <div>
               <b>
                 LINKEDIN
                 <span class="li-logo" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="#0A66C2" xmlns="http://www.w3.org/2000/svg">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
                   </svg>
                 </span>
@@ -1050,11 +1060,6 @@
               <p>View recommendations and endorsements on my LinkedIn profile.</p>
               <a class="btn primary" href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noopener">
                 View LinkedIn
-                <span class="li-logo white" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
-                  </svg>
-                </span>
               </a>
             </div>
           </div>
@@ -1103,12 +1108,30 @@
         </div>
 
         <div class="contact-ai">
-          <div class="contact-icon">💼</div>
+          <div class="contact-icon">📍</div>
+          <div class="contact-content">
+            <div class="contact-label">Address</div>
+            <span class="contact-title">Postal Address</span>
+            <p class="contact-text">My mailing address for professional correspondence.</p>
+            <a href="https://maps.google.com/?q=7+rue+des+capucins+68350+Brunstatt" target="_blank" rel="noopener">
+              7 rue des capucins, F-68350 Brunstatt
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-ai">
+          <div class="contact-icon">
+            <span class="li-logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
+              </svg>
+            </span>
+          </div>
           <div class="contact-content">
             <div class="contact-label">
               LinkedIn
               <span class="li-logo" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="#0A66C2" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
                 </svg>
               </span>
