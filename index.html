@@ -149,7 +149,9 @@
     }
 
     .btn{
-      display:inline-block;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
       padding:10px 16px;
       border-radius:999px;
       font-weight:900;
@@ -233,6 +235,7 @@
 
     @media (prefers-reduced-motion: reduce){
       .tag{animation:none}
+      .spin-globe{animation:none}
     }
 
     .tag1,.tag2,.tag3,.tag4{
@@ -357,6 +360,47 @@
 
     .skillcol{
       padding:18px;
+    }
+
+    /* FLAGS / LINKEDIN */
+    .flag,
+    .li-logo{
+      display:inline-flex;
+      align-items:center;
+      margin-left:6px;
+      vertical-align:middle;
+    }
+
+    .flag{
+      font-size:14px;
+    }
+
+    .li-logo svg{
+      width:14px;
+      height:14px;
+      display:block;
+    }
+
+    .li-logo.white svg{
+      fill:#ffffff;
+    }
+
+    /* NATIONALITY GLOBE */
+    .spin-globe{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:18px;
+      height:18px;
+      color:#1a73e8;
+      font-size:16px;
+      animation:spinGlobe 4s linear infinite;
+      transform-origin:center;
+    }
+
+    @keyframes spinGlobe{
+      from{transform:rotate(0deg);}
+      to{transform:rotate(360deg);}
     }
 
     /* EXPERIENCE */
@@ -484,46 +528,90 @@
       margin-top:12px;
     }
 
-    /* CONTACT */
-    .contact-grid{
+    /* CONTACT AI STYLE */
+    .contact-ai-grid{
       display:grid;
       gap:14px;
     }
 
     @media(min-width:900px){
-      .contact-grid{
+      .contact-ai-grid{
         grid-template-columns:1fr 1fr 1fr;
       }
     }
 
-    .contact-card{
-      min-height:140px;
+    .contact-ai{
       display:flex;
-      flex-direction:column;
+      gap:14px;
+      align-items:flex-start;
+      padding:16px 18px;
+      border-radius:16px;
+      background:#ffffff;
+      border:1px solid rgba(120,130,160,0.18);
+      position:relative;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .contact-ai::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:16px;
+      padding:1px;
+      background:linear-gradient(120deg,#7c5cff55,#00c2ff44,#7c5cff33);
+      -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+      -webkit-mask-composite:xor;
+      mask-composite:exclude;
+      pointer-events:none;
+    }
+
+    .contact-icon{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      background:#eef4fb;
+      display:flex;
+      align-items:center;
       justify-content:center;
+      flex-shrink:0;
+      font-size:20px;
     }
 
-    .contact-card b{
-      color:var(--accent);
+    .contact-content{
+      flex:1;
+    }
+
+    .contact-label{
       font-size:12px;
+      color:var(--accent);
+      font-weight:900;
       letter-spacing:0.04em;
+      text-transform:uppercase;
     }
 
-    .contact-card span{
+    .contact-title{
       display:block;
       font-size:20px;
       font-weight:900;
-      margin:8px 0 10px;
+      margin:4px 0 8px;
     }
 
-    .contact-card a{
+    .contact-text{
+      margin:0 0 12px 0;
+      color:var(--muted);
+      line-height:1.5;
+      word-break:break-word;
+    }
+
+    .contact-ai a{
       color:var(--blue);
-      font-weight:700;
+      font-weight:800;
       text-decoration:none;
       word-break:break-word;
     }
 
-    .contact-card a:hover{
+    .contact-ai a:hover{
       text-decoration:underline;
     }
 
@@ -620,8 +708,14 @@
 
         <div class="hero-actions">
           <a class="btn primary" href="CV_Aurelien_Henry_Galmiche.pdf" download>Download CV</a>
+
           <a class="btn ghost" href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noopener">
             LinkedIn
+            <span class="li-logo white" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
+              </svg>
+            </span>
           </a>
         </div>
       </div>
@@ -679,7 +773,7 @@
         <div class="bubbles">
           <div class="bubble">
             <div class="icon">📍</div>
-            <div><b>LOCATION</b><span>Brunstatt 🇫🇷 / Bouznika 🇲🇦</span></div>
+            <div><b>LOCATION</b><span>Brunstatt FR 🇫🇷 / Bouznika MA 🇲🇦</span></div>
           </div>
 
           <div class="bubble">
@@ -695,6 +789,11 @@
           <div class="bubble">
             <div class="icon">🪪</div>
             <div><b>WORK PERMIT</b><span>Frontalier G</span></div>
+          </div>
+
+          <div class="bubble">
+            <div class="icon"><span class="spin-globe">🌐</span></div>
+            <div><b>NATIONALITY</b><span>French 🇫🇷</span></div>
           </div>
         </div>
       </div>
@@ -807,7 +906,7 @@
               <h3>Account Payable Specialist</h3>
               <span class="ai-chip">AI-ready</span>
             </div>
-            <p class="role-meta"><b>Recordati AG – Basel and Baar, Switzerland | 2024 – Present</b></p>
+            <p class="role-meta"><b>Recordati AG – Basel and Baar, Switzerland <span class="flag">🇨🇭</span> | 2024 – Present</b></p>
             <div class="ai-metrics">
               <span>~800 invoices/month</span>
               <span>3 days processing</span>
@@ -828,7 +927,7 @@
               <h3>Account Payable & Billing Specialist</h3>
               <span class="ai-chip">Automation</span>
             </div>
-            <p class="role-meta"><b>Jet Aviation – Basel, Switzerland | 2022 – 2023</b></p>
+            <p class="role-meta"><b>Jet Aviation – Basel, Switzerland <span class="flag">🇨🇭</span> | 2022 – 2023</b></p>
             <div class="ai-metrics">
               <span>SAP AP</span>
               <span>Vendor reconciliation</span>
@@ -850,7 +949,7 @@
               <h3>Finance Manager</h3>
               <span class="ai-chip">Leadership</span>
             </div>
-            <p class="role-meta"><b>EHPAD Jean Monnet — Village-Neuf, France | 2021 – 2022</b></p>
+            <p class="role-meta"><b>EHPAD Jean Monnet — Village-Neuf, France <span class="flag">🇫🇷</span> | 2021 – 2022</b></p>
             <ul>
               <li>Led budgeting and financial planning, monitored performance against budget, and delivered management reporting with cost-saving and revenue optimization insights; prepared compliant financial statements and coordinated audits. Supervised accounting operations (AP, AR, payroll), approved transactions, and improved processes. Provided financial analysis and decision support, including investment evaluation and long-term strategic planning.</li>
             </ul>
@@ -866,7 +965,7 @@
               <h3>AR/AP Specialist</h3>
               <span class="ai-chip">Ops</span>
             </div>
-            <p class="role-meta"><b>CAPI Sécurité — Saint-Louis, France | 2019 – 2020</b></p>
+            <p class="role-meta"><b>CAPI Sécurité — Saint-Louis, France <span class="flag">🇫🇷</span> | 2019 – 2020</b></p>
             <ul>
               <li>Managed full-cycle accounts payable and receivable, including invoice processing and coding, vendor and customer reconciliations, payment execution, AR aging follow-up, discrepancy resolution, and maintenance of vendor/customer records; supported month-end close with accruals and reconciliations and handled billing and account inquiries.</li>
             </ul>
@@ -882,7 +981,7 @@
               <h3>Accountant & Case Manager - Saint-Louis and Ferrette</h3>
               <span class="ai-chip">Compliance</span>
             </div>
-            <p class="role-meta"><b>Judicial Officers — France | 2015 – 2019</b></p>
+            <p class="role-meta"><b>Judicial Officers — France <span class="flag">🇫🇷</span> | 2015 – 2019</b></p>
             <ul>
               <li>Maintained general ledger accuracy and recorded financial transactions, including client billing, payments, and expenses; managed invoicing, payment tracking, and vendor invoices while monitoring costs. Performed bank reconciliations, prepared financial reports, supported audits, and ensured compliance with accounting standards and regulatory requirements.</li>
             </ul>
@@ -898,7 +997,7 @@
               <h3>Treasury Accountant</h3>
               <span class="ai-chip">Treasury</span>
             </div>
-            <p class="role-meta"><b>Galeries Lafayette — Belfort and Paris, France | 2010 – 2015</b></p>
+            <p class="role-meta"><b>Galeries Lafayette — Belfort and Paris, France <span class="flag">🇫🇷</span> | 2010 – 2015</b></p>
             <ul>
               <li>Monitored daily cash positions and liquidity, managed banking relationships, and prepared cash flow forecasts; executed treasury transactions and bank reconciliations while assessing financial risks and ensuring compliance with internal controls and regulatory requirements.</li>
             </ul>
@@ -919,7 +1018,13 @@
       <div class="edu-grid">
         <div class="card intro-card">
           <p>
-            Professional references are available through LinkedIn recommendations and direct manager references upon request.
+            Professional references are available through LinkedIn
+            <span class="li-logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="#0A66C2" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
+              </svg>
+            </span>
+            recommendations and direct manager references upon request.
           </p>
           <p>
             These recommendations reflect my experience in finance accounting, SAP environments, cross-functional collaboration and reliable execution in international contexts.
@@ -933,10 +1038,24 @@
           <div class="bubble">
             <div class="icon">💼</div>
             <div>
-              <b>LINKEDIN</b>
+              <b>
+                LINKEDIN
+                <span class="li-logo" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="#0A66C2" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
+                  </svg>
+                </span>
+              </b>
               <span>Professional Recommendations</span>
               <p>View recommendations and endorsements on my LinkedIn profile.</p>
-              <a class="btn primary" href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noopener">View LinkedIn</a>
+              <a class="btn primary" href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noopener">
+                View LinkedIn
+                <span class="li-logo white" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
+                  </svg>
+                </span>
+              </a>
             </div>
           </div>
 
@@ -962,23 +1081,44 @@
         <p>Get in touch</p>
       </div>
 
-      <div class="contact-grid">
-        <div class="card contact-card">
-          <b>EMAIL</b>
-          <span>Email Me</span>
-          <a href="mailto:aureliengalmiche89@gmail.com">aureliengalmiche89@gmail.com</a>
+      <div class="contact-ai-grid">
+        <div class="contact-ai">
+          <div class="contact-icon">📧</div>
+          <div class="contact-content">
+            <div class="contact-label">Email</div>
+            <span class="contact-title">Email Me</span>
+            <p class="contact-text">For opportunities, interviews and professional discussions.</p>
+            <a href="mailto:aureliengalmiche89@gmail.com">aureliengalmiche89@gmail.com</a>
+          </div>
         </div>
 
-        <div class="card contact-card">
-          <b>PHONE</b>
-          <span>Call Me</span>
-          <a href="tel:+33632396741">+33 6 32 39 67 41</a>
+        <div class="contact-ai">
+          <div class="contact-icon">📱</div>
+          <div class="contact-content">
+            <div class="contact-label">Phone</div>
+            <span class="contact-title">Call Me</span>
+            <p class="contact-text">Available for direct contact regarding roles and collaborations.</p>
+            <a href="tel:+33632396741">+33 6 32 39 67 41</a>
+          </div>
         </div>
 
-        <div class="card contact-card">
-          <b>LINKEDIN</b>
-          <span>Professional Profile</span>
-          <a href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noopener">View profile</a>
+        <div class="contact-ai">
+          <div class="contact-icon">💼</div>
+          <div class="contact-content">
+            <div class="contact-label">
+              LinkedIn
+              <span class="li-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="#0A66C2" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1s2.5 1.12 2.5 2.5ZM.5 8h4V24h-4V8Zm7 0h3.84v2.19h.06c.53-1.01 1.84-2.19 3.79-2.19 4.05 0 4.8 2.67 4.8 6.13V24h-4v-7.02c0-1.67-.03-3.82-2.33-3.82-2.33 0-2.69 1.82-2.69 3.7V24h-4V8Z"/>
+                </svg>
+              </span>
+            </div>
+            <span class="contact-title">Professional Profile</span>
+            <p class="contact-text">Connect with me and view my professional background and recommendations.</p>
+            <a href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noopener">
+              View LinkedIn Profile
+            </a>
+          </div>
         </div>
       </div>
     </div>
