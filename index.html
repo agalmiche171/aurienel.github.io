@@ -4,7 +4,84 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aurélien Henry Galmiche | SAP S/4HANA Specialist</title>
+/* RECOMMENDATIONS */
+.recommendations-grid{
+  display:grid;
+  gap:12px;
+}
 
+.recommendation-card{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:14px;
+  box-shadow:var(--shadow);
+}
+
+.recommendation-card .icon{
+  width:40px;
+  height:40px;
+  background:#eef4fb;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.recommendation-card b{
+  display:block;
+  font-size:12px;
+  color:var(--accent);
+  margin-bottom:2px;
+}
+
+.recommendation-card span{
+  display:block;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.recommendation-card p{
+  margin:0 0 12px 0;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.recommendation-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.mini-btn{
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:800;
+  font-size:12px;
+  text-decoration:none;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--blue);
+}
+
+.mini-btn.primary{
+  background:var(--blue);
+  color:#fff;
+  border-color:var(--blue);
+}
+
+.mini-btn:hover{
+  background:#eef3fa;
+}
+
+.mini-btn.primary:hover{
+  background:var(--blue2);
+}
 <style>
 :root{
   --blue:#0a2540;
@@ -332,14 +409,14 @@ h1{
 <nav>
   <div class="wrap">
     <div class="brand">Aurélien Henry Galmiche</div>
-    <div class="links">
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#passions">Passions</a>
-      <a href="#contact">Contact</a>
-    </div>
+<div class="links">
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#recommendations">Recommendations</a>
+  <a href="#contact">Contact</a>
+</div>
   </div>
 </nav>
 
@@ -692,102 +769,57 @@ h1{
  
 </section>
 
-.recommendations-section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.section-header h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #0b2a57;
-  margin-bottom: 6px;
-}
-
-.section-header p {
-  font-size: 0.95rem;
-  color: #6b7280;
-}
-
-.about-box {
-  background: #fff;
-  border-radius: 20px;
-  padding: 28px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-.recommendation-card {
-  background: #fff;
-  border-radius: 18px;
-  padding: 24px 16px;
-  margin-bottom: 18px;
-  border: 1px solid #edf0f5;
-}
-
-.recommendation-card:last-child {
-  margin-bottom: 0;
-}
-
-.recommendation-card h3 {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #0b2a57;
-  margin-bottom: 10px;
-}
-
-.recommendation-card p {
-  font-size: 1rem;
-  color: #1f2937;
-  margin-bottom: 16px;
-  line-height: 1.6;
-}
-
-.small-btn {
-  display: inline-block;
-  padding: 8px 14px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: white;
-  background: #5b5f66;
-  border-radius: 4px;
-  margin-right: 8px;
-  letter-spacing: 0.5px;
-}
-
-.small-btn.blue {
-  background: #3467d6;
-}
-
-.small-btn.dark {
-  background: #4b4f56;
-}
-
-<section class="recommendations-section">
-  <div class="section-header">
-    <h2>Recommendations</h2>
-    <p>Professional references</p>
-  </div>
-
-  <div class="about-box">
-    <div class="recommendation-card">
-      <h3>LinkedIn</h3>
-      <p>View my professional recommendations.</p>
-      <a href="#" class="small-btn">LINKEDIN</a>
-      <a href="#" class="small-btn blue">RECOMMENDATIONS</a>
+<!-- RECOMMENDATIONS -->
+<section id="recommendations">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Recommendations</h2>
+      <p>Professional references</p>
     </div>
 
-    <div class="recommendation-card">
-      <h3>Managers</h3>
-      <p>Recommendations from all previous managers available upon request.</p>
-      <a href="#" class="small-btn">MANAGER</a>
-      <a href="#" class="small-btn dark">RECOMMENDATIONS</a>
+    <div class="edu-grid">
+      <div class="card">
+        <p>
+          Professional references are available through LinkedIn recommendations
+          and direct manager references upon request.
+        </p>
+
+        <p>
+          These recommendations reflect my experience in finance accounting,
+          SAP environments, cross-functional collaboration and reliable execution
+          in international contexts.
+        </p>
+
+        <p>
+          Additional references can be shared during the recruitment process.
+        </p>
+      </div>
+
+      <div class="recommendations-grid">
+        <div class="recommendation-card">
+          <div class="icon">💼</div>
+          <div>
+            <b>LINKEDIN</b>
+            <span>Professional Recommendations</span>
+            <p>View recommendations and endorsements on my LinkedIn profile.</p>
+            <div class="recommendation-actions">
+              <a href="https://www.linkedin.com/in/aur%C3%A9lien-henry-galmiche-687329102" target="_blank" rel="noopener" class="mini-btn primary">View LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="recommendation-card">
+          <div class="icon">🗂️</div>
+          <div>
+            <b>MANAGERS</b>
+            <span>References Upon Request</span>
+            <p>Recommendations from previous managers are available upon request.</p>
+            <div class="recommendation-actions">
+              <a href="mailto:aureliengalmiche89@gmail.com" class="mini-btn">Request References</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -816,6 +848,7 @@ h1{
     </div>
   </div>
 </section>
+
 
 
 
