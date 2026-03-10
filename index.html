@@ -424,14 +424,18 @@
       to{transform:rotate(360deg);}
     }
 
-    /* ABOUT ORBITAL AI MODULE */
+    /* ABOUT ORBITAL AI MODULE - VERSION FIDELE AU VISUEL */
     .about-orbit-card{
       position:relative;
-      min-height:620px;
+      min-height:660px;
       overflow:hidden;
       background:
-        radial-gradient(circle at center, rgba(39,123,255,0.10) 0%, rgba(10,37,64,0.02) 35%, transparent 60%),
-        linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+        radial-gradient(circle at 50% 50%, rgba(56,189,248,0.10) 0%, rgba(10,37,64,0.06) 30%, rgba(4,16,38,0.92) 72%, rgba(3,10,26,1) 100%),
+        linear-gradient(180deg, #071427 0%, #08172d 100%);
+      border:1px solid rgba(120,170,255,0.12);
+      box-shadow:
+        inset 0 0 80px rgba(64,160,255,0.06),
+        0 20px 60px rgba(2,8,23,0.45);
     }
 
     .about-orbit-card::before{
@@ -439,33 +443,59 @@
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at 20% 20%, rgba(26,115,232,0.08) 0 2px, transparent 2px),
-        radial-gradient(circle at 80% 30%, rgba(26,115,232,0.08) 0 2px, transparent 2px),
-        radial-gradient(circle at 30% 80%, rgba(26,115,232,0.08) 0 2px, transparent 2px),
-        radial-gradient(circle at 70% 70%, rgba(26,115,232,0.08) 0 2px, transparent 2px);
-      opacity:.8;
+        radial-gradient(circle at 12% 18%, rgba(255,255,255,0.9) 0 1px, transparent 2px),
+        radial-gradient(circle at 78% 22%, rgba(255,255,255,0.9) 0 1px, transparent 2px),
+        radial-gradient(circle at 24% 78%, rgba(255,255,255,0.75) 0 1px, transparent 2px),
+        radial-gradient(circle at 88% 64%, rgba(255,255,255,0.75) 0 1px, transparent 2px),
+        radial-gradient(circle at 44% 12%, rgba(120,200,255,0.6) 0 1px, transparent 2px),
+        radial-gradient(circle at 62% 82%, rgba(120,200,255,0.45) 0 1px, transparent 2px);
+      opacity:.9;
+      pointer-events:none;
+    }
+
+    .about-orbit-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, transparent 0%, rgba(100,180,255,0.05) 48%, transparent 52%),
+        linear-gradient(0deg, transparent 0%, rgba(100,180,255,0.03) 48%, transparent 52%);
+      background-size:180px 180px, 180px 180px;
+      opacity:.35;
+      mix-blend-mode:screen;
       pointer-events:none;
     }
 
     .orbit-scene{
       position:relative;
       width:100%;
-      height:580px;
+      height:620px;
       display:flex;
       align-items:center;
       justify-content:center;
     }
 
+    .earth-glow{
+      position:absolute;
+      width:320px;
+      height:320px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(56,189,248,0.28) 0%, rgba(56,189,248,0.10) 35%, transparent 72%);
+      filter:blur(10px);
+      z-index:1;
+    }
+
     .earth-core{
       position:absolute;
-      width:190px;
-      height:190px;
+      width:220px;
+      height:220px;
       border-radius:50%;
       z-index:5;
       box-shadow:
-        0 0 0 10px rgba(26,115,232,0.08),
-        0 0 40px rgba(26,115,232,0.18),
-        0 0 90px rgba(26,115,232,0.16);
+        0 0 0 1px rgba(180,220,255,0.25),
+        0 0 22px rgba(56,189,248,0.28),
+        0 0 60px rgba(56,189,248,0.18),
+        0 0 110px rgba(56,189,248,0.12);
     }
 
     .earth{
@@ -475,11 +505,12 @@
       border-radius:50%;
       overflow:hidden;
       background:
-        radial-gradient(circle at 35% 30%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.15) 18%, transparent 28%),
-        radial-gradient(circle at 30% 35%, #4dd0ff 0%, #0d6efd 45%, #08274f 85%);
+        radial-gradient(circle at 32% 28%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 10%, transparent 18%),
+        radial-gradient(circle at 30% 35%, #5fd7ff 0%, #1c7dff 38%, #0a3b8f 62%, #071d4b 84%, #04112c 100%);
       box-shadow:
-        inset -30px -25px 50px rgba(0,0,0,0.35),
-        inset 20px 10px 25px rgba(255,255,255,0.12);
+        inset -34px -30px 60px rgba(0,0,0,0.42),
+        inset 14px 12px 28px rgba(255,255,255,0.10),
+        inset 0 0 30px rgba(255,255,255,0.08);
     }
 
     .earth::before{
@@ -488,63 +519,74 @@
       inset:0;
       border-radius:50%;
       background:
-        radial-gradient(circle at 35% 42%, rgba(96, 255, 174, 0.95) 0 7%, transparent 8%),
-        radial-gradient(circle at 48% 48%, rgba(96, 255, 174, 0.90) 0 9%, transparent 10%),
-        radial-gradient(circle at 58% 38%, rgba(96, 255, 174, 0.90) 0 6%, transparent 7%),
-        radial-gradient(circle at 62% 55%, rgba(96, 255, 174, 0.88) 0 7%, transparent 8%),
-        radial-gradient(circle at 42% 62%, rgba(96, 255, 174, 0.88) 0 8%, transparent 9%);
+        radial-gradient(circle at 38% 42%, rgba(121,255,170,0.90) 0 6%, transparent 7%),
+        radial-gradient(circle at 48% 48%, rgba(121,255,170,0.85) 0 8%, transparent 9%),
+        radial-gradient(circle at 58% 41%, rgba(121,255,170,0.82) 0 5%, transparent 6%),
+        radial-gradient(circle at 55% 58%, rgba(121,255,170,0.86) 0 6%, transparent 7%),
+        radial-gradient(circle at 43% 62%, rgba(121,255,170,0.84) 0 7%, transparent 8%);
       filter:blur(1px);
-      opacity:.9;
+      opacity:.95;
     }
 
     .earth::after{
       content:"";
       position:absolute;
-      inset:-8%;
+      inset:-10%;
       border-radius:50%;
       background:
         repeating-linear-gradient(
           90deg,
           rgba(255,255,255,0.00) 0px,
-          rgba(255,255,255,0.00) 14px,
-          rgba(255,255,255,0.14) 15px,
-          rgba(255,255,255,0.00) 18px
+          rgba(255,255,255,0.00) 12px,
+          rgba(255,255,255,0.14) 13px,
+          rgba(255,255,255,0.00) 16px
         );
       mix-blend-mode:screen;
-      animation:earthSpin 14s linear infinite;
+      animation:earthSpin 18s linear infinite;
     }
 
     @keyframes earthSpin{
       from{ transform:translateX(0); }
-      to{ transform:translateX(34px); }
+      to{ transform:translateX(42px); }
     }
 
     .orbit-ring{
       position:absolute;
       top:50%;
       left:50%;
-      border:1px solid rgba(26,115,232,0.18);
       border-radius:50%;
       transform:translate(-50%, -50%);
-      box-shadow:0 0 25px rgba(26,115,232,0.08);
+      z-index:2;
     }
 
     .ring-1{
-      width:310px;
-      height:310px;
-      animation:orbitRotate 26s linear infinite;
+      width:340px;
+      height:340px;
+      border:1px solid rgba(120,200,255,0.24);
+      box-shadow:
+        0 0 16px rgba(56,189,248,0.16),
+        inset 0 0 16px rgba(56,189,248,0.06);
+      animation:orbitRotate 80s linear infinite;
     }
 
     .ring-2{
-      width:430px;
-      height:430px;
-      animation:orbitRotateReverse 34s linear infinite;
+      width:470px;
+      height:470px;
+      border:1px solid rgba(120,200,255,0.20);
+      box-shadow:
+        0 0 18px rgba(56,189,248,0.18),
+        inset 0 0 18px rgba(56,189,248,0.06);
+      animation:orbitRotateReverse 110s linear infinite;
     }
 
     .ring-3{
-      width:530px;
-      height:530px;
-      animation:orbitRotate 42s linear infinite;
+      width:590px;
+      height:590px;
+      border:1px solid rgba(120,200,255,0.16);
+      box-shadow:
+        0 0 20px rgba(56,189,248,0.14),
+        inset 0 0 20px rgba(56,189,248,0.05);
+      animation:orbitRotate 145s linear infinite;
     }
 
     .ring-1::before,
@@ -552,10 +594,29 @@
     .ring-3::before{
       content:"";
       position:absolute;
-      inset:0;
+      inset:-2px;
       border-radius:50%;
-      border:1px solid rgba(0,194,255,0.12);
-      transform:scale(1.03);
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .ring-trail{
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:640px;
+      height:420px;
+      border-radius:50%;
+      border:1px solid rgba(110,210,255,0.16);
+      transform:translate(-50%, -50%) rotate(-14deg);
+      box-shadow:0 0 28px rgba(56,189,248,0.12);
+      z-index:2;
+    }
+
+    .ring-trail.trail-2{
+      width:560px;
+      height:300px;
+      transform:translate(-50%, -50%) rotate(18deg);
+      border-color:rgba(110,210,255,0.14);
     }
 
     @keyframes orbitRotate{
@@ -576,16 +637,16 @@
     }
 
     .orbit-card{
-      min-width:190px;
-      max-width:220px;
-      background:rgba(255,255,255,0.96);
-      border:1px solid rgba(120,130,160,0.16);
+      min-width:195px;
+      max-width:230px;
+      background:rgba(255,255,255,0.93);
+      border:1px solid rgba(185,220,255,0.40);
       border-radius:16px;
-      padding:12px 14px;
+      padding:11px 13px;
       box-shadow:
-        0 10px 24px rgba(10,37,64,0.12),
-        0 0 20px rgba(26,115,232,0.08);
-      backdrop-filter:blur(6px);
+        0 10px 24px rgba(2,8,23,0.32),
+        0 0 18px rgba(125,210,255,0.20);
+      backdrop-filter:blur(8px);
       position:relative;
     }
 
@@ -595,7 +656,7 @@
       inset:0;
       border-radius:16px;
       padding:1px;
-      background:linear-gradient(120deg,#7c5cff33,#00c2ff33,#7c5cff22);
+      background:linear-gradient(120deg,rgba(124,92,255,0.32),rgba(0,194,255,0.34),rgba(255,255,255,0.28));
       -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
       -webkit-mask-composite:xor;
       mask-composite:exclude;
@@ -612,12 +673,14 @@
       width:38px;
       height:38px;
       border-radius:12px;
-      background:#eef4fb;
+      background:linear-gradient(180deg,#eef6ff 0%, #ddebff 100%);
       display:flex;
       align-items:center;
       justify-content:center;
       flex-shrink:0;
-      box-shadow:inset 0 0 0 1px rgba(26,115,232,0.08);
+      box-shadow:
+        inset 0 0 0 1px rgba(26,115,232,0.10),
+        0 4px 10px rgba(26,115,232,0.08);
     }
 
     .orbit-icon svg{
@@ -631,7 +694,7 @@
       color:var(--accent);
       letter-spacing:.04em;
       text-transform:uppercase;
-      line-height:1.1;
+      line-height:1.05;
     }
 
     .orbit-value{
@@ -640,50 +703,59 @@
       font-size:14px;
       font-weight:900;
       color:var(--blue);
+      line-height:1.2;
+    }
+
+    .orbit-note{
+      margin-top:5px;
+      font-size:11px;
+      color:var(--muted);
       line-height:1.25;
     }
 
-    .orbit-move-1{ animation:cardOrbit1 26s linear infinite; }
-    .orbit-move-2{ animation:cardOrbit2 34s linear infinite reverse; }
-    .orbit-move-3{ animation:cardOrbit3 42s linear infinite; }
-    .orbit-move-4{ animation:cardOrbit4 30s linear infinite reverse; }
-    .orbit-move-5{ animation:cardOrbit5 38s linear infinite; }
+    .orbit-move-1{ animation:cardOrbit1 120s linear infinite; }
+    .orbit-move-2{ animation:cardOrbit2 160s linear infinite reverse; }
+    .orbit-move-3{ animation:cardOrbit3 200s linear infinite; }
+    .orbit-move-4{ animation:cardOrbit4 180s linear infinite reverse; }
+    .orbit-move-5{ animation:cardOrbit5 150s linear infinite; }
 
     @keyframes cardOrbit1{
-      from{ transform:translate(-50%, -50%) rotate(18deg) translateX(215px) rotate(-18deg); }
-      to{ transform:translate(-50%, -50%) rotate(378deg) translateX(215px) rotate(-378deg); }
+      from{ transform:translate(-50%, -50%) rotate(320deg) translateX(245px) rotate(-320deg); }
+      to{ transform:translate(-50%, -50%) rotate(680deg) translateX(245px) rotate(-680deg); }
     }
     @keyframes cardOrbit2{
-      from{ transform:translate(-50%, -50%) rotate(88deg) translateX(265px) rotate(-88deg); }
-      to{ transform:translate(-50%, -50%) rotate(448deg) translateX(265px) rotate(-448deg); }
+      from{ transform:translate(-50%, -50%) rotate(25deg) translateX(285px) rotate(-25deg); }
+      to{ transform:translate(-50%, -50%) rotate(385deg) translateX(285px) rotate(-385deg); }
     }
     @keyframes cardOrbit3{
-      from{ transform:translate(-50%, -50%) rotate(160deg) translateX(220px) rotate(-160deg); }
-      to{ transform:translate(-50%, -50%) rotate(520deg) translateX(220px) rotate(-520deg); }
+      from{ transform:translate(-50%, -50%) rotate(90deg) translateX(235px) rotate(-90deg); }
+      to{ transform:translate(-50%, -50%) rotate(450deg) translateX(235px) rotate(-450deg); }
     }
     @keyframes cardOrbit4{
-      from{ transform:translate(-50%, -50%) rotate(230deg) translateX(275px) rotate(-230deg); }
-      to{ transform:translate(-50%, -50%) rotate(590deg) translateX(275px) rotate(-590deg); }
+      from{ transform:translate(-50%, -50%) rotate(205deg) translateX(285px) rotate(-205deg); }
+      to{ transform:translate(-50%, -50%) rotate(565deg) translateX(285px) rotate(-565deg); }
     }
     @keyframes cardOrbit5{
-      from{ transform:translate(-50%, -50%) rotate(305deg) translateX(240px) rotate(-305deg); }
-      to{ transform:translate(-50%, -50%) rotate(665deg) translateX(240px) rotate(-665deg); }
+      from{ transform:translate(-50%, -50%) rotate(150deg) translateX(255px) rotate(-150deg); }
+      to{ transform:translate(-50%, -50%) rotate(510deg) translateX(255px) rotate(-510deg); }
     }
 
     .ai-core-label{
       position:absolute;
-      bottom:30px;
+      bottom:26px;
       left:50%;
       transform:translateX(-50%);
       z-index:7;
-      background:rgba(255,255,255,0.92);
-      border:1px solid rgba(120,130,160,0.14);
+      background:rgba(255,255,255,0.96);
+      border:1px solid rgba(180,220,255,0.35);
       border-radius:999px;
       padding:8px 14px;
       font-size:12px;
       font-weight:900;
       color:var(--blue);
-      box-shadow:0 10px 20px rgba(10,37,64,0.08);
+      box-shadow:
+        0 10px 20px rgba(2,8,23,0.26),
+        0 0 16px rgba(125,210,255,0.18);
     }
 
     .ai-core-label .spark{
@@ -703,8 +775,10 @@
         gap:12px;
       }
 
+      .earth-glow,
       .earth-core,
-      .orbit-ring{
+      .orbit-ring,
+      .ring-trail{
         display:none;
       }
 
@@ -1100,6 +1174,11 @@
 
         <div class="card about-orbit-card">
           <div class="orbit-scene">
+
+            <div class="earth-glow"></div>
+
+            <div class="ring-trail"></div>
+            <div class="ring-trail trail-2"></div>
 
             <div class="earth-core">
               <div class="earth"></div>
