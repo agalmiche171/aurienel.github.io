@@ -692,26 +692,102 @@ h1{
  
 </section>
 
-<section id="recommandations">
-  <div class="wrap">
-    <div class="section-title">
-      <h2>Recommendations</h2>
+.recommendations-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0b2a57;
+  margin-bottom: 6px;
+}
+
+.section-header p {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+.about-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.recommendation-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px 16px;
+  margin-bottom: 18px;
+  border: 1px solid #edf0f5;
+}
+
+.recommendation-card:last-child {
+  margin-bottom: 0;
+}
+
+.recommendation-card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0b2a57;
+  margin-bottom: 10px;
+}
+
+.recommendation-card p {
+  font-size: 1rem;
+  color: #1f2937;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.small-btn {
+  display: inline-block;
+  padding: 8px 14px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+  background: #5b5f66;
+  border-radius: 4px;
+  margin-right: 8px;
+  letter-spacing: 0.5px;
+}
+
+.small-btn.blue {
+  background: #3467d6;
+}
+
+.small-btn.dark {
+  background: #4b4f56;
+}
+
+<section class="recommendations-section">
+  <div class="section-header">
+    <h2>Recommendations</h2>
+    <p>Professional references</p>
+  </div>
+
+  <div class="about-box">
+    <div class="recommendation-card">
+      <h3>LinkedIn</h3>
+      <p>View my professional recommendations.</p>
+      <a href="#" class="small-btn">LINKEDIN</a>
+      <a href="#" class="small-btn blue">RECOMMENDATIONS</a>
     </div>
 
-    <div class="pass-grid">
-      <div class="card">
-        <h3>LinkedIn</h3>
-        <p>View my professional recommendations.</p>
-        <a href="https://www.linkedin.com/in/aurélien-henry-galmiche-687329102">
-          <img src="https://img.shields.io/badge/LinkedIn-Recommendations-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white">
-        </a>
-      </div>
-
-      <div class="card">
-        <h3>Managers</h3>
-        <p>Recommendations from all previous managers available upon request.</p>
-        <img src="https://img.shields.io/badge/Manager-Recommendations-grey?style=for-the-badge">
-      </div>
+    <div class="recommendation-card">
+      <h3>Managers</h3>
+      <p>Recommendations from all previous managers available upon request.</p>
+      <a href="#" class="small-btn">MANAGER</a>
+      <a href="#" class="small-btn dark">RECOMMENDATIONS</a>
     </div>
   </div>
 </section>
@@ -740,6 +816,7 @@ h1{
     </div>
   </div>
 </section>
+
 
 
 
